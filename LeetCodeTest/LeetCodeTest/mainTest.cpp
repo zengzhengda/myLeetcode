@@ -16,9 +16,17 @@ void main()
 }
 */
 
+//void main()
+//{
+//	int a=5;
+//	Solution sol;
+//	vector<vector<int>> p_triangle=sol.generate(a);
+//}
+
 void main()
 {
-	int A=-3,B=0,C=3,D=4,E=0,F=-1,G=9,H=2;
+	int nums_arr1[]={1,2,4,5};
+	vector<int> nums1(nums_arr1,nums_arr1+sizeof(nums_arr1)/sizeof(nums_arr1[0]));
 	Solution sol;
-	int area=sol.computeArea(A,B,C,D,E,F,G,H);
+	sol.plusOne(nums1);
 }

@@ -42,8 +42,6 @@ public:
 	string convertToTitle(int n);//168
 	char findTheDifference(string s, string t);//389
 	int computeArea(int A,int B,int C,int D,int E,int F,int G,int H);//223 rectangle area
-private:
-	int overlap(int A,int B,int C,int D,int E,int F,int G,int H);// 223
 
 	bool isPalindrome(int x);
 	bool isHappy(int n);
@@ -56,4 +54,16 @@ private:
 	bool isPowerOfThree(int n);
 	bool isPowerOfFour(int n);//342
 	int superPow(int a,vector<int>& b);//372 super pow
+	int thirdMax(vector<int>& nums);// 414 Third Maximum Number
+	bool containsNearbyDuplicate(vector<int>& nums, int k); // 219 超时
+	bool containsNearbyDuplicate2(vector<int>& nums, int k); // 219
+	bool containsDuplicate(vector<int>& nums); //217
+	vector<vector<int>> generate(int numRows); // 118
+	vector<int> getRow(int rowIndex);// 119
+	void merge(vector<int>& nums1, int m, vector<int>& nums2, int n);//88
+	void merge2(vector<int>& nums1, int m, vector<int>& nums2, int n);//88  不另外增加空间
+	vector<int> plusOne(vector<int>& digits); // 66 
+private:
+	int overlap(int A,int B,int C,int D,int E,int F,int G,int H);// 223
+	bool int_compare(int a,int b); // 414
 };

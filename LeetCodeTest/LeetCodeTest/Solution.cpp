@@ -1,6 +1,224 @@
 #include "mainTest.h"
 #include<unordered_map>
 
+vector<int> Solution::plusOne(vector<int>& digits)
+{
+	int carry=1;
+    int i=digits.size()-1;
+    for(;i>=0;i--)
+    {
+    	digits[i]=digits[i]+carry;
+    	if(digits[i]==10)
+    	{
+    		carry=1;
+    		digits[i]=0;
+    	}
+    	else
+    	{
+    		carry=0;
+    		break;
+    	}
+    }
+    if(i==-1 && carry==1)
+    {
+    	digits.insert(digits.begin(),1);
+    }
+    return digits;
+}
+//88
+void Solution::merge2(vector<int>& nums1, int m, vector<int>& nums2, int n)
+{
+	int pa=m-1,pb=n-1,pc=m+n-1;
+	while(pa>=0 && pb>=0)
+	{
+		if(nums1[pa]>=nums2[pb])
+		{
+			nums1[pc]=nums1[pa];
+			pa--;
+			pc--;
+		}
+		else
+		{
+			nums1[pc]=nums2[pb];
+			pb--;
+			pc--;
+		}
+	}
+	while(pa>=0) 
+	{
+		nums1[pc--]=nums1[pa--];
+	}
+	while(pb>=0)
+	{
+		nums1[pc--]=nums2[pb--];
+	}
+}
+// 88
+void Solution::merge(vector<int>& nums1, int m, vector<int>& nums2, int n)
+{
+	vector<int> nums3;
+	int i=0;
+	int k=0;
+	bool flag=false;
+	int j=0;
+	for(int i=0;i<nums1.size();i++)
+	{
+		for(j=k;j<nums2.size();j++)
+		{
+			if(nums1[i]<=nums2[j])
+			{
+				nums3.push_back(nums1[i]);
+				if(j==nums2.size()-1)
+				{
+					nums3.push_back(nums2[j]);
+				}
+				break;
+			}
+			else
+			{
+				nums3.push_back(nums2[j]);
+				if(k<nums2.size()-1)
+				{
+					k=j+1;
+				}
+				else
+				{
+					flag=true;
+					break;
+				}
+			}
+		}
+		if(flag==true)
+		{
+			nums3.push_back(nums1[i]);
+		}
+	}
+	nums1.clear();
+	for(int i=0;i<nums3.size();i++)
+	{
+		nums1.push_back(nums3[i]);
+	}
+}
+//119
+vector<int> Solution::getRow(int rowIndex)
+{
+	vector<int> vec_row;
+	vec_row.push_back(1);
+	for(int row=0;row<rowIndex;row++)
+	{
+		vector<int> vec_row2;
+		vec_row2.push_back(vec_row[0]);
+		for(int i=0;i<vec_row.size()-1;i++)
+		{
+			vec_row2.push_back(vec_row[i]+vec_row[i+1]);
+		}
+		vec_row2.push_back(vec_row[vec_row.size()-1]);
+		vec_row=vec_row2;
+	}
+	return vec_row;
+}
+// 118
+vector<vector<int>> Solution::generate(int numRows) 
+{
+	vector<int> vec_row;
+	vector<vector<int>> P_triangle;
+	vec_row.push_back(1);
+	for(int row=0;row<numRows;row++)
+	{
+		vector<int> vec_row2;
+		vec_row2.push_back(vec_row[0]);
+		for(int i=0;i<vec_row.size()-1;i++)
+		{
+			vec_row2.push_back(vec_row[i]+vec_row[i+1]);
+		}
+		P_triangle.push_back(vec_row);
+		vec_row2.push_back(vec_row[vec_row.size()-1]);
+		vec_row=vec_row2;
+	}
+	return P_triangle;
+}
+// 217
+bool Solution::containsDuplicate(vector<int>& nums) 
+{
+	unordered_map<int,int> map;
+	for(int i=0;i<nums.size();i++)
+	{
+		if(map.find(nums[i]) != map.end())
+		{
+			return true;	
+		}
+		else
+		{
+			map[nums[i]]=1;
+		}
+	}
+}
+//219
+bool Solution::containsNearbyDuplicate2(vector<int>& nums, int k)
+{
+	bool flag=false;
+	unordered_map<int,int> map;
+	for(int i=0;i<nums.size();i++)
+	{
+		if(map.find(nums[i]) != map.end() && i-map[nums[i]]<=k)
+		{
+			flag=true;	
+		}
+		else
+		{
+			map[nums[i]]=i;
+		}
+	}
+	return flag;
+}
+// 219
+bool Solution::containsNearbyDuplicate(vector<int>& nums, int k)
+{
+	bool flag=false;
+	if(nums.size()<=1)
+		return flag;
+	for(int i=0;i<nums.size()-1;i++)
+	{
+		for(int j=i+1;j<nums.size();j++)
+		{
+			if(nums[i]==nums[j] && j-i<=k)
+			{
+				flag=true;
+				break;
+			}
+		}
+	}
+	return flag;
+}
+// 414
+int Solution::thirdMax(vector<int>& nums)
+{
+	sort(nums.begin(),nums.end());
+	reverse(nums.begin(),nums.end());
+	int n=1;
+	int temp=nums[0];
+	for (int i=0;i<nums.size();i++)
+	{
+		if(nums[i]<temp)
+		{
+			n++;
+			temp=nums[i];
+		}
+		if(n==3)
+		{
+			break;
+		}
+	}
+	if(n<3)
+	{
+		temp=nums[0];
+	}
+	return temp;
+}
+bool Solution::int_compare(int a,int b)
+{
+	return a>b;
+}
 bool Solution::isPalindrome(int x) 
  {
 	if (x<0) 
