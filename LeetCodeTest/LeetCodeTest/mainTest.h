@@ -43,5 +43,17 @@ public:
 	char findTheDifference(string s, string t);//389
 	int computeArea(int A,int B,int C,int D,int E,int F,int G,int H);//223 rectangle area
 private:
-	int overlap(int A,int B,int C,int D,int E,int F,int G,int H);// 223的调用函�?
+	int overlap(int A,int B,int C,int D,int E,int F,int G,int H);// 223
+
+	bool isPalindrome(int x);
+	bool isHappy(int n);
+	bool isUgly(int num);//263 ugly number
+	bool isSameTree(TreeNode* p,TreeNode* q);
+	bool isAnagram(string s,string t);// 242 Valid Anagram
+	int titleToNumber(string s);
+	int majorityElement(vector<int>& nums);//169
+	bool isPowerOfTwo(int n);//231
+	bool isPowerOfThree(int n);
+	bool isPowerOfFour(int n);//342
+	int superPow(int a,vector<int>& b);//372 super pow
 };

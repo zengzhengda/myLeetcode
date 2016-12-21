@@ -1,6 +1,183 @@
 #include "mainTest.h"
 #include<unordered_map>
 
+bool Solution::isPalindrome(int x) 
+ {
+	if (x<0) 
+	{ 
+		return false; 
+	}
+
+    int len=1;
+    for (len=1; (x/len) >= 10; len*=10 );
+
+    while (x != 0 ) {
+        int left = x / len;
+        int right = x % 10;
+
+        if(left!=right){
+            return false;
+        }
+
+        x = (x%len) / 10;
+        len /= 100;
+    }
+    return true;
+}
+
+bool Solution::isHappy(int n)
+{
+	int n_src=n;//±£´æÔ­À´µÄn
+	int loopnum=0;
+	while(n != 1)
+	{
+		loopnum++;
+
+		vector<int> digitsVec;
+		while(n/10 !=0)
+		{
+			digitsVec.push_back(n%10);
+			n=n/10;
+		}
+		digitsVec.push_back(n);
+		n=0;
+		for(int i=0;i<digitsVec.size();i++)
+		{
+			n=n + digitsVec[i]*digitsVec[i];
+		}
+		if(n == n_src || loopnum >100)
+			return false;
+	}
+	return true;
+}
+
+bool Solution::isUgly(int num)
+{
+  	if(num <= 0)
+		return false;
+	else if(num==1)
+		return true;
+	while(num%2 == 0) num=num/2;
+	while(num%3 == 0) num=num/3;
+	while(num%5 == 0) num=num/5;
+	if(num == 1)
+		return true;
+	else
+		return false;
+}
+
+/*//wrong code 
+bool Solution::isSameTree_wrong(TreeNode* p,TreeNode* q)
+{
+   	if(p->val != q->val)
+		return false;
+	else if((p->left == NULL && q->left != NULL) || (p->left != NULL && q->left == NULL)||
+		(p->right == NULL && q->right != NULL) || (p->right != NULL && q->right == NULL))
+		return false;
+	else
+	{
+		bool left=isSameTree_wrong(p->left,q->left);
+		bool right=isSameTree_wrong(p->right,q->right);
+		if(left && right)
+			return true;
+		else 
+			return false;
+	}
+}*/
+
+bool Solution::isSameTree(TreeNode* p,TreeNode* q)
+{
+   	if(p ==NULL && q != NULL)
+   		return false;
+   	else if(p !=NULL && q ==NULL)
+   		return false;
+   	else if(p == NULL && q == NULL)
+   		return true;
+   	else if((p != NULL && q != NULL)&& (p->val !=q->val))
+   		return false;
+   	else 
+   	{
+   		return (isSameTree(p->left,q->left) && isSameTree(p->right,q->right));
+   	}
+}
+
+bool Solution::isAnagram(string s,string t)
+{
+	return false;
+}
+
+int Solution::superPow(int a,vector<int>& b)
+{
+	int e=0;
+	for(int i=b.size()-1;i>=0;i--)
+	{
+		e=e+b[i]*pow(10,b.size()-i-1);
+	}
+	int p=(int)pow(a,e)%1337;
+	return p;
+}
+bool Solution:: isPowerOfFour(int n)
+{
+	double x=log10(n)/log10(4);
+	return x-int(x) == 0;
+}
+bool Solution::isPowerOfThree(int n)
+{
+	double x=log10(n)/log10(3);
+	return x-int(x) == 0;// 判断double x 为整数
+}
+bool Solution::isPowerOfTwo(int n)
+{
+	if(n<=0)
+		return false;
+	if(n == 1)
+		return true;
+	else
+	{
+		int remainder=n%2;
+		if(remainder == 0)
+		{
+			n=n/2;
+			return isPowerOfTwo(n);
+		}
+		else
+			return false;
+	}
+}
+
+int Solution::majorityElement(vector<int>& nums)
+{
+	unordered_map<int,int> freqs;
+    for(int i=0;i<nums.size();i++)
+    {
+    	freqs[nums[i]]++;
+    }
+    int majorE=0;
+    for(auto it:freqs)
+    {
+    	if(it.second>nums.size()/2)
+    	{
+			majorE= it.first;
+    		break;
+    	}
+    }
+    return majorE;
+}
+
+int Solution::titleToNumber(string s)
+{
+	if(s.empty())
+		return 0;
+	reverse(s.begin(),s.end());
+	int n=0;
+	for(int i=0;i<s.size();i++)
+	{
+		int a=(s[i]-'A'+1)*pow(26,i);
+		n=n+a;
+	}
+	return n;
+}
+
 int Solution::computeArea(int A,int B,int C,int D,int E,int F,int G,int H)
 {
 	int area1=(C-A)*(D-B);
