@@ -25,8 +25,8 @@ void main()
 
 void main()
 {
-	int nums_arr1[]={1,2,4,5};
+	int nums_arr1[]={1,2,3,4,2,4,7,2,12,13};
 	vector<int> nums1(nums_arr1,nums_arr1+sizeof(nums_arr1)/sizeof(nums_arr1[0]));
 	Solution sol;
-	sol.plusOne(nums1);
+	sol.removeDuplicates(nums1);
 }

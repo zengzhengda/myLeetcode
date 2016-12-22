@@ -1,6 +1,45 @@
 #include "mainTest.h"
 #include<unordered_map>
 
+int Solution::removeDuplicates(vector<int>& nums)
+{
+	int method=1;
+	switch (method)
+	{
+	case 1:
+		{
+			unordered_map<int,int> map;
+			for(int i=0;i<nums.size();i++)
+			{
+				map[nums[i]]++;
+			}
+			nums.clear();
+			for(auto iter=map.begin();iter!=map.end();iter++)
+			{
+				nums.push_back(iter->first);
+			}
+			return nums.size();
+			break;
+		}
+	default:
+		break;
+	}
+}
+int Solution::removeElement(vector<int>& nums, int val)
+{
+	vector<int>::iterator iter;
+	iter=nums.begin();
+	while(iter != nums.end())
+	{
+		if(*iter==val)
+		{
+			iter=nums.erase(iter);
+		}
+		else
+			++iter;
+	}
+	return nums.size();
+}
 vector<int> Solution::plusOne(vector<int>& digits)
 {
 	int carry=1;

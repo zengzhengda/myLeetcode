@@ -63,6 +63,8 @@ public:
 	void merge(vector<int>& nums1, int m, vector<int>& nums2, int n);//88
 	void merge2(vector<int>& nums1, int m, vector<int>& nums2, int n);//88  不另外增加空间
 	vector<int> plusOne(vector<int>& digits); // 66 
+	int removeElement(vector<int>& nums, int val);// 27
+	int removeDuplicates(vector<int>& nums);// 26
 private:
 	int overlap(int A,int B,int C,int D,int E,int F,int G,int H);// 223
 	bool int_compare(int a,int b); // 414
