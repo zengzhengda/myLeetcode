@@ -16,17 +16,28 @@ void main()
 }
 */
 
+// 测试数据为一个整数
 //void main()
 //{
-//	int a=5;
+//	int a= -1;
 //	Solution sol;
-//	vector<vector<int>> p_triangle=sol.generate(a);
+//	int b=sol.reverseInteger(a);
 //}
 
+// 测试数据为数组
 void main()
 {
-	int nums_arr1[]={1,2,3,4,2,4,7,2,12,13};
+	int nums_arr1[]={1,2,3,5,4,2};
 	vector<int> nums1(nums_arr1,nums_arr1+sizeof(nums_arr1)/sizeof(nums_arr1[0]));
 	Solution sol;
-	sol.removeDuplicates(nums1);
+	int sum=sol.numberOfArithmeticSlices(nums1);
 }
+
+// 字符串测试
+//void main()
+//{
+//	string str1 = "1";
+//	string str2 = "9";
+//	Solution sol;
+//	string str3 = sol.multiply(str1, str2);
+//}
