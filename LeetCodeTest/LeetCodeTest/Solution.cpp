@@ -1,5 +1,206 @@
 #include "mainTest.h"
 
+// 4. Median of Two Sorted Arrays
+double Solution::findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2)
+{
+	int method = 2;
+	switch (method)
+	{
+	case 1:
+	{
+		const int len1 = nums1.size();
+		const int len2 = nums2.size();
+		const int len3 = len1 + len2;
+		if (len3 % 2 == 0)
+		{
+			double x1 = findKthInTwoVec(nums1, nums2, len3 / 2 - 1);
+			double x2 = findKthInTwoVec(nums1, nums2, len3 / 2);
+			return (x1 + x2) / 2;
+		}
+		else
+			return findKthInTwoVec(nums1, nums2, len3 / 2);
+	}
+	case 2:
+	{
+		const int len1 = nums1.size();
+		const int len2 = nums2.size();
+		const int len3 = len1 + len2;
+		if (len3 == 0) return 0;
+		else if (len3 != 0 && len1 == 0)
+		{
+			if (len3 % 2 == 0)
+				return ((double)(double)nums2[len3 / 2 - 1] + (double)nums2[len3 / 2]) / 2;
+			else
+				return (double)nums2[len3 / 2];
+		}
+		else if (len3 != 0 && len2 == 0)
+		{
+			if (len3 % 2 == 0)
+				return ((double)(double)nums1[len3 / 2 - 1] + (double)nums1[len3 / 2]) / 2;
+			else
+				return (double)nums1[len3 / 2];
+		}
+
+		int index1 = 0;
+		int index2 = 0;
+		vector<int>nums3;
+		for (int i = 0; i < len3; i++)
+		{
+			if (index1 < len1 && index2 < len2)
+			{
+				if (nums1[index1] <= nums2[index2])
+				{
+					nums3.push_back(nums1[index1]);
+					index1++;
+				}
+				else
+				{
+					nums3.push_back(nums2[index2]);
+					index2++;
+				}
+			}
+			else if (index1 >= len1 && index2 < len2)
+			{
+				nums3.push_back(nums2[index2]);
+				index2++;
+			}
+			else if (index2 >= len2 && index1 < len1)
+			{
+				nums3.push_back(nums1[index1]);
+				index1++;
+			}
+		}
+		double mid = 0;
+		if (len3 % 2 == 0) mid = (double)((double)nums3[len3 / 2 - 1] + (double)nums3[len3 / 2]) / 2;
+		else mid = (double)nums3[len3 / 2];
+		return mid;
+	}
+	default:
+		break;
+	}
+	
+}
+
+// 81. Search in Rotated Sorted Array II
+bool Solution::search2(vector<int>& nums, int target)
+{
+	int method = 2;
+	switch (method)
+	{
+	case 1:
+	{
+		int len = nums.size();
+		for (int i = 0; i<len; i++)
+		{
+			if (nums[i] == target)
+				return true;
+		}
+		return false;
+	}
+	case 2:
+	{
+		if (nums.empty()) return false;
+		const int len1 = nums.size();
+		int left = 0, right = len1 - 1;
+		while (left <= right)
+		{
+			const int mid = left + (right - left) / 2;
+			if (nums[mid] == target)
+				return true;
+			if (nums[mid] > nums[left])
+			{
+				if (target >= nums[left] && target < nums[mid])
+					right = mid-1;
+				else
+					left = mid + 1;
+			}
+			else if (nums[mid] < nums[left])
+			{
+				if (target > nums[mid] && target <= nums[right])
+					left = mid + 1;
+				else
+					right = mid - 1;
+			}
+			else
+				left++;
+		}
+		return false;
+	}
+	default:
+		break;
+	}
+}
+
+// 80. Remove Duplicates from Sorted Array II
+int Solution::removeDuplicates2(vector<int>& nums)
+{
+	int method = 2;
+	switch (method)
+	{
+	case 1:
+	{
+		if (nums.empty())
+			return 0;
+		unordered_map<int, int> map;
+		for (int i = 0; i < nums.size(); i++)
+		{
+			map[nums[i]]++;
+		}
+		nums.clear();
+		for (auto iter = map.begin(); iter != map.end();iter++)
+		{
+			if (iter->second == 1)
+			{
+				nums.push_back(iter->first);
+			}
+			else if (iter->second >= 2)
+			{
+				nums.push_back(iter->first);
+				nums.push_back(iter->first);
+			}
+		}
+		sort(nums.begin(),nums.end());
+		return nums.size();
+	}
+	case 2:
+	{
+		if (nums.empty())
+			return 0;
+		int index = 0;
+		int cnt = 1;
+		for (int i = 1; i < nums.size(); i++)
+		{
+			if (nums[index] != nums[i])
+			{
+				nums[++index] = nums[i];
+				cnt = 1;
+			}
+			else if (nums[index] == nums[i] && cnt < 2)
+			{
+				nums[++index] = nums[i];
+				cnt++;
+			}
+		}
+		return index + 1;
+	}
+	case 3:
+	{
+		const int n = nums.size();
+		int index = 0;
+		if (n <= 2) return n;
+		for (int i = 2; i < n; i++)
+		{
+			if (i < n - 1 && nums[i - 1] == nums[i] && nums[i] == nums[i + 1])
+				continue;
+			nums[index++] = nums[i];
+		}
+		return index;
+	}
+	default:
+		break;
+	}
+}
+
 // 413. Arithmetic Slices
 int Solution::numberOfArithmeticSlices(vector<int>& A)
 {
@@ -88,7 +289,7 @@ string Solution::multiply(string num1, string num2)
 	return ret;
 }
 // 69 sqrt(x)
-int mySqrt(int x)
+int Solution::mySqrt(int x)
 {
 	if (x <= 0) return 0;
 	if (x == 1) return 1;
@@ -613,22 +814,59 @@ int Solution::maxProfit(vector<int>& prices)
 }
 int Solution::search(vector<int>& nums, int target)
 {
-	int target_ind=-1;
-	int len=nums.size();
-	bool flag=false;
-	for(int i=0;i<len;i++)
+	int method = 2;
+	switch (method)
 	{
-		if(nums[i]==target)
+	case 1:
+	{
+		int target_ind = -1;
+		int len = nums.size();
+		bool flag = false;
+		for (int i = 0; i<len; i++)
 		{
-			target_ind=i;
-			flag=true;
-			break;
+			if (nums[i] == target)
+			{
+				target_ind = i;
+				flag = true;
+				break;
+			}
 		}
+		if (flag = false)
+			return -1;
+		else
+			return target_ind;
 	}
-	if(flag=false)
+	case 2:
+	{
+		if (nums.empty()) return -1;
+		const int len1 = nums.size();
+		int left = 0, right = len1 - 1;
+		while (left <= right)
+		{
+			const int mid = left + (right - left) / 2;
+			if (nums[mid] == target)
+				return mid;
+			if (nums[mid] >= nums[left])
+			{
+				if (target >= nums[left] && target < nums[mid])
+					right = mid;
+				else
+					left = mid + 1;
+			}
+			else
+			{
+				if (target > nums[mid] && target <= nums[right])
+					left = mid + 1;
+				else
+					right = mid;
+			}
+		}
 		return -1;
-	else
-		return target_ind;
+	}
+	default:
+		break;
+	}
+	
 }
 void Solution::nextPermutation(vector<int>& nums)
 {

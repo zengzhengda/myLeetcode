@@ -24,14 +24,15 @@ void main()
 //	int b=sol.reverseInteger(a);
 //}
 
-// 测试数据为数组
-void main()
-{
-	int nums_arr1[]={1,2,3,5,4,2};
-	vector<int> nums1(nums_arr1,nums_arr1+sizeof(nums_arr1)/sizeof(nums_arr1[0]));
-	Solution sol;
-	int sum=sol.numberOfArithmeticSlices(nums1);
-}
+//// 测试数据为数组
+//void main()
+//{
+//	int nums_arr1[]={ 3,1};
+//	int target = 1;
+//	vector<int> nums1(nums_arr1,nums_arr1+sizeof(nums_arr1)/sizeof(nums_arr1[0]));
+//	Solution sol;
+//	bool sum=sol.search2(nums1,target);
+//}
 
 // 字符串测试
 //void main()
@@ -41,3 +42,14 @@ void main()
 //	Solution sol;
 //	string str3 = sol.multiply(str1, str2);
 //}
+
+// 测试数据为两个数组
+void main()
+{
+	int nums_arr1[]={ 1,2};
+	int nums_arr2[] = { 3,4 };
+	vector<int> nums1(nums_arr1,nums_arr1+sizeof(nums_arr1)/sizeof(nums_arr1[0]));
+	vector<int> nums2(nums_arr2, nums_arr2 + sizeof(nums_arr2) / sizeof(nums_arr2[0]));
+	Solution sol;
+	double x=sol.findMedianSortedArrays(nums1,nums2);
+}

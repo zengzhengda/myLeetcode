@@ -2,6 +2,30 @@
 
 #include "mainTest.h"
 
+// 找出两个有序数组中第k个值
+int Solution::findKthInTwoVec(vector<int>& nums1, vector<int>& nums2, int k)
+{
+	int index1 = 0, index2 = 0;
+	for (int i = 0; i < k; i++)
+	{
+		if (index1 >= nums1.size() && index2 < nums2.size())
+			index2++;
+		else if (index2 >= nums2.size() && index1 < nums1.size())
+			index1++;
+		else if (nums1[index1] <= nums2[index2])
+			index1++;
+		else
+			index2++;
+	}
+	if (index1 >= nums1.size())
+		return nums2[index2];
+	else if (index2 >= nums2.size())
+		return nums1[index1];
+	else
+	{
+		return nums1[index1] <= nums2[index2] ? nums1[index1] : nums2[index2];
+	}
+}
 // 交换数组中的两个数的位置
 void Solution::swap(vector<int>& nums, int i, int j)
 {

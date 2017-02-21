@@ -96,6 +96,11 @@ public:
 	 bool isValidSudoku(vector<vector<char>>& board);// 36   未解决
 	 string multiply(string num1, string num2);// 43. Multiply Strings
 	 int numberOfArithmeticSlices(vector<int>& A);// 413. Arithmetic Slices
+
+	 int removeDuplicates2(vector<int>& nums); // 80. Remove Duplicates from Sorted Array II
+	 bool search2(vector<int>& nums, int target);// 81. Search in Rotated Sorted Array II
+public:
+	double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2);// 4. Median of Two Sorted Arrays
 private:
 	int overlap(int A,int B,int C,int D,int E,int F,int G,int H);// 223
 	bool int_compare(int a,int b); // 414
@@ -103,4 +108,5 @@ private:
 	int getDigitOfNum(int n, int loc); // 根据位置loc（从0开始）提取n的数字
 	vector<int> getDigitVec(int); // 讲整数转化为向量
 	void swap(vector<int>& nums, int i, int j); // 交换数组中的两个数的位置
+	int findKthInTwoVec(vector<int>& nums1, vector<int>& nums2, int k);// 找出两个有序数组中第k个值
 };
