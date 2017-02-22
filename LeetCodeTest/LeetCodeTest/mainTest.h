@@ -87,7 +87,7 @@ public:
 	 vector<int> findDuplicates(vector<int>& nums);// 442
 	 int maxArea(vector<int>& height);// 11
 	 int threeSumClosest(vector<int>& nums, int target);// 16
-	 vector<vector<int>> threeSum(vector<int>& nums);// 15
+	 vector<vector<int>> threeSum(vector<int>& nums,int target=0);// 15
 	 void nextPermutation(vector<int>& nums);//31
 	 int search(vector<int>& nums, int target);// 33
 	 int maxProfit(vector<int>& prices);//121
@@ -99,6 +99,7 @@ public:
 
 	 int removeDuplicates2(vector<int>& nums); // 80. Remove Duplicates from Sorted Array II
 	 bool search2(vector<int>& nums, int target);// 81. Search in Rotated Sorted Array II
+	 vector<vector<int>> fourSum(vector<int>& nums, int target); // 18. 4Sum
 public:
 	double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2);// 4. Median of Two Sorted Arrays
 private:
@@ -109,4 +110,5 @@ private:
 	vector<int> getDigitVec(int); // 讲整数转化为向量
 	void swap(vector<int>& nums, int i, int j); // 交换数组中的两个数的位置
 	int findKthInTwoVec(vector<int>& nums1, vector<int>& nums2, int k);// 找出两个有序数组中第k个值
+	int longestConsecutive(vector<int>& nums);// 128. Longest Consecutive Sequence
 };

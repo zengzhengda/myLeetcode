@@ -1,5 +1,45 @@
 #include "mainTest.h"
 
+// 18. 4Sum
+vector<vector<int>> Solution::fourSum(vector<int>& nums, int target)
+{
+	vector<vector<int>> fourSumVec;
+	if (nums.size() < 4) return fourSumVec;
+	for (int i = 0; i < nums.size() - 3;i++)
+	{
+		const int gap = target - nums[i];
+		vector<vector<int>> threeSumVec = threeSum(nums, gap);
+	}
+}
+// 128. Longest Consecutive Sequence
+int Solution::longestConsecutive(vector<int>& nums)
+{
+	if (nums.empty()) return 0;
+	unordered_map<int, int> used;
+	int longest = 0;
+	for (auto i : nums)
+	{
+		used[i] = false;
+	}
+	for (auto i : nums)
+	{
+		if (used[i] == true) continue;
+		int j = 0;
+		int length = 1;
+		for (j = i + 1; used.find(j) != used.end(); j++)
+		{
+			length++;
+			used[j] = true;
+		}
+		for (j = i - 1; used.find(j) != used.end(); j--)
+		{
+			length++;
+			used[j] = true;
+		}
+		longest = max(longest, length);
+	}
+	return longest;
+}
 // 4. Median of Two Sorted Arrays
 double Solution::findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2)
 {
@@ -902,7 +942,7 @@ void Solution::nextPermutation(vector<int>& nums)
 	}
 	return;
 }
- vector<vector<int>> Solution::threeSum(vector<int>& nums)
+ vector<vector<int>> Solution::threeSum(vector<int>& nums,int target=0)
  {
 	 sort(nums.begin(),nums.end());
 	 vector<vector<int>> three_vec;
@@ -926,7 +966,7 @@ void Solution::nextPermutation(vector<int>& nums)
 
 			 vector<int> three;
 			 int sum3=nums[i]+nums[left]+nums[right];
-			 if(sum3==0)
+			 if(sum3==target)
 			 {
 				 three.push_back(nums[i]);
 				 three.push_back(nums[left]);
@@ -936,7 +976,7 @@ void Solution::nextPermutation(vector<int>& nums)
 				 left++;
 				 isZero=true;
 			 }
-			 else if(sum3>0)
+			 else if(sum3>target)
 			 {
 				 right--;
 			 }
@@ -1032,30 +1072,60 @@ int Solution::maxArea(vector<int>& height)
  }
 vector<int> Solution::twoSum(vector<int>& nums, int target)
 {
-	int x=0;
-	int i=0,j=0;
-	bool flag=false;
-	vector<int> index;
-	for(i=0;i<nums.size()-1;i++)
+	int method = 2;
+	switch (method)
 	{
-		x=target-nums[i];
-		for(j=i+1;j<nums.size();j++)
+	case 1:
+	{
+		int x = 0;
+		int i = 0, j = 0;
+		bool flag = false;
+		vector<int> index;
+		for (i = 0; i<nums.size() - 1; i++)
 		{
-			if(nums[j]==x)
+			x = target - nums[i];
+			for (j = i + 1; j<nums.size(); j++)
 			{
-				flag=true;
+				if (nums[j] == x)
+				{
+					flag = true;
+					break;
+				}
+			}
+			if (flag == true)
+				break;
+		}
+		if (flag == true)
+		{
+			index.push_back(i);
+			index.push_back(j);
+		}
+		return index;
+	}
+	case 2:
+	{
+		vector<int> indexVec;
+		unordered_map<int, int> mapping;
+		for (int i = 0; i < nums.size();i++)
+		{
+			mapping[nums[i]] = i;
+		}
+		for (int i = 0; i < nums.size(); i++)
+		{
+			const int gap = target - nums[i];
+			if (mapping.find(gap) != mapping.end() && mapping[gap]>i)
+			{
+				indexVec.push_back(i);
+				indexVec.push_back(mapping[gap]);
 				break;
 			}
 		}
-		if(flag==true)
-			break;
+		return indexVec;
 	}
-	if(flag==true)
-	{
-		index.push_back(i);
-		index.push_back(j);
+	default:
+		break;
 	}
-	return index;
+	
 }
 int Solution::removeDuplicates(vector<int>& nums)
 {
