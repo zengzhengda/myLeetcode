@@ -87,7 +87,7 @@ public:
 	 vector<int> findDuplicates(vector<int>& nums);// 442
 	 int maxArea(vector<int>& height);// 11
 	 int threeSumClosest(vector<int>& nums, int target);// 16
-	 vector<vector<int>> threeSum(vector<int>& nums,int target=0);// 15
+	 vector<vector<int>> threeSum(vector<int>& nums,int target);// 15
 	 void nextPermutation(vector<int>& nums);//31
 	 int search(vector<int>& nums, int target);// 33
 	 int maxProfit(vector<int>& prices);//121
@@ -100,6 +100,9 @@ public:
 	 int removeDuplicates2(vector<int>& nums); // 80. Remove Duplicates from Sorted Array II
 	 bool search2(vector<int>& nums, int target);// 81. Search in Rotated Sorted Array II
 	 vector<vector<int>> fourSum(vector<int>& nums, int target); // 18. 4Sum
+
+	 string getPermutation(int n, int k);// 60. Permutation Sequence
+	 int trap(vector<int>& height);//42. Trapping Rain Water
 public:
 	double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2);// 4. Median of Two Sorted Arrays
 private:

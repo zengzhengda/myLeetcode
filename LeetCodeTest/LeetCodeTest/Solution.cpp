@@ -1,15 +1,66 @@
 #include "mainTest.h"
 
+//42. Trapping Rain Water
+int Solution::trap(vector<int>& height)
+{
+	if (height.size() <= 2)
+		return 0;
+	int water = 0;
+	for (int i = 1; i < height.size() - 1; i++)
+	{
+		auto left_largest = max_element(height.begin(), height.begin() + i); // 注意end()的位置是末尾的下一位
+		auto right_largest = max_element(height.begin()+i+1, height.end());
+		int min_side = min(*left_largest, *right_largest);
+		if (min_side > height[i])
+			water = water + (min_side - height[i]);
+	}
+	return water;
+}
+// 60. Permutation Sequence
+string Solution::getPermutation(int n, int k)
+{
+	vector<int> nums;
+	long x = 1;
+	for (int i = 1; i <= n; i++)
+	{
+		nums.push_back(i);
+		x = x*i;
+	}
+	if (k > x || k <= 0)
+		return string();
+	int j = 1;
+	while (j<k)
+	{
+		nextPermutation(nums);
+		j++;
+	}
+	string permuStr = "";
+	for (auto val : nums)
+	{
+		permuStr.push_back('0' + val);
+	}
+	return permuStr;
+}
 // 18. 4Sum
 vector<vector<int>> Solution::fourSum(vector<int>& nums, int target)
 {
 	vector<vector<int>> fourSumVec;
 	if (nums.size() < 4) return fourSumVec;
+	sort(nums.begin(), nums.end());
 	for (int i = 0; i < nums.size() - 3;i++)
 	{
+		if (i > 0 && nums[i] == nums[i - 1])
+			continue;
 		const int gap = target - nums[i];
-		vector<vector<int>> threeSumVec = threeSum(nums, gap);
+		vector<int> nums_tmp(nums.begin()+i+1,nums.end());
+		vector<vector<int>> threeSumVec = threeSum(nums_tmp, gap);
+		if (threeSumVec.size() == 0) continue;
+		for (int j = 0; j < threeSumVec.size(); j++)
+		{
+			fourSumVec.push_back({nums[i],threeSumVec[j][0],threeSumVec[j][1] ,threeSumVec[j][2] });
+		}
 	}
+	return fourSumVec;
 }
 // 128. Longest Consecutive Sequence
 int Solution::longestConsecutive(vector<int>& nums)
