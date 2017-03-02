@@ -1,20 +1,375 @@
 #include "mainTest.h"
 
+//92. Reverse Linked List II
+ListNode* Solution::reverseBetween(ListNode* head, int m, int n)
+{
+	if (head == nullptr)
+		return head;
+	ListNode* prev = head;
+	for (int i = 1; i < m-1; i++)
+	{
+		prev = prev->next;
+	}
+}
+
+//2. Add Two Numbers
+ListNode* Solution::addTwoNumbers(ListNode* l1, ListNode* l2)
+{
+	int method = 2;
+	switch (method)
+	{
+	case 1:
+	{
+		ListNode* l_sum = NULL;
+		int carry = 0;
+		while (l1 && l2)
+		{
+			int sum = l1->val + l2->val + carry;
+			carry = sum / 10;
+			sum = sum % 10;
+			l_sum = linkListInsertT(l_sum, sum);
+			l1 = l1->next;
+			l2 = l2->next;
+		}
+		if (l1 == NULL)
+		{
+			while (l2)
+			{
+				int sum = l2->val + carry;
+				carry = sum / 10;
+				sum = sum % 10;
+				l_sum = linkListInsertT(l_sum, sum);
+				l2 = l2->next;
+			}
+		}
+		else
+		{
+			while (l1)
+			{
+				int sum = l1->val + carry;
+				carry = sum / 10;
+				sum = sum % 10;
+				l_sum = linkListInsertT(l_sum, sum);
+				l1 = l1->next;
+			}
+		}
+		if (carry > 0)
+		{
+			l_sum = linkListInsertT(l_sum, carry);
+		}
+		return l_sum;
+	}
+	case 2:
+	{
+		ListNode* l_sum = NULL;
+		int carry = 0;
+		while (l1 || l2)
+		{
+			const int ai = (l1 == nullptr ? 0 : l1->val);
+			const int bi = (l2 == nullptr ? 0 : l2->val);
+			int sum = ai + bi + carry;
+			carry = sum / 10;
+			sum = sum % 10;
+			l_sum = linkListInsertT(l_sum, sum);
+			l1 = (l1==nullptr?nullptr:l1->next);
+			l2 = (l2==nullptr?nullptr:l2->next);
+		}
+		if (carry > 0)
+		{
+			l_sum = linkListInsertT(l_sum, carry);
+		}
+		return l_sum;
+	}
+	default:
+		break;
+	}
+	
+}
+//206. Reverse Linked List
+ListNode* Solution::reverseList(ListNode* head)
+{
+	if (!head)
+		return head;
+	ListNode* L_r=NULL;
+	/*L_r = (ListNode*)malloc(sizeof(ListNode));
+	L_r->next = NULL;*/
+	ListNode* L_tmp;
+	L_tmp = head;
+	while (L_tmp)
+	{
+		L_r=linkListInsertH(L_r, L_tmp->val);
+		L_tmp = L_tmp->next;
+	}
+	return L_r;
+}
+
+//83. Remove Duplicates from Sorted List
+ListNode* Solution::deleteDuplicates(ListNode* head)
+{
+	if (head == NULL)
+		return head;
+	ListNode* node = head;
+	while (node->next != NULL)
+	{
+		if (node->val == node->next->val)
+		{
+			node->next = node->next->next;
+		}
+		else
+		{
+			node = node->next;
+		}
+	}
+	return head;
+}
+
+// 134. Gas Station
+int Solution::canCompleteCircuit(vector<int>& gas, vector<int>& cost)
+{
+	int method = 3;
+	switch (method)
+	{
+	case 1:
+	{
+		// 超时
+		if (gas.size() != cost.size())
+			return -1;
+		int sum_c = accumulate(cost.begin(), cost.end(),0);
+		int sum_g = accumulate(gas.begin(), gas.end(), 0);
+		if (sum_c > sum_g)
+			return -1;
+		for (int i = 0; i < gas.size(); i++)
+		{
+			sum_c = 0;
+			sum_g = 0;
+			bool isY = true;
+			for (int j = i; j < i + gas.size(); j++)
+			{
+				int index = j%gas.size();
+				sum_c += cost[index];
+				sum_g += gas[index];
+				if (sum_c > sum_g)
+				{
+					isY = false;
+					break;
+				}
+			}
+			if (isY == true)
+				return i;
+		}
+		return -1;
+	}
+	case 2:
+	{
+		// 最大子序列和问题 不是很懂
+		if (gas.size() == 0)
+			return -1;
+		int index=-1;
+		int total = 0;
+		int sum = 0;
+		int max_sum = 0;
+		for (int i = 0; i < gas.size(); i++)
+		{
+			int diff = gas[i] - cost[i];
+			total += diff;
+			sum += diff;
+			if (sum > max_sum)
+				max_sum = sum;
+			else if (sum < 0)
+			{
+				sum = 0;
+				index = i;
+			}
+		}
+		return total >= 0 ? index + 1 : -1;
+	}
+	case 3:
+	{
+		if (gas.size() == 0 || cost.size() == 0 || gas.size() != cost.size()) return -1;
+		int total = 0, sum = 0, start = 0;
+		for (int i = 0; i < gas.size(); ++i) {
+			total += (gas[i] - cost[i]);
+			if (sum < 0) { //发现油箱空了，从下一个站点尝试
+				sum = (gas[i] - cost[i]);
+				start = i;
+			}
+			else
+				sum += (gas[i] - cost[i]);
+		}
+		return total < 0 ? -1 : start+1; //用total判断start 是否是满足要求的解
+	}
+	default:
+		break;
+	}
+	
+}
+// 73. Set Matrix Zeroes
+void Solution::setZeroes(vector<vector<int>>& matrix)
+{
+	if (matrix.size() == 0)
+		return;
+
+	const size_t len_row = matrix.size();
+	const size_t len_col = matrix[0].size();
+	vector<bool> rowVec(len_row,false);
+	vector<bool> colVec(len_col, false);
+
+	for (int i = 0; i < len_row; i++)
+		for (int j = 0; j < len_col; j++)
+		{
+			if (matrix[i][j] == 0)
+			{
+				rowVec[i] = true;
+				colVec[j] = true;
+			}
+		}
+	for (int i = 0; i < len_row; i++)
+	{
+		if (rowVec[i])
+		{
+			fill(matrix[i].begin(), matrix[i].end(), 0);
+		}
+	}
+	for (int j = 0; j < len_col; j++)
+	{
+		if (colVec[j])
+		{
+			for (int i = 0; i < len_row; i++)
+			{
+				matrix[i][j] = 0;
+			}
+		}
+	}
+}
+
+// 89. Gray Code
+vector<int> Solution::grayCode(int n)
+{
+	vector<int> result;
+	const size_t size = pow(2, n);
+	for (size_t i = 0; i < size; i++)
+	{
+		result.push_back(binary_to_gray(i));
+	}
+	return result;
+}
+//70. Climbing Stairs
+int Solution::climbStairs(int n)
+{
+	int method = 2;
+	switch (method)
+	{
+	case 1:
+	{
+		// 由于使用阶乘，受值域的限制，当n很大时，超出值域，不适用
+		if (n <= 0)
+			return 0;
+		if (n == 1)
+			return 1;
+		int ways = 0;
+		for (int i = 0; i <= n / 2; i++)
+		{
+			int len = n - i;
+			int tmp = factorial(len) / (factorial(i)*factorial(len - i));
+			ways += tmp;
+		}
+		return ways;
+	}
+	case 2:
+	{
+		// 斐波那契数列
+		if (n <= 0)
+			return 0;
+		else if (n == 1)
+			return 1;
+		int prev = 0;
+		int cur = 1;
+		for (int i = 1; i <= n; i++) // i从1开始 ： 1 2 3 5 8...
+		{
+			int tmp = cur;
+			cur += prev;
+			prev = tmp;
+		}
+		return cur;
+	}
+	default:
+		break;
+	}
+	
+}
+//48. Rotate Image
+void Solution::rotate(vector<vector<int>>& matrix)
+{
+	if (matrix.empty())
+		return;
+	const int n = matrix.size();
+	// 副对角线翻转
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < n-i; j++) // 注意边界
+		{
+			std::swap(matrix[i][j], matrix[n - j - 1][n - i - 1]);
+		}
+	}
+	// 上下翻转
+	for (int i = 0; i < n/2; i++)
+	{
+		for (int j = 0; j< n; j++)
+		{
+			std::swap(matrix[i][j], matrix[n - i - 1][j]);
+		}
+	}
+	return;
+}
+
 //42. Trapping Rain Water
 int Solution::trap(vector<int>& height)
 {
-	if (height.size() <= 2)
-		return 0;
-	int water = 0;
-	for (int i = 1; i < height.size() - 1; i++)
+	int method = 2;
+	switch (method)
 	{
-		auto left_largest = max_element(height.begin(), height.begin() + i); // 注意end()的位置是末尾的下一位
-		auto right_largest = max_element(height.begin()+i+1, height.end());
-		int min_side = min(*left_largest, *right_largest);
-		if (min_side > height[i])
-			water = water + (min_side - height[i]);
+	case 1:
+	{
+		if (height.size() <= 2)
+			return 0;
+		int water = 0;
+		for (int i = 1; i < height.size() - 1; i++)
+		{
+			auto left_largest = max_element(height.begin(), height.begin() + i); // 注意end()的位置是末尾的下一位
+			auto right_largest = max_element(height.begin() + i + 1, height.end());
+			int min_side = min(*left_largest, *right_largest);
+			if (min_side > height[i])
+				water = water + (min_side - height[i]);
+		}
+		return water;
 	}
-	return water;
+	case 2:
+	{
+		if (height.size() <= 2)
+			return 0;
+		int water = 0;
+		auto iter_largest = max_element(height.begin(), height.end());
+		int id_max = distance(height.begin(), iter_largest);
+		// 处理最大值左边
+		int bar = 0;
+		for (int i = 0; i < id_max; i++)
+		{
+			if (height[i] > bar) bar = height[i];
+			else water += (bar - height[i]);
+		}
+		// 处理最大值右边
+		bar = 0;
+		for (int i = height.size() - 1; i > id_max; i--)
+		{
+			if (height[i] > bar) bar = height[i];
+			else water += (bar - height[i]);
+		}
+		return water;
+	}
+	default:
+		break;
+	}
+	
 }
 // 60. Permutation Sequence
 string Solution::getPermutation(int n, int k)
@@ -1905,13 +2260,6 @@ vector<int> Solution::intersection(vector<int>& nums1,vector<int>& nums2)
 		}
 	}
 	return nums3;
-}
-
-int Solution::factorial(int n){
-	if(n==1) return 1;
-	else{
-		return n*factorial(n-1);
-	}
 }
 
 //104

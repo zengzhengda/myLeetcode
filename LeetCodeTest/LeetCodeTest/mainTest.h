@@ -4,6 +4,7 @@
 #include <string>
 #include <algorithm>
 #include<unordered_map>
+#include<numeric>
 
 #define INT_MAX 2147483647
 #define INT_MIN -2147483647
@@ -41,7 +42,6 @@ public:
 	int firstUniqChar(string s);//387
 	int firstUniqChar2(string s);//387
 	vector<int> intersection(vector<int>& nums1,vector<int>& nums2);
-	int factorial(int n);
 	int maxDepth(TreeNode* root);//104 maxinum depth of binary tree
 	void delectNode(ListNode* node);//237
 	string convertToTitle(int n);//168
@@ -80,9 +80,12 @@ public:
 	bool isPerfectSquare(int num);// 367 valid perfect square
 	int reverseInteger(int x);// 7 reverse integer
 	int mySqrt(int x);// 69 sqrt(x)
-
- // medium
-public:
+	int longestConsecutive(vector<int>& nums);// 128. Longest Consecutive Sequence
+	int climbStairs(int n); //70. Climbing Stairs
+	vector<int> grayCode(int n);// 89. Gray Code
+	ListNode* deleteDuplicates(ListNode* head);//83. Remove Duplicates from Sorted List
+	ListNode* reverseList(ListNode* head); //206. Reverse Linked List
+public: // medium
 	
 	 vector<int> findDuplicates(vector<int>& nums);// 442
 	 int maxArea(vector<int>& height);// 11
@@ -103,8 +106,18 @@ public:
 
 	 string getPermutation(int n, int k);// 60. Permutation Sequence
 	 int trap(vector<int>& height);//42. Trapping Rain Water
-public:
+	 void rotate(vector<vector<int>>& matrix); //48. Rotate Image
+	 void setZeroes(vector<vector<int>>& matrix); // 73. Set Matrix Zeroes
+	 int canCompleteCircuit(vector<int>& gas, vector<int>& cost);// 134. Gas Station
+	 ListNode* addTwoNumbers(ListNode* l1, ListNode* l2);//2. Add Two Numbers
+	 ListNode* reverseBetween(ListNode* head, int m, int n);//92. Reverse Linked List II
+public:// hard
 	double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2);// 4. Median of Two Sorted Arrays
+
+public: // 辅助性函数
+	// 单链表操作
+	ListNode* LinkListCreatH(vector<int> nums); ///单链表的建立，头插法建立单链表  
+	ListNode* LinkListCreatT(vector<int> nums); ///单链表的建立，尾插法建立单链表 
 private:
 	int overlap(int A,int B,int C,int D,int E,int F,int G,int H);// 223
 	bool int_compare(int a,int b); // 414
@@ -113,5 +126,8 @@ private:
 	vector<int> getDigitVec(int); // 讲整数转化为向量
 	void swap(vector<int>& nums, int i, int j); // 交换数组中的两个数的位置
 	int findKthInTwoVec(vector<int>& nums1, vector<int>& nums2, int k);// 找出两个有序数组中第k个值
-	int longestConsecutive(vector<int>& nums);// 128. Longest Consecutive Sequence
+	long long factorial(int n); // 求n!
+	unsigned int binary_to_gray(unsigned int n);// 自然二进制转成格雷码
+	ListNode* linkListInsertH(ListNode* L, int x); // 头插入链表
+	ListNode* linkListInsertT(ListNode* L, int x); // 尾插入链表
 };
