@@ -8,7 +8,7 @@ void main()
 	//4. 测试数据为两个数组
 	//5. 测试数据为矩阵
 	//6. 测试数据为单链表
-	int testCondition = 6;
+	int testCondition = 3;
 	switch (testCondition)
 	{
 	case 1:
@@ -33,10 +33,10 @@ void main()
 	case 3:
 	{
 		// 字符串测试
-		string str1 = "1";
-		string str2 = "9";
+		string str1 = "abcd";
+		string str2 = "ab";
 		Solution sol;
-		string str3 = sol.multiply(str1, str2);
+		string str3 = sol.strStr(str1, str2);
 		break;
 	}
 	case 4:

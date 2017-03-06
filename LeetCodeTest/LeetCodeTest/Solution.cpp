@@ -1,5 +1,65 @@
 #include "mainTest.h"
 
+//28. Implement strStr()
+int strStr(string haystack, string needle)
+{
+	const size_t len_h=haystack.size();
+	const size_t len_n=needle.size();
+	if(len_h<len_n)
+		return -1;
+	if(len_n==0)
+		return -1;
+
+	int i=0;
+	for(i=0;i<len_h-len_n+1;i++)
+	{
+		bool isY=true;
+		for(int j=i,k=0;j<len_h;j++,k++)
+		{
+			if(haystack[j]!=needle[k])
+			{
+				isY=false;
+				break;
+			}
+		}
+		if(isY)
+			return i;
+	}
+	return -1;
+}
+
+//125. Valid Palindrome
+bool isPalindrome(string s)
+{
+	if(s.empty())
+		return true;
+	const size_t len_s=s.size();
+	transform(s.begin(),s.end(),s.begin(),::tolower;
+	int left=0;
+	int right=len_s-1;
+	while(left<=right)
+	{
+		if(!isalnum(s[left]))
+		{
+			left++;
+			continue;
+		}
+		else if(!isalnum(s[right]))
+		{
+			right--;
+			continue;
+		}
+		else if(s[left]!=s[right])
+			return false;
+		else
+		{
+			left++;
+			right--;
+		}
+	}
+	return true;
+}
+
 //92. Reverse Linked List II
 ListNode* Solution::reverseBetween(ListNode* head, int m, int n)
 {

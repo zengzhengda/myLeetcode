@@ -85,6 +85,8 @@ public:
 	vector<int> grayCode(int n);// 89. Gray Code
 	ListNode* deleteDuplicates(ListNode* head);//83. Remove Duplicates from Sorted List
 	ListNode* reverseList(ListNode* head); //206. Reverse Linked List
+	bool isPalindrome(string s);//125. Valid Palindrome
+	int strStr(string haystack, string needle);//
 public: // medium
 	
 	 vector<int> findDuplicates(vector<int>& nums);// 442
