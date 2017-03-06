@@ -3,13 +3,55 @@
 //92. Reverse Linked List II
 ListNode* Solution::reverseBetween(ListNode* head, int m, int n)
 {
-	if (head == nullptr)
-		return head;
-	ListNode* prev = head;
-	for (int i = 1; i < m-1; i++)
+	int method = 2;
+	switch (method)
 	{
-		prev = prev->next;
+	case 1:
+	{
+		// 边界条件考虑不周全
+		if (head == nullptr)
+			return head;
+		ListNode* prev = head;
+		for (int i = 1; i < m - 1; i++)
+		{
+			prev = prev->next;
+		}
+		ListNode* tail = prev->next;
+		for (int j = m; j < n; j++)
+		{
+			// 保持头指针和尾指针不变
+			ListNode* cur = tail->next;
+			tail->next = (cur->next == nullptr ? nullptr : cur->next);
+			cur->next = prev->next;
+			prev->next = cur;
+		}
+		return head;
 	}
+	case 2:
+	{
+		if (head == nullptr)
+			return head;
+		ListNode dummy(-1);
+		ListNode* prev = &dummy;
+		prev->next = head; // 设置一个哑指针在头部
+		for (int i = 0; i < m-1; i++)
+		{
+			prev = prev->next;
+		}
+		ListNode* tail = prev->next;
+		for (int j = 0; j < n - m; j++)
+		{
+			ListNode* cur = tail->next;
+			tail->next= (cur->next == nullptr ? nullptr : cur->next);
+			cur->next = prev->next;
+			prev->next = cur;
+		}
+		return prev->next;
+	}
+	default:
+		break;
+	}
+	
 }
 
 //2. Add Two Numbers

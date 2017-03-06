@@ -65,17 +65,20 @@ void main()
 	}
 	case 6:
 	{
-		//6. 测试数据为单链表
-		int nums_arr1[] = { 1,2,3};
+		//6. 测试数据为单链表 指针的应用实在是太麻烦了
+		int nums_arr1[] = { 3,5};
 		vector<int> nums1(nums_arr1, nums_arr1 + sizeof(nums_arr1) / sizeof(nums_arr1[0]));
 
 		int nums_arr2[] = { 8,6,3 };
 		vector<int> nums2(nums_arr2, nums_arr2 + sizeof(nums_arr2) / sizeof(nums_arr2[0]));
 
+		int m = 1;
+		int n = 2;
 		Solution sol;
 		ListNode* l1 = sol.LinkListCreatT(nums1);
 		ListNode* l2 = sol.LinkListCreatT(nums2);
-		ListNode* l_sum = sol.addTwoNumbers(l1, l2);
+
+		ListNode* l_sum = sol.reverseBetween(l1, m,n);
 		break;
 	}
 	default:
