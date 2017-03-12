@@ -1,9 +1,125 @@
-﻿生成启动时间为 2017/3/6 21:19:12。
-     1>项目“D:\Study Files\github data\myLeetcode\LeetCodeTest\LeetCodeTest\LeetCodeTest.vcxproj”在节点 2 上(Build 个目标)。
-       项目文件包含 ToolsVersion="14.0"。此工具集可能未知或缺失。在这种情况下，通过安装 MSBuild 的正确版本，或许可以解决此问题。否则，该 build 可能已因策略原因而被强制为某个特定 ToolsVersion。将该项目视为其已具有 ToolsVersion="4.0"。有关详细信息，请参阅 http://go.microsoft.com/fwlink/?LinkId=291333。
-     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V110\Microsoft.Cpp.Platform.targets(44,5): error MSB8020: The builds tools for v140 (Platform Toolset = 'v140') cannot be found. To build using the v140 build tools, either click the Project menu or right-click the solution, and then select "Update VC++ Projects...". Install v140 to build using the v140 build tools.
-     1>已完成生成项目“D:\Study Files\github data\myLeetcode\LeetCodeTest\LeetCodeTest\LeetCodeTest.vcxproj”(Build 个目标)的操作 - 失败。
-
-生成失败。
-
-已用时间 00:00:00.31
+﻿  Solution.cpp
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp : warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\maintest.h(14): warning C4005: “INT_MIN”: 宏重定义
+  e:\study program files\vc\include\limits.h(34): note: 参见“INT_MIN”的前一个定义
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\maintest.h(43): warning C4091: “typedef ”: 没有声明变量时忽略“seqstack”的左侧
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\maintest.h(53): warning C4091: “typedef ”: 没有声明变量时忽略“seqqueue”的左侧
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(285): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(294): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(304): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(362): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(421): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(500): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(514): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(541): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(544): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(770): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(775): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(800): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(819): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(846): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(847): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(855): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(862): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(866): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(878): warning C4244: “初始化”: 从“double”转换到“size_t”，可能丢失数据
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(878): warning C4244: “初始化”: 从“double”转换到“const size_t”，可能丢失数据
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(902): warning C4244: “初始化”: 从“__int64”转换到“int”，可能丢失数据
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(965): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(1034): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(1042): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(1061): warning C4805: “==”: 在操作中将类型“int”与类型“bool”混合不安全
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(1220): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(1246): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(1285): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(1294): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(1298): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(1345): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(1396): warning C4244: “=”: 从“double”转换到“long”，可能丢失数据
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(1467): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(1479): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(1482): warning C4018: “>=”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(1493): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(1496): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(1525): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(1530): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(1664): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(1712): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(1792): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(1808): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(1823): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(1843): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(1845): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(1863): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(1879): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(1972): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(1986): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(2030): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(2055): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(2057): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(2072): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(2092): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(2119): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(2122): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(2144): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(2148): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(2173): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(2265): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(2267): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(2281): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(2298): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(2312): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(2331): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(2345): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(2362): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(2381): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(2383): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(2401): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(2460): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(2530): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(2567): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(2574): warning C4018: “>”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(2589): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(2591): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(2612): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(2615): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(2701): warning C4018: “>”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(2743): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(2747): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(2794): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(2829): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(2833): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(2853): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(2857): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(2868): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(2870): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(2875): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(130): warning C4715: “Solution::inorderTraversal”: 不是所有的控件路径都返回值
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(213): warning C4715: “Solution::levelOrder”: 不是所有的控件路径都返回值
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(171): warning C4715: “Solution::preorderTraversal”: 不是所有的控件路径都返回值
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(252): warning C4715: “Solution::isSymmetric”: 不是所有的控件路径都返回值
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(333): warning C4715: “Solution::detectCapitalUse”: 不是所有的控件路径都返回值
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(408): warning C4715: “Solution::countAndSay”: 不是所有的控件路径都返回值
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(449): warning C4715: “Solution::longestPalindrome”: 不是所有的控件路径都返回值
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(374): warning C4715: “Solution::longestCommonPrefix”: 不是所有的控件路径都返回值
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(642): warning C4715: “Solution::reverseBetween”: 不是所有的控件路径都返回值
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(716): warning C4715: “Solution::addTwoNumbers”: 不是所有的控件路径都返回值
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(928): warning C4715: “Solution::climbStairs”: 不是所有的控件路径都返回值
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(834): warning C4715: “Solution::canCompleteCircuit”: 不是所有的控件路径都返回值
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(1002): warning C4715: “Solution::trap”: 不是所有的控件路径都返回值
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(1157): warning C4715: “Solution::findMedianSortedArrays”: 不是所有的控件路径都返回值
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(1207): warning C4715: “Solution::search2”: 不是所有的控件路径都返回值
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(1277): warning C4715: “Solution::removeDuplicates2”: 不是所有的控件路径都返回值
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(1457): warning C4715: “Solution::isPerfectSquare”: 不是所有的控件路径都返回值
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(1507): warning C4715: “Solution::missingNumber”: 不是所有的控件路径都返回值
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(1659): warning C4715: “Solution::arrangeCoins”: 不是所有的控件路径都返回值
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(1575): warning C4715: “Solution::findNthDigit”: 不是所有的控件路径都返回值
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(1731): warning C4715: “Solution::countPrimes”: 不是所有的控件路径都返回值
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(1945): warning C4715: “Solution::search”: 不是所有的控件路径都返回值
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(1889): warning C4715: “Solution::maxProfit”: 不是所有的控件路径都返回值
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(2087): warning C4715: “Solution::maxArea”: 不是所有的控件路径都返回值
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(2164): warning C4715: “Solution::twoSum”: 不是所有的控件路径都返回值
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(2189): warning C4715: “Solution::removeDuplicates”: 不是所有的控件路径都返回值
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(2356): warning C4715: “Solution::containsDuplicate”: 不是所有的控件路径都返回值
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\solution.cpp(2848): warning C4715: “Solution::firstUniqChar”: 不是所有的控件路径都返回值
+  LeetCodeTest.vcxproj -> E:\Study Files\github data\myLeetcode\LeetCodeTest\Debug\LeetCodeTest.exe

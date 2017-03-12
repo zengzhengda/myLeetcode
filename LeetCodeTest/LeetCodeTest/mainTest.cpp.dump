@@ -2,20 +2,20 @@
 
 void main()
 {
-	//1. ²âÊÔÊı¾İÎªÒ»¸ö»òÕß¶à¸öÕûÊı
-	//2. ²âÊÔÊı¾İÎªÊı×éºÍÊı
-	//3. ×Ö·û´®²âÊÔ
-	//4. ²âÊÔÊı¾İÎªÁ½¸öÊı×é
-	//5. ²âÊÔÊı¾İÎª¾ØÕó
-	//6. ²âÊÔÊı¾İÎªµ¥Á´±í
-	//7. ²âÊÔÊı¾İÎª×Ö·û´®ÏòÁ¿×é
-	//8. ²âÊÔÊı¾İÎª¶ş²æÊ÷
+	//1. æµ‹è¯•æ•°æ®ä¸ºä¸€ä¸ªæˆ–è€…å¤šä¸ªæ•´æ•°
+	//2. æµ‹è¯•æ•°æ®ä¸ºæ•°ç»„å’Œæ•°
+	//3. å­—ç¬¦ä¸²æµ‹è¯•
+	//4. æµ‹è¯•æ•°æ®ä¸ºä¸¤ä¸ªæ•°ç»„
+	//5. æµ‹è¯•æ•°æ®ä¸ºçŸ©é˜µ
+	//6. æµ‹è¯•æ•°æ®ä¸ºå•é“¾è¡¨
+	//7. æµ‹è¯•æ•°æ®ä¸ºå­—ç¬¦ä¸²å‘é‡ç»„
+	//8. æµ‹è¯•æ•°æ®ä¸ºäºŒå‰æ ‘
 	int testCondition = 4;
 	switch (testCondition)
 	{
 	case 1:
 	{
-		//²âÊÔÊı¾İÎªÒ»¸ö»òÕß¶à¸öÕûÊı
+		//æµ‹è¯•æ•°æ®ä¸ºä¸€ä¸ªæˆ–è€…å¤šä¸ªæ•´æ•°
 		long long a =15;
 		int b = 3;
 		Solution sol;
@@ -24,7 +24,7 @@ void main()
 	}
 	case 2:
 	{
-		// ²âÊÔÊı¾İÎªÊı×éºÍÊı
+		// æµ‹è¯•æ•°æ®ä¸ºæ•°ç»„å’Œæ•°
 		int nums_arr1[] = { 5,5,1,7,1,1,5,2,7,6 };
 		int target = 10;
 		vector<int> nums1(nums_arr1, nums_arr1 + sizeof(nums_arr1) / sizeof(nums_arr1[0]));
@@ -34,7 +34,7 @@ void main()
 	}
 	case 3:
 	{
-		// ×Ö·û´®²âÊÔ
+		// å­—ç¬¦ä¸²æµ‹è¯•
 		string str1 = "1";
 		string str2 = "11";
 		Solution sol;
@@ -43,8 +43,8 @@ void main()
 	}
 	case 4:
 	{
-		// ²âÊÔÊı¾İÎªÁ½¸öÊı×é
-		int nums_arr1[] = { 1,2,4,5,3,6,7 };
+		// æµ‹è¯•æ•°æ®ä¸ºä¸¤ä¸ªæ•°ç»„
+		int nums_arr1[] = { 1,2,3,4,5,6,7 };
 		int nums_arr2[] = { 4,2,5,1,6,3,7 };
 		vector<int> nums1(nums_arr1, nums_arr1 + sizeof(nums_arr1) / sizeof(nums_arr1[0]));
 		vector<int> nums2(nums_arr2, nums_arr2 + sizeof(nums_arr2) / sizeof(nums_arr2[0]));
@@ -54,7 +54,7 @@ void main()
 	}
 	case 5:
 	{
-		// ²âÊÔÊı¾İÎª¾ØÕó
+		// æµ‹è¯•æ•°æ®ä¸ºçŸ©é˜µ
 		vector<vector<int>> matrix;
 		matrix.push_back({0,0,0,5});
 		matrix.push_back({ 4,3,1,4 });
@@ -67,7 +67,7 @@ void main()
 	}
 	case 6:
 	{
-		//6. ²âÊÔÊı¾İÎªµ¥Á´±í Ö¸ÕëµÄÓ¦ÓÃÊµÔÚÊÇÌ«Âé·³ÁË
+		//6. æµ‹è¯•æ•°æ®ä¸ºå•é“¾è¡¨ æŒ‡é’ˆçš„åº”ç”¨å®åœ¨æ˜¯å¤ªéº»çƒ¦äº†
 		int nums_arr1[] = { 3,5};
 		vector<int> nums1(nums_arr1, nums_arr1 + sizeof(nums_arr1) / sizeof(nums_arr1[0]));
 
@@ -85,7 +85,7 @@ void main()
 	}
 	case 7:
 	{
-		//7. ²âÊÔÊı¾İÎª×Ö·û´®ÏòÁ¿×é
+		//7. æµ‹è¯•æ•°æ®ä¸ºå­—ç¬¦ä¸²å‘é‡ç»„
 		vector<string> strs;
 		string str1 = "a";
 		string str2 = "b";
@@ -96,11 +96,11 @@ void main()
 	}
 	case 8:
 	{
-		//8. ²âÊÔÊı¾İÎª¶ş²æÊ÷
+		//8. æµ‹è¯•æ•°æ®ä¸ºäºŒå‰æ ‘
 		int nums_arr1[] = { 1 };
 		vector<int> nums1(nums_arr1, nums_arr1 + sizeof(nums_arr1) / sizeof(nums_arr1[0]));
 		Solution sol;
-		TreeNode* t=sol.creatTreeLevel(nums1); //  Éú³É¶ş²æÊ÷
+		TreeNode* t=sol.creatTreeLevel(nums1); //  ç”ŸæˆäºŒå‰æ ‘
 		vector<int> res = sol.preorderTraversal(t);
 	}
 	

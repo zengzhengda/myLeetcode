@@ -1,7 +1,566 @@
 #include "mainTest.h"
 
+//106. Construct Binary Tree from Inorder and Postorder Traversal
+TreeNode* Solution::buildTree2(vector<int>& inorder, vector<int>& postorder)
+{
+	TreeNode* root==nullptr;
+	const int len=inorder.size();
+	if(inorder.empty()||postorder.empty())
+		return root;
+	else
+	{
+		root=(TreeNode*)malloc(sizeof(TreeNode));
+		root->val=postorder[len-1];
+		root->left=root->right=nullptr;
+	}
+	int i=0;
+	for(;i<len;i++)
+	{
+		if(inorder[i]==postorder[len-1])
+			break;
+	}
+	vector<int> left_inorder,left_postorder,right_inorder,right_postorder;
+	if(i<len)
+	{
+		left_inorder.assign(inorder.begin(),inorder.begin()+i);
+		right_inorder.assign(inorder.begin()+i+1,inorder.end());
+		left_postorder.assign(postorder.begin(),postorder.begin()+i);
+		right_postorder.assign(postorder.begin()+i,postorder.end());
+
+		root->left=buildTree2(left_inorder,left_postorder);
+		root->right=buildTree2(right_inorder,right_postorder);
+	}
+	return root;
+}
+//105. Construct Binary Tree from Preorder and Inorder Traversal
+TreeNode* Solution::buildTree(vector<int>& preorder, vector<int>& inorder)
+{
+	TreeNode* root=nullptr;
+	if(preorder.empty() || inorder.empty())
+		return root;
+	else
+	{
+		root=(TreeNode*)malloc(sizeof(TreeNode));
+		root->val=preorder[0];
+		root->left=root->right=nullptr;
+	}
+	int i=0;
+	const int len=preorder.size();
+	for(;i<len;i++)
+	{
+		if(inorder[i]==preorder[0])
+			break;
+	}
+	vector<int> left_preorder,left_inorder,right_preorder,right_inorder;
+	if(i<len)
+	{
+		left_inorder.assign(inorder.begin(),next(inorder.begin(),i));
+		right_inorder.assign(next(inorder.begin(),i+1),inorder.end());
+		left_preorder.assign(preorder.begin()+1,preorder.begin()+i+1);
+		right_preorder.assign(preorder.begin()+i+1,preorder.end());
+		
+		root->left=buildTree(left_preorder,left_inorder);
+		root->right=buildTree(right_preorder,right_inorder);
+	}
+	return root;
+}
+//103. Binary Tree Zigzag Level Order Traversal
+vector<vector<int>> Solution::zigzagLevelOrder(TreeNode* root)
+{
+	vector<vector<int>> result;
+	bool left_to_right=true;
+	queue<TreeNode*> current,next;
+	if(root==nullptr)
+		return result;
+	else
+	{
+		current.push(root);
+	}
+	while(!current.empty())
+	{
+		vector<int> level;
+		while(!current.empty())
+		{
+			TreeNode* tmp=current.front();
+			current.pop();
+			level.push_back(tmp->val);
+			if(tmp->left!=nullptr)
+			{
+				next.push(tmp->left);
+			}
+			if(tmp->right!=nullptr)
+			{
+				next.push(tmp->right);
+			}
+		}
+		if(!left_to_right)
+		{
+			reverse(level.begin(),level.end());
+			left_to_right=!left_to_right;
+		}
+		result.push_back(level);
+		std::swap(current,next);
+	}
+	return result;
+
+}
+//145. Binary Tree Postorder Traversal
+vector<int> Solution::postorderTraversal(TreeNode* root)
+{
+	vector<int> result;
+	if(root==nullptr)
+		return result;
+	vector<int> lnums=postorderTraversal(root->left);
+	result.insert(result.end(),lnums.begin(),lnums.end());
+	vector<int> rnums=postorderTraversal(root->right);
+	result.insert(result.end(),rnums.begin(),rnums.end());
+	result.push_back(root->val);
+	return result;
+}
+//94. Binary Tree Inorder Traversal
+vector<int> Solution::inorderTraversal(TreeNode* root)
+{
+	int method=1;
+	switch(method)
+	{
+		case 1:
+		{
+			// 递归版
+			vector<int> result;
+			if(root==nullptr)
+				return result;
+			vector<int> lnums=inorderTraversal(root->left);
+			result.insert(result.end(),lnums.begin(),lnums.end());
+			result.push_back(root->val);
+			vector<int> rnums=inorderTraversal(root->right);
+			result.insert(result.end(),rnums.begin(),rnums.end());
+			return result;
+		}
+		case 2:
+		{
+			// 非递归
+			vector<int> result;
+			if(root==nullptr)
+				return result;
+			stack<TreeNode*> s;
+			while(root || !s.empty())
+			{
+				while(root)
+				{
+					s.push(root);
+					root=root->left;
+				}
+				root=s.top();
+				s.pop();
+				result.push_back(root->val);
+				root=root->right;
+			}
+			return result;
+		}
+		default:break;
+	}
+}
+//144. Binary Tree Preorder Traversal
+vector<int> Solution::preorderTraversal(TreeNode* root)
+{
+	int method=2;
+	switch(method)
+	{
+		case 1:
+		{
+			vector<int> result;
+			if(root==nullptr)
+				return result;
+			result.push_back(root->val);
+			vector<int> left_nums=preorderTraversal(root->left);
+			result.insert(result.end(),left_nums.begin(),left_nums.end());
+			vector<int> right_nums=preorderTraversal(root->right);
+			result.insert(result.end(),right_nums.begin(),right_nums.end());
+			return result;
+		}
+		case 2:
+		{
+			vector<int> result;
+			stack<TreeNode*> s;
+			if(root==nullptr)
+				return result;
+			while(root || !s.empty())
+			{
+				while(root)
+				{
+					result.push_back(root->val);
+					s.push(root);
+					root=root->left;
+				}
+				root=s.top();
+				s.pop();
+				root=root->right;
+			}
+			return result;
+		}
+		default:break;
+	}
+}
+//107. Binary Tree Level Order Traversal II
+vector<vector<int>> Solution::levelOrderBottom(TreeNode* root)
+{
+	vector<vector<int>> result=levelOrder(root);
+	reverse(result.begin(),result.end());
+	return result;
+}
+//102. Binary Tree Level Order Traversal
+vector<vector<int>> Solution::levelOrder(TreeNode* root)
+{
+	int method=1;
+	switch(method)
+	{
+		case 1:
+		{
+			vector<vector<int>> result;
+			queue<TreeNode*> current,next;
+			if(root==nullptr)
+				return result;
+			else
+			{
+				current.push(root);
+			}
+			while(!current.empty())
+			{
+				vector<int> level;
+				while(!current.empty())
+				{
+					TreeNode* node=current.front();
+					current.pop();
+					level.push_back(node->val);
+					if(node->left !=nullptr) next.push(node->left);
+					if(node->right != nullptr) next.push(node->right); 
+				}
+				result.push_back(level);
+				std::swap(next,current);
+			}
+			return result;
+		}
+		default:break;
+	}
+}
+//101. Symmetric Tree
+bool Solution::isSymmetric(TreeNode* root)
+{
+	int method=2;
+	switch(method)
+	{
+		case 1:
+		{
+			if(root==nullptr) return true;
+			return isSymmetric(root->left,root->right);
+		}
+		case 2:
+		{
+			if(root==nullptr) return true;
+			stack<TreeNode*> s;
+			s.push(root->left);
+			s.push(root->right);
+			while(!s.empty())
+			{
+				auto p=s.top();
+				s.pop();
+				auto q=s.top();
+				s.pop();
+
+				if(!p && !q) continue;
+				if(!p || !q) return false;
+				if(p->val !=q->val) return false;
+
+				s.push(p->left);
+				s.push(q->right);
+				s.push(p->right);
+				s.push(q->left);
+			}
+			return true;
+		}
+		default:break;
+	}
+	
+}
+
+//434. Number of Segments in a String
+int Solution::countSegments(string s)
+{
+	const int len=s.length();
+	int cnt=0;
+	for(int i=0;i<len;i++)
+	{
+		if(s[i]==' ') continue;
+		cnt++;
+		while(i<len && s[i] != ' ') ++i;
+	}
+	return cnt;
+}
+//520. Detect Capital
+bool Solution::detectCapitalUse(string word)
+{
+	int method=2;
+	switch(method)
+	{
+		case 1:
+		{
+			if(word.empty())
+				return false;
+			if(word.size()==1)
+				return true;
+			if(word[0]>='A' && word[0]<= 'Z')
+			{
+				if(word.size()<=2)
+					return true;
+				if(word[1]>='A' && word[1]<='Z')
+				{
+					for(int i=2;i<word.size();i++)
+					{
+						if(word[i]>'Z' || word[i]<'A')
+							return false;
+					}
+					return true;
+				}
+				else // 第二个字母为小写
+				{
+					for(int i=2;i<word.size();i++)
+					{
+						if(word[i]>='A' && word[i]<='Z')
+							return false;
+					}
+					return true;
+				}
+			}
+			else
+			{
+				for(int i=1;i<word.size();i++)
+				{
+					if(word[i]>='A' && word[i]<='Z')
+						return false;
+				}
+				return true;
+			}
+		}
+		case 2:
+		{
+			const int len=word.length();
+			int cnt=0;
+			for(int i=0;i<len;i++)
+			{
+				if('Z'-word[i]>=0)
+				{
+					cnt++;
+				}
+			}
+			if(cnt==1 && 'Z'-word[0]>=0)
+				return true;
+			else if(cnt==0 || cnt==len)
+				return true;
+			return false;
+		}
+		default:
+			break;
+	}
+	
+}
+//14. Longest Common Prefix
+string Solution::longestCommonPrefix(vector<string>& strs)
+{
+	int method = 2;
+	switch (method)
+	{
+	case 1:
+	{
+		//递归版
+		if (strs.size() == 0)
+			return string();
+		if (strs.size() == 1)
+			return strs[0];
+		const size_t n = strs.size();
+		vector<string> tmp(strs.begin(), prev(strs.end()));
+		string tmp2 = longestCommonPrefix(tmp);
+		string str_last = strs[n - 1];
+		string prefixStr = getPrifixStrOfTwo(tmp2, str_last);
+		return prefixStr;
+	}
+	case 2:
+	{
+		// 非递归版
+		if(strs.size()==0)
+			return string();
+		if(strs.size()==1)
+			return strs[0];
+		string prefixStr=strs[0];
+		for(int i=1;i<strs.size();i++)
+		{
+			prefixStr=getPrifixStrOfTwo(prefixStr,strs[i]);
+			if(prefixStr=="")
+				break;
+		}
+		return prefixStr;
+	}
+	default:
+		break;
+	}
+	
+}
+//38. Count and Say
+string Solution::countAndSay(int n)
+{
+	int method=1;
+	switch (method)
+	{
+	case 1:
+	{
+		if (n == 0)
+			return string();
+		else if (n == 1)
+			return "1";
+		string s = "1";
+		while (--n)
+		{
+			s = getNextStrForCountAndSay(s);
+		}
+		return s;
+	}
+	case 2:
+	{
+		// 递归的方法
+		if (n == 0)
+			return string();
+		else if (n == 1)
+			return "1";
+		string s = countAndSay(n - 1);
+		s = getNextStrForCountAndSay(s);
+		return s;
+	}
+	default:
+		break;
+	}
+}
+//5. Longest Palindromic Substring
+string Solution::longestPalindrome(string s)
+{
+	int method=2;
+	switch(method)
+	{
+		case 1:
+		{
+			// 超时
+			if(s.empty())
+				return string();
+			string longestPStr="";
+			for(int i=0;i<s.size();i++)
+			{
+				for(int j=s.size()-1;j>=i;j--)
+				{
+					string str_t=s.substr(i,j+1);
+					bool isP=isPalindrome(str_t);
+					if(isP)
+					{
+						if(str_t.size()>longestPStr.size())
+						{
+							longestPStr=str_t;
+						}
+						break;
+					}
+				}
+			}
+			return longestPStr;
+		}
+		case 2:
+		{
+
+		}
+		default:
+		{
+			break;
+		}
+	}
+	
+}
+//67. Add Binary
+string Solution::addBinary(string a, string b)
+{
+	if(a.empty())
+		return b;
+	else if(b.empty())
+		return a;
+
+	reverse(a.begin(),a.end());
+	reverse(b.begin(),b.end());
+	string c="";
+	const size_t n=a.size();
+	const size_t m=b.size();
+	int carry=0;
+	size_t i=0;
+	for (; i <n || i<m;i++)
+	{
+		char a1 = (i >= n) ? '0' : a[i];
+		char b1 = (i >= m) ? '0' : b[i];
+
+		char tmp;
+		tmp=a1+b1-'0'+carry;
+		if(tmp<='1')
+		{
+			carry=0;
+		}
+		else if(tmp=='2')
+		{
+			carry=1;
+			tmp='0';
+		}
+		else if(tmp=='3')
+		{
+			carry=1;
+			tmp='1';
+		}
+		c.push_back(tmp);
+	}
+	if(carry==1)
+		c.push_back('1');
+	reverse(c.begin(),c.end());
+	return c;
+}
+//8. String to Integer (atoi)
+int Solution::myAtoi(string str)
+{
+	int num=0;
+	int sign=1;
+	int i=0;
+	const size_t n=str.size();
+	while(str[i]==' ' && i<n)
+	{
+		i++;
+	}
+	if(str[i]=='+')
+	{
+		sign=1;
+		i++;
+	}
+	else if(str[i]=='-')
+	{
+		sign =-1;
+		i++;
+	}	
+	for(;i<n;i++)
+	{
+		if(str[i]>'9' || str[i]<'0')
+			break;
+		else if(num>INT_MAX/10 || (num==INT_MAX/10 && (str[i]-'0')>INT_MAX % 10))
+		{
+			if(sign==1)
+				return INT_MAX;
+			else if(sign==-1)
+				return INT_MIN;
+		}
+		num=num*10+str[i]-'0';
+	}
+	return num*sign;
+}
+
 //28. Implement strStr()
-int strStr(string haystack, string needle)
+int Solution::strStr2(string haystack, string needle)
 {
 	const size_t len_h=haystack.size();
 	const size_t len_n=needle.size();
@@ -14,7 +573,7 @@ int strStr(string haystack, string needle)
 	for(i=0;i<len_h-len_n+1;i++)
 	{
 		bool isY=true;
-		for(int j=i,k=0;j<len_h;j++,k++)
+		for(int j=i,k=0;k<len_n;j++,k++)
 		{
 			if(haystack[j]!=needle[k])
 			{
@@ -29,12 +588,12 @@ int strStr(string haystack, string needle)
 }
 
 //125. Valid Palindrome
-bool isPalindrome(string s)
+bool Solution::isPalindrome(string s)
 {
 	if(s.empty())
 		return true;
 	const size_t len_s=s.size();
-	transform(s.begin(),s.end(),s.begin(),::tolower;
+	transform(s.begin(),s.end(),s.begin(),::tolower);
 	int left=0;
 	int right=len_s-1;
 	while(left<=right)

@@ -1,8 +1,8 @@
-// ¶¨ÒåË½ÓĞº¯Êı£¬Ò»°ãÎªÍ¨ÓÃº¯Êı
+// å®šä¹‰ç§æœ‰å‡½æ•°ï¼Œä¸€èˆ¬ä¸ºé€šç”¨å‡½æ•°
 
 #include "mainTest.h"
 
-// ÅĞ¶¨Á½¿ÃÊ÷ÊÇ·ñ¶Ô³Æ
+// åˆ¤å®šä¸¤æ£µæ ‘æ˜¯å¦å¯¹ç§°
 bool Solution::isSymmetric(TreeNode* p, TreeNode* q)
 {
 	if(p==nullptr && q==nullptr)
@@ -14,13 +14,13 @@ bool Solution::isSymmetric(TreeNode* p, TreeNode* q)
 	bool tmp3=isSymmetric(p->right,q->left);
 	return tmp1&&tmp2&&tmp3;
 }
-//²ã´Î±éÀúÉú³É¶ş²æÊ÷
+//å±‚æ¬¡éå†ç”ŸæˆäºŒå‰æ ‘
 TreeNode* Solution::creatTreeLevel(vector<int> nums)
 {
 	TreeNode* t=nullptr;
 	if(nums.size()==0)
 		return t;
-	int len_level=1; // Âú¶ş²æÊ÷µÄ²ã½áµãÊı
+	int len_level=1; // æ»¡äºŒå‰æ ‘çš„å±‚ç»“ç‚¹æ•°
 	const int len_nums=nums.size();
 	int cnt=1;
 	seqqueue q;
@@ -83,7 +83,7 @@ TreeNode* Solution::creatTreeLevel(vector<int> nums)
 	}
 	return t;
 }
-// ¶ş²æÊ÷µÄÉî¶È
+// äºŒå‰æ ‘çš„æ·±åº¦
 int Solution::deep_tree(TreeNode* t)
 {
 	int h, l, r;
@@ -96,7 +96,7 @@ int Solution::deep_tree(TreeNode* t)
 	h = (l > r) ? l : r+1;
 	return h;
 }
-//±È½ÏÁ½¸öÊ÷ÊÇ·ñÏàÍ¬
+//æ¯”è¾ƒä¸¤ä¸ªæ ‘æ˜¯å¦ç›¸åŒ
 bool Solution::is_equal_tree(TreeNode* t1, TreeNode* t2)
 {
 	if (!t1 && !t2)
@@ -109,14 +109,14 @@ bool Solution::is_equal_tree(TreeNode* t1, TreeNode* t2)
 	}
 	return false;
 }
-// Í³¼Æ½áµã¸öÊı
+// ç»Ÿè®¡ç»“ç‚¹ä¸ªæ•°
 int Solution::count_tree(TreeNode* t)
 {
 	if (!t)
 		return 0;
 	return count_tree(t->left) + count_tree(t->right) + 1;
 }
-// ¶ş²æÊ÷²éÕÒ
+// äºŒå‰æ ‘æŸ¥æ‰¾
 TreeNode* Solution::search_tree(TreeNode* t, int x)
 {
 	if (!t)
@@ -130,7 +130,7 @@ TreeNode* Solution::search_tree(TreeNode* t, int x)
 		return t;
 	}
 }
-// Ç°Ğò±éÀúÉú³É¶ş²æÊ÷
+// å‰åºéå†ç”ŸæˆäºŒå‰æ ‘
 void Solution::creatTree(TreeNode* t)
 {
 	int num;
@@ -144,7 +144,7 @@ void Solution::creatTree(TreeNode* t)
 		creatTree(t->right);
 	}
 }
-// ²ã´Î±éÀú
+// å±‚æ¬¡éå†
 void Solution::leveloder(TreeNode* t)
 {
 	seqqueue q;
@@ -170,7 +170,7 @@ void Solution::leveloder(TreeNode* t)
 		}
 	}
 }
-// ½øÕ»
+// è¿›æ ˆ
 void push_seq(seqstack* s,TreeNode* t)
 {
 	if(s->top==SIZE_STACK-1)
@@ -184,7 +184,7 @@ void push_seq(seqstack* s,TreeNode* t)
 		s->data[s->top]=t;
 	}
 }
-//³öÕ»
+//å‡ºæ ˆ
 TreeNode* pop_seq(seqstack* s)
 {
 	if(s->top==-1)
@@ -198,7 +198,7 @@ TreeNode* pop_seq(seqstack* s)
 	}
 }
 
-// ½ø¶Ó
+// è¿›é˜Ÿ
 void enter_queue(seqqueue* q,TreeNode* t)
 {
 	if(q->rear == MAX_QUEUE)
@@ -211,7 +211,7 @@ void enter_queue(seqqueue* q,TreeNode* t)
 		q->rear++;
 	}
 }
-// ³ö¶Ó
+// å‡ºé˜Ÿ
 TreeNode* delete_queue(seqqueue* q)
 {
 	if(q->front == q->rear)
@@ -223,7 +223,7 @@ TreeNode* delete_queue(seqqueue* q)
 	}
 }
 
-// Ç°Ğò±éÀú
+// å‰åºéå†
 void Solution::preorder(TreeNode* t)
 {
 	int method=2;
@@ -231,7 +231,7 @@ void Solution::preorder(TreeNode* t)
 	{
 	case 1:
 	{
-		// µİ¹éµÄ·½·¨
+		// é€’å½’çš„æ–¹æ³•
 		if(t)
 		{
 			int val = t->val;
@@ -242,7 +242,7 @@ void Solution::preorder(TreeNode* t)
 	}
 	case 2:
 	{
-		// ·Çµİ¹é·½·¨
+		// éé€’å½’æ–¹æ³•
 		seqstack s;
 		s.top=-1;
 		if(!t)
@@ -253,7 +253,7 @@ void Solution::preorder(TreeNode* t)
 		{
 			while(t||s.top !=-1)
 			{
-				while(t)  //Ö»Òª½áµã²»Îª¿Õ¾ÍÓ¦¸ÃÈëÕ»±£´æ£¬ÓëÆä×óÓÒ½áµãÎŞ¹Ø
+				while(t)  //åªè¦ç»“ç‚¹ä¸ä¸ºç©ºå°±åº”è¯¥å…¥æ ˆä¿å­˜ï¼Œä¸å…¶å·¦å³ç»“ç‚¹æ— å…³
 				{
 					printf("%c",t->val);
 					push_seq(&s,t);
@@ -276,7 +276,7 @@ void Solution::midorder(TreeNode* t)
 	{
 	case 1:
 	{
-		// µİ¹é·½·¨
+		// é€’å½’æ–¹æ³•
 		if (t)
 		{
 			midorder(t->left);
@@ -322,7 +322,7 @@ void Solution::postorder(TreeNode* t)
 		int val=t->val;
 	}
 }
-// ÇóÁ½¸ö×Ö·û´®µÄÇ°×º
+// æ±‚ä¸¤ä¸ªå­—ç¬¦ä¸²çš„å‰ç¼€
 string Solution::getPrifixStrOfTwo(string str1, string str2)
 {
 	if (str1.empty() || str2.empty())
@@ -346,7 +346,7 @@ string Solution::getNextStrForCountAndSay(string s)
 	}
 	return ss.str();
 }
-// Í·²åÈëÁ´±í
+// å¤´æ’å…¥é“¾è¡¨
 ListNode* Solution::linkListInsertH(ListNode* L, int x)
 {
 	if (!L)
@@ -363,7 +363,7 @@ ListNode* Solution::linkListInsertH(ListNode* L, int x)
 	L = p;
 	return L;
 }
-// Î²²åÈëÁ´±í
+// å°¾æ’å…¥é“¾è¡¨
 ListNode* Solution::linkListInsertT(ListNode* L, int x)
 {
 	if (!L)
@@ -385,7 +385,7 @@ ListNode* Solution::linkListInsertT(ListNode* L, int x)
 	L_t->next = p;
 	return L;
 }
-///µ¥Á´±íµÄ½¨Á¢£¬Í·²å·¨½¨Á¢µ¥Á´±í  
+///å•é“¾è¡¨çš„å»ºç«‹ï¼Œå¤´æ’æ³•å»ºç«‹å•é“¾è¡¨  
 ListNode* Solution::LinkListCreatH(vector<int> nums)
 {
 	ListNode* L;
@@ -404,7 +404,7 @@ ListNode* Solution::LinkListCreatH(vector<int> nums)
 	return L;
 }
 
-//µ¥Á´±íµÄ½¨Á¢£¬Î²²å·¨½¨Á¢µ¥Á´±í
+//å•é“¾è¡¨çš„å»ºç«‹ï¼Œå°¾æ’æ³•å»ºç«‹å•é“¾è¡¨
 ListNode* Solution::LinkListCreatT(vector<int> nums)
 {
 	ListNode* L;
@@ -425,12 +425,12 @@ ListNode* Solution::LinkListCreatT(vector<int> nums)
 
 	return L;
 }
-// ×ÔÈ»¶ş½øÖÆ×ª³É¸ñÀ×Âë
+// è‡ªç„¶äºŒè¿›åˆ¶è½¬æˆæ ¼é›·ç 
 unsigned int Solution::binary_to_gray(unsigned int n)
 {
 	return n ^ (n >> 1);
 }
-// Çón!
+// æ±‚n!
 long long Solution::factorial(int n)
 {
 	int method = 2;
@@ -459,7 +459,7 @@ long long Solution::factorial(int n)
 	}
 	
 }
-// ÕÒ³öÁ½¸öÓĞĞòÊı×éÖĞµÚk¸öÖµ
+// æ‰¾å‡ºä¸¤ä¸ªæœ‰åºæ•°ç»„ä¸­ç¬¬kä¸ªå€¼
 int Solution::findKthInTwoVec(vector<int>& nums1, vector<int>& nums2, int k)
 {
 	int index1 = 0, index2 = 0;
@@ -483,7 +483,7 @@ int Solution::findKthInTwoVec(vector<int>& nums1, vector<int>& nums2, int k)
 		return nums1[index1] <= nums2[index2] ? nums1[index1] : nums2[index2];
 	}
 }
-// ½»»»Êı×éÖĞµÄÁ½¸öÊıµÄÎ»ÖÃ
+// äº¤æ¢æ•°ç»„ä¸­çš„ä¸¤ä¸ªæ•°çš„ä½ç½®
 void Solution::swap(vector<int>& nums, int i, int j)
 {
 	int tmp = nums[i];
@@ -491,7 +491,7 @@ void Solution::swap(vector<int>& nums, int i, int j)
 	nums[j] = tmp;
 }
 
-// ½²ÕûÊı×ª»¯ÎªÏòÁ¿
+// è®²æ•´æ•°è½¬åŒ–ä¸ºå‘é‡
 vector<int> Solution::getDigitVec(int n) {
 	vector<int> digitVec;
 	while (n>9)
@@ -505,7 +505,7 @@ vector<int> Solution::getDigitVec(int n) {
 	return digitVec;
 }
 
-// ¸ù¾İÎ»ÖÃloc£¨´Ó0¿ªÊ¼£©ÌáÈ¡nµÄÊı×Ö
+// æ ¹æ®ä½ç½®locï¼ˆä»0å¼€å§‹ï¼‰æå–nçš„æ•°å­—
 int Solution::getDigitOfNum(int n, int loc)
 {
 	int digit = 0;
@@ -530,7 +530,7 @@ bool Solution::int_compare(int a, int b)
 	return a>b;
 }
 
-// »ñµÃÊı×ÖµÄ³¤¶È , µİ¹éÊµÏÖ
+// è·å¾—æ•°å­—çš„é•¿åº¦ , é€’å½’å®ç°
 int Solution::getNumLen(int n)
 {
 	if (n < 10)

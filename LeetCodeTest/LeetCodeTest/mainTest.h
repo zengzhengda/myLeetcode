@@ -5,9 +5,16 @@
 #include <algorithm>
 #include<unordered_map>
 #include<numeric>
+#include<functional>
+#include<sstream>
+#include <stack>
+#include <queue>
 
 #define INT_MAX 2147483647
 #define INT_MIN -2147483647
+#define SIZE_STACK 100
+#define MAX_QUEUE 1000
+
 
 using namespace std;
 
@@ -26,6 +33,26 @@ struct ListNode
 	ListNode *next;
 	ListNode(int x):val(x),next(NULL){}
 };
+
+//栈定义 
+typedef struct seqstack
+{
+	TreeNode* data[SIZE_STACK];
+	int tag[SIZE_STACK];
+	int top;
+};
+void push_seq(seqstack* s,TreeNode* t);// 进栈
+TreeNode* pop_seq(seqstack* s); //出栈
+
+// 定义队列
+typedef struct seqqueue
+{
+	TreeNode* data[MAX_QUEUE];
+	int front;
+	int rear;// 尾是最后一个元素的下一个位置
+};
+void enter_queue(seqqueue* q,TreeNode* t);// 进队
+TreeNode* delete_queue(seqqueue* q); //出队
 
 class Solution
 {
@@ -86,7 +113,17 @@ public:
 	ListNode* deleteDuplicates(ListNode* head);//83. Remove Duplicates from Sorted List
 	ListNode* reverseList(ListNode* head); //206. Reverse Linked List
 	bool isPalindrome(string s);//125. Valid Palindrome
-	int strStr(string haystack, string needle);//
+	int strStr2(string haystack, string needle);//
+	int myAtoi(string str) ; //8. String to Integer (atoi)
+	string addBinary(string a, string b); //67. Add Binary
+	string countAndSay(int n);//38. Count and Say
+	string longestCommonPrefix(vector<string>& strs);//14. Longest Common Prefix
+	bool detectCapitalUse(string word);//								   
+	int countSegments(string s);//434. Number of Segments in a String
+	bool isSymmetric(TreeNode* root);//101. Symmetric Tree
+	vector<vector<int>> levelOrderBottom(TreeNode* root);//107. Binary Tree Level Order Traversal II
+	vector<vector<int>> zigzagLevelOrder(TreeNode* root);//103. Binary Tree Zigzag Level Order Traversal
+	TreeNode* buildTree2(vector<int>& inorder, vector<int>& postorder);//106. Construct Binary Tree from Inorder and Postorder Traversal
 public: // medium
 	
 	 vector<int> findDuplicates(vector<int>& nums);// 442
@@ -113,9 +150,14 @@ public: // medium
 	 int canCompleteCircuit(vector<int>& gas, vector<int>& cost);// 134. Gas Station
 	 ListNode* addTwoNumbers(ListNode* l1, ListNode* l2);//2. Add Two Numbers
 	 ListNode* reverseBetween(ListNode* head, int m, int n);//92. Reverse Linked List II
+	 string longestPalindrome(string s);//5. Longest Palindromic Substring
+	 vector<vector<int>> levelOrder(TreeNode* root);//102. Binary Tree Level Order Traversal
+	 vector<int> preorderTraversal(TreeNode* root);//144. Binary Tree Preorder Traversal
+	 vector<int> inorderTraversal(TreeNode* root);//94. Binary Tree Inorder Traversal
+	 TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder);//105. Construct Binary Tree from Preorder and Inorder Traversal
 public:// hard
 	double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2);// 4. Median of Two Sorted Arrays
-
+	vector<int> postorderTraversal(TreeNode* root);//145. Binary Tree Postorder Traversal
 public: // 辅助性函数
 	// 单链表操作
 	ListNode* LinkListCreatH(vector<int> nums); ///单链表的建立，头插法建立单链表  
@@ -132,4 +174,18 @@ private:
 	unsigned int binary_to_gray(unsigned int n);// 自然二进制转成格雷码
 	ListNode* linkListInsertH(ListNode* L, int x); // 头插入链表
 	ListNode* linkListInsertT(ListNode* L, int x); // 尾插入链表
+	string getNextStrForCountAndSay(string s);
+	string getPrifixStrOfTwo(string str1, string str2); // 求两个字符串的前缀
+	bool isSymmetric(TreeNode* p, TreeNode* q);// 判定两棵树是否对称
+public: // 二叉树方法
+	void preorder(TreeNode* t);// 前序遍历
+	void midorder(TreeNode* t); // 中序遍历
+	void postorder(TreeNode* t); // 后序遍历 
+	void leveloder(TreeNode* t); // 层次遍历
+	void creatTree(TreeNode* t); // 前序遍历生成二叉树
+	TreeNode* creatTreeLevel(vector<int> nums); //层次遍历生成二叉树
+	TreeNode* search_tree(TreeNode* t, int x);// 二叉树查找
+	int count_tree(TreeNode* t); // 统计结点个数
+	bool is_equal_tree(TreeNode* t1, TreeNode* t2); //比较两个树是否相同
+	int deep_tree(TreeNode* t); // 二叉树的深度
 };
