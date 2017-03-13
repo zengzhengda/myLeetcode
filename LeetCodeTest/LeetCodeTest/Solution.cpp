@@ -1,5 +1,142 @@
 #include "mainTest.h"
 
+//20. Valid Parentheses
+bool Solution::isValid(string s)
+{
+	 stack<char> charStack;
+	const int n=s.length();
+	for(int i =0;i<n;i++)
+	{
+		if(s[i] != ')' && s[i]!= ']' && s[i] !='}')
+		{
+			charStack.push(s[i]);
+			continue;
+		}
+		if(charStack.size()==0)
+			return false;
+		char pre = charStack.top();
+		charStack.pop();
+		switch(s[i])
+		{
+			case ')':
+			{
+				if(pre != '(')
+					return false;
+				break;
+			}
+			case ']':
+			{
+				if(pre != '[')
+					return false;
+				break;
+			}
+			case '}':
+			{
+				if(pre != '{')
+					return false;
+				break;
+			}
+			default: return false;
+		}
+	}
+	if(charStack.size()==0)
+	    return true;
+	else
+	    return false;
+}
+//147. Insertion Sort List
+ListNode* insertionSortList(ListNode* head)
+{
+	int method=2;
+	switch(method)
+	{
+	case 1:
+	{
+		// 不对
+		ListNode dummy(INT_MIN);
+		dummy.next = head;
+		if(head==nullptr || head->next==nullptr) return head;
+		for(ListNode* cur=head->next;cur != nullptr;)
+		{
+			ListNode* tmp==nullptr;
+			for(tmp=&dummy;tmp != cur ;tmp=tmp->next)
+			{
+				if(cur->val <= tmp->next->val)
+					break;
+			}
+			ListNode* tmp2=cur;
+
+			cur->next = tmp->next;
+			tmp->next=cur;
+			tmp=tmp->next;
+
+			cur= tmp2->next;
+		}
+		return head;
+	}
+	case 2:
+	{
+		if(head == NULL || head->next == NULL) return head;
+        ListNode* empty_head = new ListNode(0);
+        empty_head->next = head;
+        ListNode* cur = head->next;
+        head->next = NULL;
+        while(cur)
+        {
+            ListNode* pre = empty_head;
+            while(pre->next && cur->val > pre->next->val)
+                pre = pre->next;
+            ListNode* temp = cur->next;
+            cur->next = pre->next;
+            pre->next = cur;
+            cur = temp;
+        }
+        return empty_head->next;
+	}
+	case 3:
+	{
+		if(head==NULL) return head;
+        ListNode* dummy=new ListNode(INT_MIN);
+        dummy->next=head;
+        ListNode* p=head;
+        ListNode* tmp;
+        while(p->next){
+            tmp=p->next;
+            if(p->next->val>=p->val){
+                p=p->next;
+                continue;
+            }
+            p->next=tmp->next;
+            ListNode* q=dummy;
+            while(q->next->val<tmp->val){
+                q=q->next;
+            }
+            ListNode* bak=q->next;
+            q->next=tmp;
+            tmp->next=bak;
+        }
+        return dummy->next;
+	}
+	}
+	
+}
+
+//6.3 Merge k Sorted Lists
+ListNode * Solution::mergeKLists(vector<ListNode *> &lists)
+{
+	ListNode* result=nullptr;
+	if(lists.size()==0)
+		return result;
+	if(lists.size()==1)
+		return lists[0];
+	result=lists[0];
+	for(int i=1; i<lists.size(); i++)
+	{
+		result=mergeTwoLists(result,lists[i]);
+	}
+	return result;
+}
+
 //21. Merge Two Sorted Lists
 ListNode* Solution::mergeTwoLists(ListNode* l1, ListNode* l2)
 {
@@ -17,7 +154,6 @@ ListNode* Solution::mergeTwoLists(ListNode* l1, ListNode* l2)
 		{
 			prev->next=l1;
 			prev=prev->next;
-			prev->next=nullptr;
 
 			l1=(l1 == nullptr) ? nullptr : l1->next;
 		}
@@ -25,7 +161,6 @@ ListNode* Solution::mergeTwoLists(ListNode* l1, ListNode* l2)
 		{
 			prev->next=l2;
 			prev=prev->next;
-			prev->next=nullptr;
 
 			l2=(l2==nullptr) ? nullptr : l2->next;
 		}

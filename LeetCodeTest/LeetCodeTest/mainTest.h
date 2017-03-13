@@ -127,6 +127,7 @@ public:
 	int minDepth(TreeNode* root);//111. Minimum Depth of Binary Tree
 	bool hasPathSum(TreeNode* root, int sum);//112. Path Sum
 	ListNode* mergeTwoLists(ListNode* l1, ListNode* l2);//21. Merge Two Sorted Lists
+	bool isValid(string s);//20. Valid Parentheses
 public: // medium
 	
 	 vector<int> findDuplicates(vector<int>& nums);// 442
@@ -162,9 +163,11 @@ public: // medium
 	 vector<TreeNode*> generateTrees(int n);//Unique Binary Search Trees II
 	 bool isValidBST(TreeNode* root);//98. Validate Binary Search Tree
 	 vector<vector<int>> pathSum(TreeNode* root, int sum);//113. Path Sum II
+	 ListNode* insertionSortList(ListNode* head);//147. Insertion Sort List
 public:// hard
 	double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2);// 4. Median of Two Sorted Arrays
 	vector<int> postorderTraversal(TreeNode* root);//145. Binary Tree Postorder Traversal
+	ListNode *mergeKLists(vector<ListNode *> &lists);//6.3 Merge k Sorted Lists
 public: // 辅助性函数
 	// 单链表操作
 	ListNode* LinkListCreatH(vector<int> nums); ///单链表的建立，头插法建立单链表  
