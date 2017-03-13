@@ -1,166 +1,20 @@
 ﻿  functions.cpp
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\maintest.h(14): warning C4005: “INT_MIN”: 宏重定义
-  d:\study software\microsoft visual studio 14.0\vc\include\limits.h(34): note: 参见“INT_MIN”的前一个定义
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\maintest.h(43): warning C4091: “typedef ”: 没有声明变量时忽略“seqstack”的左侧
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\maintest.h(53): warning C4091: “typedef ”: 没有声明变量时忽略“seqqueue”的左侧
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(82): warning C4018: “<”: 有符号/无符号不匹配
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(83): warning C4018: “<”: 有符号/无符号不匹配
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\maintest.h(23): error C2011: “TreeNode”:“struct”类型重定义
-  d:\study files\github data\myleetcode\leetcodetest\leetcodetest\maintest.h(23): note: 参见“TreeNode”的声明
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\maintest.h(31): error C2011: “ListNode”:“struct”类型重定义
-  d:\study files\github data\myleetcode\leetcodetest\leetcodetest\maintest.h(31): note: 参见“ListNode”的声明
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\maintest.h(39): error C2011: “seqstack”:“struct”类型重定义
-  d:\study files\github data\myleetcode\leetcodetest\leetcodetest\maintest.h(39): note: 参见“seqstack”的声明
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\maintest.h(49): error C2011: “seqqueue”:“struct”类型重定义
-  d:\study files\github data\myleetcode\leetcodetest\leetcodetest\maintest.h(49): note: 参见“seqqueue”的声明
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\maintest.h(58): error C2011: “Solution”:“class”类型重定义
-  d:\study files\github data\myleetcode\leetcodetest\leetcodetest\maintest.h(58): note: 参见“Solution”的声明
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(97): error C2027: 使用了未定义类型“Solution”
-  d:\study files\github data\myleetcode\leetcodetest\leetcodetest\maintest.h(58): note: 参见“Solution”的声明
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(103): error C2027: 使用了未定义类型“TreeNode”
-  d:\study files\github data\myleetcode\leetcodetest\leetcodetest\maintest.h(23): note: 参见“TreeNode”的声明
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(103): error C2227: “->val”的左边必须指向类/结构/联合/泛型类型
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(104): error C2027: 使用了未定义类型“TreeNode”
-  d:\study files\github data\myleetcode\leetcodetest\leetcodetest\maintest.h(23): note: 参见“TreeNode”的声明
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(104): error C2227: “->left”的左边必须指向类/结构/联合/泛型类型
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(104): error C2227: “->right”的左边必须指向类/结构/联合/泛型类型
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(104): error C2660: “isSymmetric”: 函数不接受 1 个参数
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(105): error C2027: 使用了未定义类型“TreeNode”
-  d:\study files\github data\myleetcode\leetcodetest\leetcodetest\maintest.h(23): note: 参见“TreeNode”的声明
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(105): error C2227: “->right”的左边必须指向类/结构/联合/泛型类型
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(105): error C2227: “->left”的左边必须指向类/结构/联合/泛型类型
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(105): error C2660: “isSymmetric”: 函数不接受 1 个参数
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(109): error C2027: 使用了未定义类型“Solution”
-  d:\study files\github data\myleetcode\leetcodetest\leetcodetest\maintest.h(58): note: 参见“Solution”的声明
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(117): error C2079: “q”使用未定义的 struct“seqqueue”
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(118): error C2228: “.front”的左边必须有类/结构/联合
-  d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(118): note: 类型是“int”
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(118): error C2228: “.rear”的左边必须有类/结构/联合
-  d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(118): note: 类型是“int”
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(120): error C2027: 使用了未定义类型“TreeNode”
-  d:\study files\github data\myleetcode\leetcodetest\leetcodetest\maintest.h(23): note: 参见“TreeNode”的声明
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(120): error C2227: “->val”的左边必须指向类/结构/联合/泛型类型
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(121): error C2027: 使用了未定义类型“TreeNode”
-  d:\study files\github data\myleetcode\leetcodetest\leetcodetest\maintest.h(23): note: 参见“TreeNode”的声明
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(121): error C2227: “->left”的左边必须指向类/结构/联合/泛型类型
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(121): error C2227: “->right”的左边必须指向类/结构/联合/泛型类型
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(122): error C2664: “void enter_queue(seqqueue *,TreeNode *)”: 无法将参数 1 从“int *”转换为“seqqueue *”
-  d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(122): note: 与指向的类型无关；转换要求 reinterpret_cast、C 样式转换或函数样式转换
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(128): error C2664: “TreeNode *delete_queue(seqqueue *)”: 无法将参数 1 从“int *”转换为“seqqueue *”
-  d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(128): note: 与指向的类型无关；转换要求 reinterpret_cast、C 样式转换或函数样式转换
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(133): error C2664: “void enter_queue(seqqueue *,TreeNode *)”: 无法将参数 1 从“int *”转换为“seqqueue *”
-  d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(133): note: 与指向的类型无关；转换要求 reinterpret_cast、C 样式转换或函数样式转换
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(134): error C2664: “void enter_queue(seqqueue *,TreeNode *)”: 无法将参数 1 从“int *”转换为“seqqueue *”
-  d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(134): note: 与指向的类型无关；转换要求 reinterpret_cast、C 样式转换或函数样式转换
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(144): error C2027: 使用了未定义类型“TreeNode”
-  d:\study files\github data\myleetcode\leetcodetest\leetcodetest\maintest.h(23): note: 参见“TreeNode”的声明
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(144): error C2227: “->val”的左边必须指向类/结构/联合/泛型类型
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(145): error C2027: 使用了未定义类型“TreeNode”
-  d:\study files\github data\myleetcode\leetcodetest\leetcodetest\maintest.h(23): note: 参见“TreeNode”的声明
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(145): error C2227: “->left”的左边必须指向类/结构/联合/泛型类型
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(145): error C2227: “->right”的左边必须指向类/结构/联合/泛型类型
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(146): error C2027: 使用了未定义类型“TreeNode”
-  d:\study files\github data\myleetcode\leetcodetest\leetcodetest\maintest.h(23): note: 参见“TreeNode”的声明
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(146): error C2227: “->left”的左边必须指向类/结构/联合/泛型类型
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(150): error C2027: 使用了未定义类型“TreeNode”
-  d:\study files\github data\myleetcode\leetcodetest\leetcodetest\maintest.h(23): note: 参见“TreeNode”的声明
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(150): error C2227: “->left”的左边必须指向类/结构/联合/泛型类型
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(153): error C2664: “void enter_queue(seqqueue *,TreeNode *)”: 无法将参数 1 从“int *”转换为“seqqueue *”
-  d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(153): note: 与指向的类型无关；转换要求 reinterpret_cast、C 样式转换或函数样式转换
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(161): error C2027: 使用了未定义类型“TreeNode”
-  d:\study files\github data\myleetcode\leetcodetest\leetcodetest\maintest.h(23): note: 参见“TreeNode”的声明
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(161): error C2227: “->val”的左边必须指向类/结构/联合/泛型类型
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(162): error C2027: 使用了未定义类型“TreeNode”
-  d:\study files\github data\myleetcode\leetcodetest\leetcodetest\maintest.h(23): note: 参见“TreeNode”的声明
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(162): error C2227: “->left”的左边必须指向类/结构/联合/泛型类型
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(162): error C2227: “->right”的左边必须指向类/结构/联合/泛型类型
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(163): error C2027: 使用了未定义类型“TreeNode”
-  d:\study files\github data\myleetcode\leetcodetest\leetcodetest\maintest.h(23): note: 参见“TreeNode”的声明
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(163): error C2227: “->right”的左边必须指向类/结构/联合/泛型类型
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(167): error C2027: 使用了未定义类型“TreeNode”
-  d:\study files\github data\myleetcode\leetcodetest\leetcodetest\maintest.h(23): note: 参见“TreeNode”的声明
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(167): error C2227: “->right”的左边必须指向类/结构/联合/泛型类型
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(170): error C2664: “void enter_queue(seqqueue *,TreeNode *)”: 无法将参数 1 从“int *”转换为“seqqueue *”
-  d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(170): note: 与指向的类型无关；转换要求 reinterpret_cast、C 样式转换或函数样式转换
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(178): error C2027: 使用了未定义类型“Solution”
-  d:\study files\github data\myleetcode\leetcodetest\leetcodetest\maintest.h(58): note: 参见“Solution”的声明
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(185): error C2027: 使用了未定义类型“TreeNode”
-  d:\study files\github data\myleetcode\leetcodetest\leetcodetest\maintest.h(23): note: 参见“TreeNode”的声明
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(185): error C2227: “->left”的左边必须指向类/结构/联合/泛型类型
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(186): error C2027: 使用了未定义类型“TreeNode”
-  d:\study files\github data\myleetcode\leetcodetest\leetcodetest\maintest.h(23): note: 参见“TreeNode”的声明
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(186): error C2227: “->right”的左边必须指向类/结构/联合/泛型类型
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(191): error C2027: 使用了未定义类型“Solution”
-  d:\study files\github data\myleetcode\leetcodetest\leetcodetest\maintest.h(58): note: 参见“Solution”的声明
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(195): error C2027: 使用了未定义类型“TreeNode”
-  d:\study files\github data\myleetcode\leetcodetest\leetcodetest\maintest.h(23): note: 参见“TreeNode”的声明
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(195): error C2227: “->val”的左边必须指向类/结构/联合/泛型类型
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(197): error C2027: 使用了未定义类型“TreeNode”
-  d:\study files\github data\myleetcode\leetcodetest\leetcodetest\maintest.h(23): note: 参见“TreeNode”的声明
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(197): error C2227: “->left”的左边必须指向类/结构/联合/泛型类型
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(197): error C2660: “is_equal_tree”: 函数不接受 1 个参数
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(198): error C2027: 使用了未定义类型“TreeNode”
-  d:\study files\github data\myleetcode\leetcodetest\leetcodetest\maintest.h(23): note: 参见“TreeNode”的声明
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(198): error C2227: “->right”的左边必须指向类/结构/联合/泛型类型
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(198): error C2660: “is_equal_tree”: 函数不接受 1 个参数
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(204): error C2027: 使用了未定义类型“Solution”
-  d:\study files\github data\myleetcode\leetcodetest\leetcodetest\maintest.h(58): note: 参见“Solution”的声明
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(208): error C2027: 使用了未定义类型“TreeNode”
-  d:\study files\github data\myleetcode\leetcodetest\leetcodetest\maintest.h(23): note: 参见“TreeNode”的声明
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(208): error C2227: “->left”的左边必须指向类/结构/联合/泛型类型
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(208): error C2227: “->right”的左边必须指向类/结构/联合/泛型类型
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(211): error C2027: 使用了未定义类型“Solution”
-  d:\study files\github data\myleetcode\leetcodetest\leetcodetest\maintest.h(58): note: 参见“Solution”的声明
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(215): error C2027: 使用了未定义类型“TreeNode”
-  d:\study files\github data\myleetcode\leetcodetest\leetcodetest\maintest.h(23): note: 参见“TreeNode”的声明
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(215): error C2227: “->val”的左边必须指向类/结构/联合/泛型类型
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(219): error C2027: 使用了未定义类型“TreeNode”
-  d:\study files\github data\myleetcode\leetcodetest\leetcodetest\maintest.h(23): note: 参见“TreeNode”的声明
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(219): error C2227: “->left”的左边必须指向类/结构/联合/泛型类型
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(220): error C2027: 使用了未定义类型“TreeNode”
-  d:\study files\github data\myleetcode\leetcodetest\leetcodetest\maintest.h(23): note: 参见“TreeNode”的声明
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(220): error C2227: “->right”的左边必须指向类/结构/联合/泛型类型
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(225): error C2027: 使用了未定义类型“Solution”
-  d:\study files\github data\myleetcode\leetcodetest\leetcodetest\maintest.h(58): note: 参见“Solution”的声明
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(233): error C2027: 使用了未定义类型“TreeNode”
-  d:\study files\github data\myleetcode\leetcodetest\leetcodetest\maintest.h(23): note: 参见“TreeNode”的声明
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(233): error C2227: “->val”的左边必须指向类/结构/联合/泛型类型
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(234): error C2027: 使用了未定义类型“TreeNode”
-  d:\study files\github data\myleetcode\leetcodetest\leetcodetest\maintest.h(23): note: 参见“TreeNode”的声明
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(234): error C2227: “->left”的左边必须指向类/结构/联合/泛型类型
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(235): error C2027: 使用了未定义类型“TreeNode”
-  d:\study files\github data\myleetcode\leetcodetest\leetcodetest\maintest.h(23): note: 参见“TreeNode”的声明
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(235): error C2227: “->right”的左边必须指向类/结构/联合/泛型类型
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(239): error C2027: 使用了未定义类型“Solution”
-  d:\study files\github data\myleetcode\leetcodetest\leetcodetest\maintest.h(58): note: 参见“Solution”的声明
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(241): error C2079: “q”使用未定义的 struct“seqqueue”
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(243): error C2228: “.front”的左边必须有类/结构/联合
-  d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(243): note: 类型是“int”
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(243): error C2228: “.rear”的左边必须有类/结构/联合
-  d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(243): note: 类型是“int”
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(249): error C2664: “void enter_queue(seqqueue *,TreeNode *)”: 无法将参数 1 从“int *”转换为“seqqueue *”
-  d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(249): note: 与指向的类型无关；转换要求 reinterpret_cast、C 样式转换或函数样式转换
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(250): error C2228: “.front”的左边必须有类/结构/联合
-  d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(250): note: 类型是“int”
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(250): error C2228: “.rear”的左边必须有类/结构/联合
-  d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(250): note: 类型是“int”
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(252): error C2664: “TreeNode *delete_queue(seqqueue *)”: 无法将参数 1 从“int *”转换为“seqqueue *”
-  d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(252): note: 与指向的类型无关；转换要求 reinterpret_cast、C 样式转换或函数样式转换
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(253): error C2027: 使用了未定义类型“TreeNode”
-  d:\study files\github data\myleetcode\leetcodetest\leetcodetest\maintest.h(23): note: 参见“TreeNode”的声明
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(253): error C2227: “->val”的左边必须指向类/结构/联合/泛型类型
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(254): error C2027: 使用了未定义类型“TreeNode”
-  d:\study files\github data\myleetcode\leetcodetest\leetcodetest\maintest.h(23): note: 参见“TreeNode”的声明
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(254): error C2227: “->left”的左边必须指向类/结构/联合/泛型类型
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(256): error C2027: 使用了未定义类型“TreeNode”
-  d:\study files\github data\myleetcode\leetcodetest\leetcodetest\maintest.h(23): note: 参见“TreeNode”的声明
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(256): error C2227: “->left”的左边必须指向类/结构/联合/泛型类型
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(256): error C2660: “enter_queue”: 函数不接受 1 个参数
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(258): error C2027: 使用了未定义类型“TreeNode”
-  d:\study files\github data\myleetcode\leetcodetest\leetcodetest\maintest.h(23): note: 参见“TreeNode”的声明
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(258): error C2227: “->right”的左边必须指向类/结构/联合/泛型类型
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(260): error C2027: 使用了未定义类型“TreeNode”
-  d:\study files\github data\myleetcode\leetcodetest\leetcodetest\maintest.h(23): note: 参见“TreeNode”的声明
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(260): error C2227: “->right”的左边必须指向类/结构/联合/泛型类型
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(260): error C2660: “enter_queue”: 函数不接受 1 个参数
-d:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(260): fatal error C1003: 错误计数超过 100；正在停止编译
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\maintest.h(14): warning C4005: “INT_MIN”: 宏重定义
+  e:\study program files\vc\include\limits.h(34): note: 参见“INT_MIN”的前一个定义
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\maintest.h(43): warning C4091: “typedef ”: 没有声明变量时忽略“seqstack”的左侧
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\maintest.h(53): warning C4091: “typedef ”: 没有声明变量时忽略“seqqueue”的左侧
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(82): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(83): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(241): warning C4101: “tmp”: 未引用的局部变量
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(421): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(486): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(506): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(558): warning C4018: “>=”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(558): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(560): warning C4018: “>=”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(560): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(567): warning C4018: “>=”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(569): warning C4018: “>=”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(551): warning C4715: “Solution::factorial”: 不是所有的控件路径都返回值
+  LINK : 没有找到 E:\Study Files\github data\myLeetcode\LeetCodeTest\Debug\LeetCodeTest.exe 或上一个增量链接没有生成它；正在执行完全链接
+  LeetCodeTest.vcxproj -> E:\Study Files\github data\myLeetcode\LeetCodeTest\Debug\LeetCodeTest.exe

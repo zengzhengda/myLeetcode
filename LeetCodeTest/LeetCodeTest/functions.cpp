@@ -91,7 +91,6 @@ vector<TreeNode*> Solution::generateTrees(int start,int end)
 	return result;
 
 }
-#include "mainTest.h"
 
 // 判定两棵树是否对称
 bool Solution::isSymmetric(TreeNode* p, TreeNode* q)

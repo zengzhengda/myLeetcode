@@ -58,7 +58,7 @@ ListNode* insertionSortList(ListNode* head)
 		if(head==nullptr || head->next==nullptr) return head;
 		for(ListNode* cur=head->next;cur != nullptr;)
 		{
-			ListNode* tmp==nullptr;
+			ListNode* tmp=nullptr;
 			for(tmp=&dummy;tmp != cur ;tmp=tmp->next)
 			{
 				if(cur->val <= tmp->next->val)
