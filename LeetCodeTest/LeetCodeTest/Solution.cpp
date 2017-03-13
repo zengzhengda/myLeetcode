@@ -1,5 +1,38 @@
 #include "mainTest.h"
 
+//21. Merge Two Sorted Lists
+ListNode* Solution::mergeTwoLists(ListNode* l1, ListNode* l2)
+{
+	if(l1==nullptr)
+		return l2;
+	if(l2==nullptr)
+		return l1;
+	ListNode* head=(ListNode*)malloc(sizeof(ListNode));
+	ListNode* prev=head;
+	while(l1 != nullptr || l2 != nullptr)
+	{
+		int val1=(l1 == nullptr) ? INT_MAX : l1->val;
+		int val2=(l2 == nullptr) ? INT_MAX : l2->val;
+		if(val1 < val2)
+		{
+			prev->next=l1;
+			prev=prev->next;
+			prev->next=nullptr;
+
+			l1=(l1 == nullptr) ? nullptr : l1->next;
+		}
+		else 
+		{
+			prev->next=l2;
+			prev=prev->next;
+			prev->next=nullptr;
+
+			l2=(l2==nullptr) ? nullptr : l2->next;
+		}
+	}
+	return head->next;
+}
+
 //113. Path Sum II
 vector<vector<int>> Solution::pathSum(TreeNode* root, int sum)
 {

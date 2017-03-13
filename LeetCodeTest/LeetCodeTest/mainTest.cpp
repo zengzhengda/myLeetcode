@@ -10,7 +10,7 @@ void main()
 	//6. 测试数据为单链表
 	//7. 测试数据为字符串向量组
 	//8. 测试数据为二叉树
-	int testCondition = 8;
+	int testCondition = 6;
 	switch (testCondition)
 	{
 	case 1:
@@ -68,10 +68,10 @@ void main()
 	case 6:
 	{
 		//6. 测试数据为单链表 指针的应用实在是太麻烦了
-		int nums_arr1[] = { 3,5};
+		int nums_arr1[] = { 0,2,3,4};
 		vector<int> nums1(nums_arr1, nums_arr1 + sizeof(nums_arr1) / sizeof(nums_arr1[0]));
 
-		int nums_arr2[] = { 8,6,3 };
+		int nums_arr2[] = { 1 };
 		vector<int> nums2(nums_arr2, nums_arr2 + sizeof(nums_arr2) / sizeof(nums_arr2[0]));
 
 		int m = 1;
@@ -80,7 +80,7 @@ void main()
 		ListNode* l1 = sol.LinkListCreatT(nums1);
 		ListNode* l2 = sol.LinkListCreatT(nums2);
 
-		ListNode* l_sum = sol.reverseBetween(l1, m,n);
+		ListNode* l_sum = sol.mergeTwoLists(l1,l2);
 		break;
 	}
 	case 7:

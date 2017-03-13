@@ -3,10 +3,10 @@
 #include <vector>
 #include <string>
 #include <algorithm>
-#include<unordered_map>
-#include<numeric>
-#include<functional>
-#include<sstream>
+#include <unordered_map>
+#include <numeric>
+#include <functional>
+#include <sstream>
 #include <stack>
 #include <queue>
 
@@ -126,6 +126,7 @@ public:
 	TreeNode* buildTree2(vector<int>& inorder, vector<int>& postorder);//106. Construct Binary Tree from Inorder and Postorder Traversal
 	int minDepth(TreeNode* root);//111. Minimum Depth of Binary Tree
 	bool hasPathSum(TreeNode* root, int sum);//112. Path Sum
+	ListNode* mergeTwoLists(ListNode* l1, ListNode* l2);//21. Merge Two Sorted Lists
 public: // medium
 	
 	 vector<int> findDuplicates(vector<int>& nums);// 442
