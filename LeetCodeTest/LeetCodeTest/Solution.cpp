@@ -1,9 +1,84 @@
 #include "mainTest.h"
 
+//113. Path Sum II
+vector<vector<int>> Solution::pathSum(TreeNode* root, int sum)
+{
+	vector<vector<int>> result;
+	vector<int> cur;
+	if(root==nullptr)
+		return result;
+	pathSum(root,sum,cur,result);
+	return result;
+}
+//112. Path Sum
+bool Solution::hasPathSum(TreeNode* root, int sum)
+{
+	if(!root)
+		return false;
+	if(root->left==nullptr && root->right==nullptr)
+		return sum==root->val;
+	return hasPathSum(root->left,sum- root->val) || hasPathSum(root->right,sum- root->val);
+}
+//111. Minimum Depth of Binary Tree
+int Solution::minDepth(TreeNode* root)
+{
+	// 子结点为1时是陷阱
+	if(!root)
+		return 0;
+	int deep_left=minDepth(root->left);
+	int deep_right=minDepth(root->right);
+	if(deep_left==0 && deep_right==0)
+		return 1;
+	if(deep_left==0)
+		deep_left=INT_MAX;
+	if(deep_right==0)
+		deep_right=INT_MAX;
+	return deep_left<deep_right?(deep_left+1):(deep_right+1);
+}
+
+//98. Validate Binary Search Tree
+bool Solution::isValidBST(TreeNode* root)
+{
+	if(root==nullptr)
+		return true;
+	bool isLeft=isValidBST(root->left);
+	bool isRight=isValidBST(root->right);
+	if(!isLeft || !isRight)
+		return false;
+	bool isRootGreaterL=rootGreaterLeft(root->left,root->val);
+	bool isRootLessR=rootLessRight(root->right,root->val);
+	if(isRootLessR && isRootGreaterL)
+		return true;
+	else
+		return false;
+}
+//Unique Binary Search Trees II
+vector<TreeNode*> Solution::generateTrees(int n)
+{
+	return generateTrees(1,n);
+}
+//96. Unique Binary Search Trees
+int Solution::numTrees(int n)
+{
+	// 动态规划问题
+	vector<int> f;
+	f.push_back(1);
+	f.push_back(1);
+	for(int i=2;i<=n;i++)
+	{
+		int tmp=0;
+		for(int j=0;j<i;j++)
+		{
+			tmp+=f[j]*f[i-j-1];
+		}
+		f.push_back(tmp);
+	}
+	return f[n];
+}
 //106. Construct Binary Tree from Inorder and Postorder Traversal
 TreeNode* Solution::buildTree2(vector<int>& inorder, vector<int>& postorder)
 {
-	TreeNode* root==nullptr;
+	TreeNode* root=nullptr;
 	const int len=inorder.size();
 	if(inorder.empty()||postorder.empty())
 		return root;

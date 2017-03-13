@@ -10,7 +10,7 @@ void main()
 	//6. 测试数据为单链表
 	//7. 测试数据为字符串向量组
 	//8. 测试数据为二叉树
-	int testCondition = 4;
+	int testCondition = 8;
 	switch (testCondition)
 	{
 	case 1:
@@ -97,11 +97,11 @@ void main()
 	case 8:
 	{
 		//8. 测试数据为二叉树
-		int nums_arr1[] = { 1 };
+		int nums_arr1[] = { 5,14,INT_MIN,1 };
 		vector<int> nums1(nums_arr1, nums_arr1 + sizeof(nums_arr1) / sizeof(nums_arr1[0]));
 		Solution sol;
 		TreeNode* t=sol.creatTreeLevel(nums1); //  生成二叉树
-		vector<int> res = sol.preorderTraversal(t);
+		bool res = sol.isValidBST(t);
 	}
 	
 	default:

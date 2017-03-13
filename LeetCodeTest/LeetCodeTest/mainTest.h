@@ -124,6 +124,8 @@ public:
 	vector<vector<int>> levelOrderBottom(TreeNode* root);//107. Binary Tree Level Order Traversal II
 	vector<vector<int>> zigzagLevelOrder(TreeNode* root);//103. Binary Tree Zigzag Level Order Traversal
 	TreeNode* buildTree2(vector<int>& inorder, vector<int>& postorder);//106. Construct Binary Tree from Inorder and Postorder Traversal
+	int minDepth(TreeNode* root);//111. Minimum Depth of Binary Tree
+	bool hasPathSum(TreeNode* root, int sum);//112. Path Sum
 public: // medium
 	
 	 vector<int> findDuplicates(vector<int>& nums);// 442
@@ -155,6 +157,10 @@ public: // medium
 	 vector<int> preorderTraversal(TreeNode* root);//144. Binary Tree Preorder Traversal
 	 vector<int> inorderTraversal(TreeNode* root);//94. Binary Tree Inorder Traversal
 	 TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder);//105. Construct Binary Tree from Preorder and Inorder Traversal
+	 int numTrees(int n);//96. Unique Binary Search Trees
+	 vector<TreeNode*> generateTrees(int n);//Unique Binary Search Trees II
+	 bool isValidBST(TreeNode* root);//98. Validate Binary Search Tree
+	 vector<vector<int>> pathSum(TreeNode* root, int sum);//113. Path Sum II
 public:// hard
 	double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2);// 4. Median of Two Sorted Arrays
 	vector<int> postorderTraversal(TreeNode* root);//145. Binary Tree Postorder Traversal
@@ -177,6 +183,7 @@ private:
 	string getNextStrForCountAndSay(string s);
 	string getPrifixStrOfTwo(string str1, string str2); // 求两个字符串的前缀
 	bool isSymmetric(TreeNode* p, TreeNode* q);// 判定两棵树是否对称
+	vector<TreeNode*> generateTrees(int start,int end);// 根据连续数字的首尾生成二叉查找树
 public: // 二叉树方法
 	void preorder(TreeNode* t);// 前序遍历
 	void midorder(TreeNode* t); // 中序遍历
@@ -188,4 +195,9 @@ public: // 二叉树方法
 	int count_tree(TreeNode* t); // 统计结点个数
 	bool is_equal_tree(TreeNode* t1, TreeNode* t2); //比较两个树是否相同
 	int deep_tree(TreeNode* t); // 二叉树的深度
+	int getMaxOfBST(TreeNode* root);// 二叉查找树的最大值
+	int getMinOfBST(TreeNode* root); //二叉查找树的最小值
+	bool rootGreaterLeft(TreeNode* root,int val);
+	bool rootLessRight(TreeNode* root,int val);
+	void pathSum(TreeNode* root, int gap, vector<int> &cur,vector<vector<int>> &result);// 
 };

@@ -2,6 +2,97 @@
 
 #include "mainTest.h"
 
+void Solution::pathSum(TreeNode* root, int gap, vector<int> &cur,vector<vector<int>> &result)
+{
+	if(root==nullptr)
+		return;
+	cur.push_back(root->val);
+	if(root->left==nullptr && root->right==nullptr)
+		if(gap==root->val)
+			result.push_back(cur);
+	pathSum(root->left,gap - root->val, cur,result);
+	pathSum(root->right,gap- root->val,cur,result);
+	cur.pop_back();
+}
+bool Solution::rootGreaterLeft(TreeNode* root,int val)
+{
+	if(!root)
+		return true;
+	while(root->right)
+	{
+		root=root->right;
+	}
+	if(val>root->val)
+		return true;
+	else
+		return false;
+}
+bool Solution::rootLessRight(TreeNode* root, int val)
+{
+	if (!root)
+		return true;
+	while (root->left)
+	{
+		root = root->left;
+	}
+	if (root->val > val)
+		return true;
+	else
+		return false;
+}
+// 二叉查找树的最大值
+int Solution::getMaxOfBST(TreeNode* root)
+{
+	int maxVal = INT_MIN;
+	if(!root)
+		return maxVal;
+	while(root->right)
+	{
+		root=root->right;
+	}
+	maxVal=root->val;
+	return maxVal;
+}
+// 二叉查找树的最小值
+int Solution::getMinOfBST(TreeNode* root) 
+{
+	int minVal=INT_MAX;
+	if(!root)
+		return minVal;
+	while(root->left)
+	{
+		root=root->left;
+	}
+	minVal=root->val;
+	return minVal;
+}
+// 根据连续数字的首尾生成二叉查找树
+vector<TreeNode*> Solution::generateTrees(int start,int end)
+{
+	vector<TreeNode*> result;
+	if(start>end)
+	{
+		result.push_back(NULL);
+		return result;
+	}
+	for(int i=start;i<=end;i++)
+	{
+		vector<TreeNode*> left=generateTrees(start,i-1);
+		vector<TreeNode*> right=generateTrees(i+1,end);
+		for(int m=0;m<left.size();m++)
+			for(int n=0;n<right.size();n++)
+			{
+				TreeNode* root =new TreeNode(i);
+				root->left=left[m];
+				root->right=right[n];
+				result.push_back(root);
+			}
+	}
+	return result;
+
+}
+#include "mainTest.h"
+
 // 判定两棵树是否对称
 bool Solution::isSymmetric(TreeNode* p, TreeNode* q)
 {
