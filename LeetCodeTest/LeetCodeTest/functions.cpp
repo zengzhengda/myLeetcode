@@ -2,6 +2,179 @@
 
 #include "mainTest.h"
 
+vector<int> heapSort(vector<int> nums)
+{
+	vector<int> result;
+	return result;
+}
+// 各种排序算法
+vector<int> Solution::sortMethods(vector<int> nums)
+{
+	int method=6;
+	switch(method)
+	{
+	case 1: // 插入排序
+	{
+		const int n=nums.size();
+		for(int i=1;i<n;i++)
+		{
+			int key=nums[i];
+			int j = i-1;
+			for( j=i-1;j>=0;j--)
+			{
+				if(key >= nums[j])
+					break;
+				nums[j+1]=nums[j];
+			}
+			nums[j+1]=key;
+		}
+		return nums;
+	}
+	case 2: // 冒泡排序
+	{
+		const int n=nums.size();
+		for(int i=0;i<n-1;i++)
+		{
+			for(int j=n-1;j>i;j--)
+			{
+				if(nums[j-1]> nums[j])
+				{
+					int tmp=nums[j];
+					nums[j-1]=nums[j];
+					nums[j-1]=tmp;
+				}
+			}
+		}
+		return nums;
+	}
+	case 3: // 选择排序
+	{
+		const int n=nums.size();
+		for(int i=0;i<n-1;i++)
+		{
+			int index_min=i;
+			for( int j=i+1; j<n; j++)
+			{
+				if(nums[index_min] < nums[j])
+				{
+					index_min=j;
+				}
+			}
+
+			int tmp=nums[i];
+			nums[i]=nums[index_min];
+			nums[index_min]=tmp;
+		}
+		return nums;
+	}
+	case 4: // 快速排序
+	{
+		quickSort(nums,0,nums.size()-1);
+		return nums;
+	}
+	case 5: // 归并排序
+	{
+		mergeSort(nums,0,nums.size()-1);
+		return nums;
+	}
+	case 6: // 计数排序
+	{
+		// 针对0到max之间的排序
+		auto largest=max_element(nums.begin(),nums.end());
+		int maxVal=*largest;
+		int *C = new int[maxVal+1] (); // 初始化为0
+		vector<int> B(nums.size());
+
+		int value,pos;
+
+		for(int i=0;i<nums.size();i++)
+		{
+			C[A[i]]++;
+		}
+		for(int i=1;i<C.size();i++)
+		{
+			C[i]=C[i]+C[i-1];
+		}
+		for(int i=0;i< nums.size();i++)
+		{
+			value=nums[i];
+			pos=C[value];
+			B[pos-1] = value;
+			C[value]--;
+		}
+		return B;
+
+	}
+	case 7: // 堆排序
+	{
+		vector<int> result=heapSort(nums);
+	}
+	default:break;
+	}
+}
+// 归并排序
+void Solution::mergeSort(vector<int>& nums, int ind_l, int ind_r)
+{
+	if(ind_l<ind_r)
+	{
+		int q=(ind_l+ind_r)/2;
+		mergeSort(nums,ind_l,q);
+		mergeSort(nums,q+1,ind_r);
+		mergeMaxMin(nums,ind_l,ind_r,q);
+	}
+}
+// 将两个有序数组排序
+void Solution::mergeMaxMin(vector<int>& nums, int ind_l, int ind_r, int mid)
+{
+	vector<int> nums_l,nums_r;
+	nums_l.assign(nums.begin()+ind_l,nums.begin()+mid+1);
+	nums_r.assign(nums.begin()+mid+1,nums.begin()+ind_r+1);
+	nums_l.push_back(INT_MAX);
+	nums_r.push_back(INT_MAX);
+
+	int i=0;
+	int j=0;
+	for(int k=ind_l;k<ind_r+1;k++)
+	{
+		if(nums_l[i]<nums_r[j])
+		{
+			nums[k]=nums_l[i];
+			i++;
+		}
+		else
+		{
+			nums[k]=nums_r[j];
+			j++;
+		}
+	}
+}
+// 分大小堆
+int Solution::partition(std::vector<int>& nums, int ind_l, int ind_r)
+{
+	int x=nums[ind_r]; // 保存最后一个数
+	int i=ind_l-1;
+	for(int j=ind_l; j<ind_r; j++)
+	{
+		if(nums[j] <= x)
+		{
+			i=i+1;
+			std::swap(nums[i],nums[j]);
+		}	
+	}
+	std::swap(nums[i+1],nums[ind_r]);
+	return i+1;
+}
+// 快排
+void Solution::quickSort(vector<int> &nums, int ind_l,int ind_r)
+{
+	if(ind_l<ind_r)
+	{
+		int q=partition(nums,ind_l,ind_r);
+		
+		quickSort(nums,ind_l,q-1);
+		quickSort(nums,q+1,ind_r);
+	}
+}
 void Solution::pathSum(TreeNode* root, int gap, vector<int> &cur,vector<vector<int>> &result)
 {
 	if(root==nullptr)

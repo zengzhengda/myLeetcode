@@ -164,6 +164,8 @@ public: // medium
 	 bool isValidBST(TreeNode* root);//98. Validate Binary Search Tree
 	 vector<vector<int>> pathSum(TreeNode* root, int sum);//113. Path Sum II
 	 ListNode* insertionSortList(ListNode* head);//147. Insertion Sort List
+	 ListNode* sortList(ListNode* head);//148. Sort List
+	 vector<int> searchRange(vector<int>& nums, int target);//34. Search for a Range
 public:// hard
 	double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2);// 4. Median of Two Sorted Arrays
 	vector<int> postorderTraversal(TreeNode* root);//145. Binary Tree Postorder Traversal
@@ -204,4 +206,11 @@ public: // 二叉树方法
 	bool rootGreaterLeft(TreeNode* root,int val);
 	bool rootLessRight(TreeNode* root,int val);
 	void pathSum(TreeNode* root, int gap, vector<int> &cur,vector<vector<int>> &result);// 
+public: //排序算法
+	vector<int> sortMethods(vector<int> nums); // 各种排序算法 	
+	void quickSort(vector<int> &nums, int ind_l,int ind_r); //快排
+	int partition(vector<int>& nums, int ind_l,int ind_r);// 分大小堆
+	void mergeSort(vector<int>& nums, int ind_l, int ind_r); // 归并排序
+	void mergeMaxMin(vector<int>& nums, int ind_l, int ind_r, int mid);// 将两个有序数组排序
+	vector<int> heapSort(vector<int> nums);// 堆排序
 };

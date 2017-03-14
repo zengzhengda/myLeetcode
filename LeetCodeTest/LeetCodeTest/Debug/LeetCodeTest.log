@@ -3,18 +3,21 @@ e:\study files\github data\myleetcode\leetcodetest\leetcodetest\maintest.h(14): 
   e:\study program files\vc\include\limits.h(34): note: 参见“INT_MIN”的前一个定义
 e:\study files\github data\myleetcode\leetcodetest\leetcodetest\maintest.h(43): warning C4091: “typedef ”: 没有声明变量时忽略“seqstack”的左侧
 e:\study files\github data\myleetcode\leetcodetest\leetcodetest\maintest.h(53): warning C4091: “typedef ”: 没有声明变量时忽略“seqqueue”的左侧
-e:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(82): warning C4018: “<”: 有符号/无符号不匹配
-e:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(83): warning C4018: “<”: 有符号/无符号不匹配
-e:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(241): warning C4101: “tmp”: 未引用的局部变量
-e:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(421): warning C4018: “<”: 有符号/无符号不匹配
-e:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(486): warning C4018: “<”: 有符号/无符号不匹配
-e:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(506): warning C4018: “<”: 有符号/无符号不匹配
-e:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(558): warning C4018: “>=”: 有符号/无符号不匹配
-e:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(558): warning C4018: “<”: 有符号/无符号不匹配
-e:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(560): warning C4018: “>=”: 有符号/无符号不匹配
-e:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(560): warning C4018: “<”: 有符号/无符号不匹配
-e:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(567): warning C4018: “>=”: 有符号/无符号不匹配
-e:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(569): warning C4018: “>=”: 有符号/无符号不匹配
-e:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(551): warning C4715: “Solution::factorial”: 不是所有的控件路径都返回值
-  LINK : 没有找到 E:\Study Files\github data\myLeetcode\LeetCodeTest\Debug\LeetCodeTest.exe 或上一个增量链接没有生成它；正在执行完全链接
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(89): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(93): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(97): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(250): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(251): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(409): warning C4101: “tmp”: 未引用的局部变量
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(589): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(654): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(674): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(726): warning C4018: “>=”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(726): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(728): warning C4018: “>=”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(728): warning C4018: “<”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(735): warning C4018: “>=”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(737): warning C4018: “>=”: 有符号/无符号不匹配
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(109): warning C4715: “Solution::sortMethods”: 不是所有的控件路径都返回值
+e:\study files\github data\myleetcode\leetcodetest\leetcodetest\functions.cpp(719): warning C4715: “Solution::factorial”: 不是所有的控件路径都返回值
   LeetCodeTest.vcxproj -> E:\Study Files\github data\myLeetcode\LeetCodeTest\Debug\LeetCodeTest.exe

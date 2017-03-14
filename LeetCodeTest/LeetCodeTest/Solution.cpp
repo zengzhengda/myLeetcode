@@ -1,5 +1,28 @@
 #include "mainTest.h"
 
+//148. Sort List
+ListNode* Solution::sortList(ListNode* head)
+{
+	if(head==nullptr || head->next=nullptr)
+		return head;
+	// 快慢指针寻找中间结点
+	ListNode* fast=head;
+	ListNode* slow=head;
+	while(fast->next !==nullptr && fast->next->next !=nullptr && fase != nullptr)
+	{
+		fast=fast->next->next;
+		slow=slow->next;
+	}
+	// 断开
+	fast =slow;
+	slow=slow->next;
+	fast->next=nullptr;
+
+	ListNode* list_l=sortList(head);
+	ListNode* list_r=sortList(slow);
+	return mergeTwoLists(list_l.list_r);
+
+}
 //20. Valid Parentheses
 bool Solution::isValid(string s)
 {

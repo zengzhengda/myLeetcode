@@ -10,7 +10,7 @@ void main()
 	//6. 测试数据为单链表
 	//7. 测试数据为字符串向量组
 	//8. 测试数据为二叉树
-	int testCondition = 6;
+	int testCondition = 2;
 	switch (testCondition)
 	{
 	case 1:
@@ -25,11 +25,11 @@ void main()
 	case 2:
 	{
 		// 测试数据为数组和数
-		int nums_arr1[] = { 5,5,1,7,1,1,5,2,7,6 };
+		int nums_arr1[] = { 5,2,4,6,1,3 };
 		int target = 10;
 		vector<int> nums1(nums_arr1, nums_arr1 + sizeof(nums_arr1) / sizeof(nums_arr1[0]));
 		Solution sol;
-		int x = sol.trap(nums1);
+		vector<int> res = sol.sortMethods(nums1);
 		break;
 	}
 	case 3:
