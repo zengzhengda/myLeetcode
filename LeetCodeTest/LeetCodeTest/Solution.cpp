@@ -1,14 +1,35 @@
 #include "mainTest.h"
 
+//215. Kth Largest Element in an Array
+int Solution::findKthLargest(vector<int>& nums, int k)
+{
+	sort(nums.begin(),nums.end());
+	return nums[nums.size()-k+1];
+}
+//35. Search Insert Position
+int Solution::searchInsert(vector<int>& nums, int target)
+{
+	if(nums.empty())
+		return 0;
+	int i=0;
+	for(;i<nums.size();i++)
+	{
+		if(target == nums[i])
+			return i;
+		else if (target < nums[i])
+			return i;
+	}
+	return i;
+}
 //148. Sort List
 ListNode* Solution::sortList(ListNode* head)
 {
-	if(head==nullptr || head->next=nullptr)
+	if(head==nullptr || head->next==nullptr)
 		return head;
 	// 快慢指针寻找中间结点
 	ListNode* fast=head;
 	ListNode* slow=head;
-	while(fast->next !==nullptr && fast->next->next !=nullptr && fase != nullptr)
+	while(fast->next !=nullptr && fast->next->next !=nullptr && fast != nullptr)
 	{
 		fast=fast->next->next;
 		slow=slow->next;
@@ -20,7 +41,7 @@ ListNode* Solution::sortList(ListNode* head)
 
 	ListNode* list_l=sortList(head);
 	ListNode* list_r=sortList(slow);
-	return mergeTwoLists(list_l.list_r);
+	return mergeTwoLists(list_l,list_r);
 
 }
 //20. Valid Parentheses

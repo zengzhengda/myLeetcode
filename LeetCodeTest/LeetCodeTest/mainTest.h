@@ -128,6 +128,8 @@ public:
 	bool hasPathSum(TreeNode* root, int sum);//112. Path Sum
 	ListNode* mergeTwoLists(ListNode* l1, ListNode* l2);//21. Merge Two Sorted Lists
 	bool isValid(string s);//20. Valid Parentheses
+	int searchInsert(vector<int>& nums, int target);//35. Search Insert Position
+	int findKthLargest(vector<int>& nums, int k);//215. Kth Largest Element in an Array
 public: // medium
 	
 	 vector<int> findDuplicates(vector<int>& nums);// 442

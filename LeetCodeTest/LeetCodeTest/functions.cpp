@@ -82,14 +82,14 @@ vector<int> Solution::sortMethods(vector<int> nums)
 		// 针对0到max之间的排序
 		auto largest=max_element(nums.begin(),nums.end());
 		int maxVal=*largest;
-		int *C = new int[maxVal+1] (); // 初始化为0
+		vector<int> C(maxVal+1); // 初始化为0
 		vector<int> B(nums.size());
 
 		int value,pos;
 
 		for(int i=0;i<nums.size();i++)
 		{
-			C[A[i]]++;
+			C[nums[i]]++;
 		}
 		for(int i=1;i<C.size();i++)
 		{
