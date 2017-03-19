@@ -44,29 +44,28 @@ vector<int> Solution::getMidorderNums(TreeNode* root)
 	return nums;
 }
 
- int Solution::diameterOfBinaryTree(TreeNode* root) 
- {
-    if(root == nullptr)
-        return 0;
-    int d_l=diameterOfBinaryTree(root->left);
-    int d_r = diameterOfBinaryTree(root->right);
-    int height_l=getHeight(root->left);
-    int height_r=getHeight(root->right);
+int Solution::diameterOfBinaryTree(TreeNode* root) 
+{
+	if(root == nullptr)
+	    return 0;
+	int d_l=diameterOfBinaryTree(root->left);
+	int d_r = diameterOfBinaryTree(root->right);
+	int height_l=getHeight(root->left);
+	int height_r=getHeight(root->right);
 
-    int tmp1=d_l > d_r ? d_l :d_r;
-    int tmp2=height_l+height_r+1;
-    return tmp1>tmp2 ? tmp1 :tmp2;
-
-    
- }
- int Solution::getHeight(TreeNode* root)
- {
- 	if(root == nullptr)
- 		return 0;
- 	int h_l=getHeight(root->left);
- 	int h_r=getHeight(root->right);
- 	return ((h_l > h_r) ? h_l :h_r)+1;
- }
+	int tmp1=d_l > d_r ? d_l :d_r;
+	int tmp2=height_l+height_r+1;
+	return tmp1>tmp2 ? tmp1 :tmp2; 
+}
+ 
+int Solution::getHeight(TreeNode* root)
+{
+	if(root == nullptr)
+		return 0;
+	int h_l=getHeight(root->left);
+	int h_r=getHeight(root->right);
+	return ((h_l > h_r) ? h_l :h_r)+1;
+}
 
 //5. Longest Palindromic Substring
 string Solution::longestPalindrome(string s)
