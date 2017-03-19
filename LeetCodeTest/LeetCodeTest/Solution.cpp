@@ -1,5 +1,234 @@
 #include "mainTest.h"
 
+//538. Convert BST to Greater Tree
+TreeNode* Solution::convertBST(TreeNode* root) {
+	vector<int> nums = getMidorderNums(root);
+	reverse(nums.begin(), nums.end());
+	TreeNode* t = root;
+	stack<TreeNode*> s;
+	if (!t)
+	{
+		printf("the tree is empty\n");
+	}
+	else
+	{
+		while (t || !s.empty())
+		{
+			while (t)
+			{
+				s.push(t);
+				t = t->left;
+			}
+			t = s.top();
+			s.pop();
+			for (int i = 0; i<nums.size() -1; i++)
+			{
+				t->val += nums[i];
+			}
+			nums.pop_back();
+			t = t->right;
+		}
+	}
+	return root;
+}
+vector<int> Solution::getMidorderNums(TreeNode* root)
+{
+	vector<int> nums;
+	if (root == nullptr)
+		return nums;
+	vector<int> nums_l = getMidorderNums(root->left);
+	nums = nums_l;
+	nums.push_back(root->val);
+	vector<int> nums_r = getMidorderNums(root->right);
+	nums.insert(nums.end(), nums_r.begin(), nums_r.end());
+	return nums;
+}
+
+ int Solution::diameterOfBinaryTree(TreeNode* root) 
+ {
+    if(root == nullptr)
+        return 0;
+    int d_l=diameterOfBinaryTree(root->left);
+    int d_r = diameterOfBinaryTree(root->right);
+    int height_l=getHeight(root->left);
+    int height_r=getHeight(root->right);
+
+    int tmp1=d_l > d_r ? d_l :d_r;
+    int tmp2=height_l+height_r+1;
+    return tmp1>tmp2 ? tmp1 :tmp2;
+
+    
+ }
+ int Solution::getHeight(TreeNode* root)
+ {
+ 	if(root == nullptr)
+ 		return 0;
+ 	int h_l=getHeight(root->left);
+ 	int h_r=getHeight(root->right);
+ 	return ((h_l > h_r) ? h_l :h_r)+1;
+ }
+
+//5. Longest Palindromic Substring
+string Solution::longestPalindrome(string s)
+{
+	int method = 3;
+	switch (method)
+	{
+	case 1:
+	{
+		// 超时
+		if (s.empty())
+			return string();
+		string longestPStr = "";
+		for (int i = 0; i<s.size(); i++)
+		{
+			for (int j = s.size() - 1; j >= i; j--)
+			{
+				string str_t = s.substr(i, j + 1);
+				bool isP = isPalindrome(str_t);
+				if (isP)
+				{
+					if (str_t.size()>longestPStr.size())
+					{
+						longestPStr = str_t;
+					}
+					break;
+				}
+			}
+		}
+		return longestPStr;
+	}
+	case 2:
+	{
+		// 不对
+		int left_p = 0, right_p = 0;
+		return longestPalindrome(s, 0, s.length()-1, left_p, right_p);
+	}
+	case 3:
+	{
+		if(s.size()==0)
+			return "";
+		string maxres="";
+		int maxlen=0;
+		for(int i=0; i< s.length()*2-1;i++)
+		{
+			int left=i/2;
+			int right=i/2;
+			if(i%2 ==1)
+			{
+				right+=1;
+			}
+			string res=longestPalindrome(s,left,right);
+			if(res.length() > maxlen)
+			{
+				maxlen=res.length();
+				maxres=res;
+			}
+		}
+		return maxres;
+	}
+	default:
+	{
+		break;
+	}
+	}
+
+}
+
+//5. Longest Palindromic Substring
+string Solution::longestPalindrome(string s,int left,int right,int& left_p, int& right_p)
+{
+	if(right - left ==1)
+    {
+    	if(s[right] == s[left])
+    	{
+    		left_p=left;
+    		right_p=right;
+    		return string(s.begin()+left,s.begin()+right+1);
+    	}
+    	left_p=right_p=left;
+		return string(s.begin() + left, s.begin() + left + 1);
+    }
+    if(left == right)
+    {
+    	left_p=right_p=left;
+    	return string(s.begin()+left, s.begin() + left+1);
+    }
+    string subPStr=longestPalindrome(s, left+1, right-1,left_p,right_p);
+    if(left_p > left+1 && right_p < right-1)
+    	return subPStr;
+    if(left_p == left+1 && s[left] == s[right_p+1])
+    {
+    	subPStr=s[left] + subPStr + s[right_p+1];
+    }
+    else if(right_p == right-1 && s[left_p - 1] == s[right])
+    {
+    	subPStr = s[left_p-1] + subPStr + s[right];
+    }
+    return subPStr;
+}
+//53. Maximum Subarray
+int Solution::maxSubArray(vector<int>& nums)
+{
+	int method=2;
+	switch(method)
+	{
+	case 1: // 分治法
+	{
+		return maxSubArray(nums,0,nums.size()-1);
+	}
+	case 2: // 动态规划
+	{
+		if(nums.size() == 0)
+			return 0;
+		if(nums.size() ==1)
+			return nums[0];
+		int sum_max=nums[0],sum_cur = nums[0];
+		for(int i=1; i < nums.size();i++)
+		{
+			if(sum_cur > 0)
+				sum_cur += nums[i];
+			else
+				sum_cur = nums[i];
+			if(sum_max < sum_cur)
+				sum_max= sum_cur;
+		}
+		return sum_max;
+	}
+	}
+	
+}
+int Solution::maxSubArray(vector<int>& nums,int l, int r)
+{
+	if(l>r)
+		return 0;
+	if(l == r)
+		return nums[l];
+	int m= (l+r)/2;
+
+	// 计算左边最大和
+	int lsum=0, maxl=nums[m];
+	for(int i = m; i >= l; i--)
+	{
+		lsum+= nums[i];
+		if(lsum > maxl)
+			maxl=lsum;
+	}
+	// 计算右边最大和
+	int rsum=0, maxr=nums[m+1];
+	for(int i= m+1; i <= r; i++)
+	{
+		rsum+= nums[i];
+		if(rsum > maxr)
+			maxr=rsum;
+	}
+	int maxL=maxSubArray(nums,l,m);
+	int maxR=maxSubArray(nums,m+1,r);
+
+	int tmp=maxL>maxR ? maxL :maxR;
+	return (maxl+maxr)> tmp ? (maxl+maxr) : tmp; 
+
+}
 //215. Kth Largest Element in an Array
 int Solution::findKthLargest(vector<int>& nums, int k)
 {
@@ -724,47 +953,6 @@ string Solution::countAndSay(int n)
 	default:
 		break;
 	}
-}
-//5. Longest Palindromic Substring
-string Solution::longestPalindrome(string s)
-{
-	int method=2;
-	switch(method)
-	{
-		case 1:
-		{
-			// 超时
-			if(s.empty())
-				return string();
-			string longestPStr="";
-			for(int i=0;i<s.size();i++)
-			{
-				for(int j=s.size()-1;j>=i;j--)
-				{
-					string str_t=s.substr(i,j+1);
-					bool isP=isPalindrome(str_t);
-					if(isP)
-					{
-						if(str_t.size()>longestPStr.size())
-						{
-							longestPStr=str_t;
-						}
-						break;
-					}
-				}
-			}
-			return longestPStr;
-		}
-		case 2:
-		{
-
-		}
-		default:
-		{
-			break;
-		}
-	}
-	
 }
 //67. Add Binary
 string Solution::addBinary(string a, string b)

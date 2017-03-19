@@ -10,7 +10,7 @@ void main()
 	//6. 测试数据为单链表
 	//7. 测试数据为字符串向量组
 	//8. 测试数据为二叉树
-	int testCondition = 2;
+	int testCondition = 8;
 	switch (testCondition)
 	{
 	case 1:
@@ -25,20 +25,20 @@ void main()
 	case 2:
 	{
 		// 测试数据为数组和数
-		int nums_arr1[] = { 5,2,4,6,1,3 };
+		int nums_arr1[] = { -2,1,-3,4,-1,2,1,-5,4 };
 		int target = 10;
 		vector<int> nums1(nums_arr1, nums_arr1 + sizeof(nums_arr1) / sizeof(nums_arr1[0]));
 		Solution sol;
-		vector<int> res = sol.sortMethods(nums1);
+		int res = sol.maxSubArray(nums1);
 		break;
 	}
 	case 3:
 	{
 		// 字符串测试
-		string str1 = "1";
+		string str1 = "babad";
 		string str2 = "11";
 		Solution sol;
-		string x = sol.addBinary(str1,str2);
+		string x = sol.longestPalindrome(str1);
 		break;
 	}
 	case 4:
@@ -97,11 +97,11 @@ void main()
 	case 8:
 	{
 		//8. 测试数据为二叉树
-		int nums_arr1[] = { 5,14,INT_MIN,1 };
+		int nums_arr1[] = { 5,2,13 };
 		vector<int> nums1(nums_arr1, nums_arr1 + sizeof(nums_arr1) / sizeof(nums_arr1[0]));
 		Solution sol;
 		TreeNode* t=sol.creatTreeLevel(nums1); //  生成二叉树
-		bool res = sol.isValidBST(t);
+		TreeNode* res = sol.convertBST(t);
 	}
 	
 	default:

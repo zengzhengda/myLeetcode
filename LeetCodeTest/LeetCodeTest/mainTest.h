@@ -34,25 +34,25 @@ struct ListNode
 	ListNode(int x):val(x),next(NULL){}
 };
 
-//Õ»¶¨Òå 
+//æ ˆå®šä¹‰ 
 typedef struct seqstack
 {
 	TreeNode* data[SIZE_STACK];
 	int tag[SIZE_STACK];
 	int top;
 };
-void push_seq(seqstack* s,TreeNode* t);// ½øÕ»
-TreeNode* pop_seq(seqstack* s); //³öÕ»
+void push_seq(seqstack* s,TreeNode* t);// è¿›æ ˆ
+TreeNode* pop_seq(seqstack* s); //å‡ºæ ˆ
 
-// ¶¨Òå¶ÓÁĞ
+// å®šä¹‰é˜Ÿåˆ—
 typedef struct seqqueue
 {
 	TreeNode* data[MAX_QUEUE];
 	int front;
-	int rear;// Î²ÊÇ×îºóÒ»¸öÔªËØµÄÏÂÒ»¸öÎ»ÖÃ
+	int rear;// å°¾æ˜¯æœ€åä¸€ä¸ªå…ƒç´ çš„ä¸‹ä¸€ä¸ªä½ç½®
 };
-void enter_queue(seqqueue* q,TreeNode* t);// ½ø¶Ó
-TreeNode* delete_queue(seqqueue* q); //³ö¶Ó
+void enter_queue(seqqueue* q,TreeNode* t);// è¿›é˜Ÿ
+TreeNode* delete_queue(seqqueue* q); //å‡ºé˜Ÿ
 
 class Solution
 {
@@ -87,13 +87,13 @@ public:
 	bool isPowerOfFour(int n);//342
 	int superPow(int a,vector<int>& b);//372 super pow
 	int thirdMax(vector<int>& nums);// 414 Third Maximum Number
-	bool containsNearbyDuplicate(vector<int>& nums, int k); // 219 ³¬Ê±
+	bool containsNearbyDuplicate(vector<int>& nums, int k); // 219 è¶…æ—¶
 	bool containsNearbyDuplicate2(vector<int>& nums, int k); // 219
 	bool containsDuplicate(vector<int>& nums); //217
 	vector<vector<int>> generate(int numRows); // 118
 	vector<int> getRow(int rowIndex);// 119
 	void merge(vector<int>& nums1, int m, vector<int>& nums2, int n);//88
-	void merge2(vector<int>& nums1, int m, vector<int>& nums2, int n);//88  ²»ÁíÍâÔö¼Ó¿Õ¼ä
+	void merge2(vector<int>& nums1, int m, vector<int>& nums2, int n);//88  ä¸å¦å¤–å¢åŠ ç©ºé—´
 	vector<int> plusOne(vector<int>& digits); // 66 
 	int removeElement(vector<int>& nums, int val);// 27
 	int removeDuplicates(vector<int>& nums);// 26
@@ -130,6 +130,9 @@ public:
 	bool isValid(string s);//20. Valid Parentheses
 	int searchInsert(vector<int>& nums, int target);//35. Search Insert Position
 	int findKthLargest(vector<int>& nums, int k);//215. Kth Largest Element in an Array
+	int maxSubArray(vector<int>& nums);//53. Maximum Subarray
+	int maxSubArray(vector<int>& nums, int l, int r); // Maximum Subarray
+	int diameterOfBinaryTree(TreeNode* root);//543. Diameter of Binary Tree
 public: // medium
 	
 	 vector<int> findDuplicates(vector<int>& nums);// 442
@@ -141,7 +144,7 @@ public: // medium
 	 int maxProfit(vector<int>& prices);//121
 	 int maxProfit2(vector<int>& prices);// 122
 	 int maxProfit3(vector<int>& prices);// 123
-	 bool isValidSudoku(vector<vector<char>>& board);// 36   Î´½â¾ö
+	 bool isValidSudoku(vector<vector<char>>& board);// 36   æœªè§£å†³
 	 string multiply(string num1, string num2);// 43. Multiply Strings
 	 int numberOfArithmeticSlices(vector<int>& A);// 413. Arithmetic Slices
 
@@ -168,51 +171,58 @@ public: // medium
 	 ListNode* insertionSortList(ListNode* head);//147. Insertion Sort List
 	 ListNode* sortList(ListNode* head);//148. Sort List
 	 vector<int> searchRange(vector<int>& nums, int target);//34. Search for a Range
+	 string longestPalindrome(string s);//5. Longest Palindromic Substring
+	 string longestPalindrome(string s, int left, int right,int& left_p, int& right_p);//Longest Palindromic Substring
+	 string longestPalindrome(string s, int left, int right);//Longest Palindromic Substring
 public:// hard
 	double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2);// 4. Median of Two Sorted Arrays
 	vector<int> postorderTraversal(TreeNode* root);//145. Binary Tree Postorder Traversal
 	ListNode *mergeKLists(vector<ListNode *> &lists);//6.3 Merge k Sorted Lists
-public: // ¸¨ÖúĞÔº¯Êı
-	// µ¥Á´±í²Ù×÷
-	ListNode* LinkListCreatH(vector<int> nums); ///µ¥Á´±íµÄ½¨Á¢£¬Í·²å·¨½¨Á¢µ¥Á´±í  
-	ListNode* LinkListCreatT(vector<int> nums); ///µ¥Á´±íµÄ½¨Á¢£¬Î²²å·¨½¨Á¢µ¥Á´±í 
+public: // è¾…åŠ©æ€§å‡½æ•°
+	// å•é“¾è¡¨æ“ä½œ
+	ListNode* LinkListCreatH(vector<int> nums); ///å•é“¾è¡¨çš„å»ºç«‹ï¼Œå¤´æ’æ³•å»ºç«‹å•é“¾è¡¨  
+	ListNode* LinkListCreatT(vector<int> nums); ///å•é“¾è¡¨çš„å»ºç«‹ï¼Œå°¾æ’æ³•å»ºç«‹å•é“¾è¡¨ 
 private:
 	int overlap(int A,int B,int C,int D,int E,int F,int G,int H);// 223
 	bool int_compare(int a,int b); // 414
-	int getNumLen(int n); // »ñµÃÊı×ÖµÄ³¤¶È
-	int getDigitOfNum(int n, int loc); // ¸ù¾İÎ»ÖÃloc£¨´Ó0¿ªÊ¼£©ÌáÈ¡nµÄÊı×Ö
-	vector<int> getDigitVec(int); // ½²ÕûÊı×ª»¯ÎªÏòÁ¿
-	void swap(vector<int>& nums, int i, int j); // ½»»»Êı×éÖĞµÄÁ½¸öÊıµÄÎ»ÖÃ
-	int findKthInTwoVec(vector<int>& nums1, vector<int>& nums2, int k);// ÕÒ³öÁ½¸öÓĞĞòÊı×éÖĞµÚk¸öÖµ
-	long long factorial(int n); // Çón!
-	unsigned int binary_to_gray(unsigned int n);// ×ÔÈ»¶ş½øÖÆ×ª³É¸ñÀ×Âë
-	ListNode* linkListInsertH(ListNode* L, int x); // Í·²åÈëÁ´±í
-	ListNode* linkListInsertT(ListNode* L, int x); // Î²²åÈëÁ´±í
+	int getNumLen(int n); // è·å¾—æ•°å­—çš„é•¿åº¦
+	int getDigitOfNum(int n, int loc); // æ ¹æ®ä½ç½®locï¼ˆä»0å¼€å§‹ï¼‰æå–nçš„æ•°å­—
+	vector<int> getDigitVec(int); // è®²æ•´æ•°è½¬åŒ–ä¸ºå‘é‡
+	void swap(vector<int>& nums, int i, int j); // äº¤æ¢æ•°ç»„ä¸­çš„ä¸¤ä¸ªæ•°çš„ä½ç½®
+	int findKthInTwoVec(vector<int>& nums1, vector<int>& nums2, int k);// æ‰¾å‡ºä¸¤ä¸ªæœ‰åºæ•°ç»„ä¸­ç¬¬kä¸ªå€¼
+	long long factorial(int n); // æ±‚n!
+	unsigned int binary_to_gray(unsigned int n);// è‡ªç„¶äºŒè¿›åˆ¶è½¬æˆæ ¼é›·ç 
+	ListNode* linkListInsertH(ListNode* L, int x); // å¤´æ’å…¥é“¾è¡¨
+	ListNode* linkListInsertT(ListNode* L, int x); // å°¾æ’å…¥é“¾è¡¨
 	string getNextStrForCountAndSay(string s);
-	string getPrifixStrOfTwo(string str1, string str2); // ÇóÁ½¸ö×Ö·û´®µÄÇ°×º
-	bool isSymmetric(TreeNode* p, TreeNode* q);// ÅĞ¶¨Á½¿ÃÊ÷ÊÇ·ñ¶Ô³Æ
-	vector<TreeNode*> generateTrees(int start,int end);// ¸ù¾İÁ¬ĞøÊı×ÖµÄÊ×Î²Éú³É¶ş²æ²éÕÒÊ÷
-public: // ¶ş²æÊ÷·½·¨
-	void preorder(TreeNode* t);// Ç°Ğò±éÀú
-	void midorder(TreeNode* t); // ÖĞĞò±éÀú
-	void postorder(TreeNode* t); // ºóĞò±éÀú 
-	void leveloder(TreeNode* t); // ²ã´Î±éÀú
-	void creatTree(TreeNode* t); // Ç°Ğò±éÀúÉú³É¶ş²æÊ÷
-	TreeNode* creatTreeLevel(vector<int> nums); //²ã´Î±éÀúÉú³É¶ş²æÊ÷
-	TreeNode* search_tree(TreeNode* t, int x);// ¶ş²æÊ÷²éÕÒ
-	int count_tree(TreeNode* t); // Í³¼Æ½áµã¸öÊı
-	bool is_equal_tree(TreeNode* t1, TreeNode* t2); //±È½ÏÁ½¸öÊ÷ÊÇ·ñÏàÍ¬
-	int deep_tree(TreeNode* t); // ¶ş²æÊ÷µÄÉî¶È
-	int getMaxOfBST(TreeNode* root);// ¶ş²æ²éÕÒÊ÷µÄ×î´óÖµ
-	int getMinOfBST(TreeNode* root); //¶ş²æ²éÕÒÊ÷µÄ×îĞ¡Öµ
+	string getPrifixStrOfTwo(string str1, string str2); // æ±‚ä¸¤ä¸ªå­—ç¬¦ä¸²çš„å‰ç¼€
+	bool isSymmetric(TreeNode* p, TreeNode* q);// åˆ¤å®šä¸¤æ£µæ ‘æ˜¯å¦å¯¹ç§°
+	vector<TreeNode*> generateTrees(int start,int end);// æ ¹æ®è¿ç»­æ•°å­—çš„é¦–å°¾ç”ŸæˆäºŒå‰æŸ¥æ‰¾æ ‘
+public: // äºŒå‰æ ‘æ–¹æ³•
+	void preorder(TreeNode* t);// å‰åºéå†
+	void midorder(TreeNode* t); // ä¸­åºéå†
+	void postorder(TreeNode* t); // ååºéå† 
+	void leveloder(TreeNode* t); // å±‚æ¬¡éå†
+	void creatTree(TreeNode* t); // å‰åºéå†ç”ŸæˆäºŒå‰æ ‘
+	TreeNode* creatTreeLevel(vector<int> nums); //å±‚æ¬¡éå†ç”ŸæˆäºŒå‰æ ‘
+	TreeNode* search_tree(TreeNode* t, int x);// äºŒå‰æ ‘æŸ¥æ‰¾
+	int count_tree(TreeNode* t); // ç»Ÿè®¡ç»“ç‚¹ä¸ªæ•°
+	bool is_equal_tree(TreeNode* t1, TreeNode* t2); //æ¯”è¾ƒä¸¤ä¸ªæ ‘æ˜¯å¦ç›¸åŒ
+	int deep_tree(TreeNode* t); // äºŒå‰æ ‘çš„æ·±åº¦
+	int getMaxOfBST(TreeNode* root);// äºŒå‰æŸ¥æ‰¾æ ‘çš„æœ€å¤§å€¼
+	int getMinOfBST(TreeNode* root); //äºŒå‰æŸ¥æ‰¾æ ‘çš„æœ€å°å€¼
 	bool rootGreaterLeft(TreeNode* root,int val);
 	bool rootLessRight(TreeNode* root,int val);
 	void pathSum(TreeNode* root, int gap, vector<int> &cur,vector<vector<int>> &result);// 
-public: //ÅÅĞòËã·¨
-	vector<int> sortMethods(vector<int> nums); // ¸÷ÖÖÅÅĞòËã·¨ 	
-	void quickSort(vector<int> &nums, int ind_l,int ind_r); //¿ìÅÅ
-	int partition(vector<int>& nums, int ind_l,int ind_r);// ·Ö´óĞ¡¶Ñ
-	void mergeSort(vector<int>& nums, int ind_l, int ind_r); // ¹é²¢ÅÅĞò
-	void mergeMaxMin(vector<int>& nums, int ind_l, int ind_r, int mid);// ½«Á½¸öÓĞĞòÊı×éÅÅĞò
-	vector<int> heapSort(vector<int> nums);// ¶ÑÅÅĞò
+public: //æ’åºç®—æ³•
+	vector<int> sortMethods(vector<int> nums); // å„ç§æ’åºç®—æ³• 	
+	void quickSort(vector<int> &nums, int ind_l,int ind_r); //å¿«æ’
+	int partition(vector<int>& nums, int ind_l,int ind_r);// åˆ†å¤§å°å †
+	void mergeSort(vector<int>& nums, int ind_l, int ind_r); // å½’å¹¶æ’åº
+	void mergeMaxMin(vector<int>& nums, int ind_l, int ind_r, int mid);// å°†ä¸¤ä¸ªæœ‰åºæ•°ç»„æ’åº
+	vector<int> heapSort(vector<int> nums);// å †æ’åº
+public: // leetcodeå‘¨èµ›
+	TreeNode* convertBST(TreeNode* root);
+	vector<int> getMidorderNums(TreeNode* root);
+	int Solution::getHeight(TreeNode* root);
 };

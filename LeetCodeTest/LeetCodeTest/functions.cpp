@@ -2,12 +2,22 @@
 
 #include "mainTest.h"
 
-vector<int> heapSort(vector<int> nums)
+//Longest Palindromic Substring
+string Solution::longestPalindrome(string s, int left, int right)
+{
+	while(left>=0 && right <s.length() && s[left] == s[right])
+	{
+		left -= 1;
+		right += 1;
+	}
+	return string(s.begin()+left+1,s.begin()+right);
+}
+vector<int> Solution::heapSort(vector<int> nums)
 {
 	vector<int> result;
 	return result;
 }
-// 各种排序算法
+//各种排序算法
 vector<int> Solution::sortMethods(vector<int> nums)
 {
 	int method=6;
