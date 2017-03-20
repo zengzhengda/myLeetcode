@@ -159,7 +159,6 @@ public: // medium
 	 int canCompleteCircuit(vector<int>& gas, vector<int>& cost);// 134. Gas Station
 	 ListNode* addTwoNumbers(ListNode* l1, ListNode* l2);//2. Add Two Numbers
 	 ListNode* reverseBetween(ListNode* head, int m, int n);//92. Reverse Linked List II
-	 string longestPalindrome(string s);//5. Longest Palindromic Substring
 	 vector<vector<int>> levelOrder(TreeNode* root);//102. Binary Tree Level Order Traversal
 	 vector<int> preorderTraversal(TreeNode* root);//144. Binary Tree Preorder Traversal
 	 vector<int> inorderTraversal(TreeNode* root);//94. Binary Tree Inorder Traversal
@@ -174,6 +173,8 @@ public: // medium
 	 string longestPalindrome(string s);//5. Longest Palindromic Substring
 	 string longestPalindrome(string s, int left, int right,int& left_p, int& right_p);//Longest Palindromic Substring
 	 string longestPalindrome(string s, int left, int right);//Longest Palindromic Substring
+	 vector<vector<int>> combinationSum(vector<int>& candidates, int target);//39. Combination Sum
+	 vector<vector<int>> Solution::combinationSumOrder(vector<int>& candidates, int target);//Combination Sum 有序的
 public:// hard
 	double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2);// 4. Median of Two Sorted Arrays
 	vector<int> postorderTraversal(TreeNode* root);//145. Binary Tree Postorder Traversal

@@ -1,5 +1,53 @@
 #include "mainTest.h"
 
+//39. Combination Sum
+vector<vector<int>> Solution::combinationSum(vector<int>& candidates, int target)
+{
+	vector<vector<int>> result;
+	if (candidates.empty())
+		return result;
+	sort(candidates.begin(), candidates.end());
+	result = combinationSumOrder(candidates, target);
+	return result;
+}
+vector<vector<int>> Solution::combinationSumOrder(vector<int>& candidates, int target)
+{
+	// candidates 是有序的
+	vector<vector<int>> result;
+	if(candidates.empty())
+		return result;
+	const int n = candidates.size();
+	for(auto it =candidates.begin(); it != candidates.end(); it++)
+	{
+		vector<int> candidates_new(it,candidates.end());
+		int target_new=target - *it;
+		if(target_new == 0)
+		{
+			vector<int> tmp;
+			result.push_back({*it});
+			break;
+		}
+		else if(target_new < 0)
+		{
+			break;
+		}
+		else 
+		{
+			vector<vector<int>> result_tmp = combinationSumOrder(candidates_new,target_new);
+			if(result_tmp.empty())
+				continue;
+			for (int j = 0; j < result_tmp.size();j++)
+			{
+				result_tmp[j].insert(result_tmp[j].begin(),*it);
+			}
+			
+			result.insert(result.end(),result_tmp.begin(),result_tmp.end());
+			
+		}		
+	}
+	return result;
+}
+
 //538. Convert BST to Greater Tree
 TreeNode* Solution::convertBST(TreeNode* root) {
 	vector<int> nums = getMidorderNums(root);

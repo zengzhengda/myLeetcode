@@ -10,7 +10,7 @@ void main()
 	//6. 测试数据为单链表
 	//7. 测试数据为字符串向量组
 	//8. 测试数据为二叉树
-	int testCondition = 8;
+	int testCondition = 2;
 	switch (testCondition)
 	{
 	case 1:
@@ -25,11 +25,11 @@ void main()
 	case 2:
 	{
 		// 测试数据为数组和数
-		int nums_arr1[] = { -2,1,-3,4,-1,2,1,-5,4 };
-		int target = 10;
+		int nums_arr1[] = { 1,2 };
+		int target = 4;
 		vector<int> nums1(nums_arr1, nums_arr1 + sizeof(nums_arr1) / sizeof(nums_arr1[0]));
 		Solution sol;
-		int res = sol.maxSubArray(nums1);
+		vector<vector<int>> res = sol.combinationSum(nums1, target);
 		break;
 	}
 	case 3:
