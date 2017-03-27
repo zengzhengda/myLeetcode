@@ -2,6 +2,61 @@
 
 #include "mainTest.h"
 
+//78. Subsets 回溯法 深度优先搜索
+void Solution::subsets_dfs(vector<int>& nums,int pos,vector<int>& path,vector<vector<int>>& result)
+{
+	if(pos==nums.size())
+		return;
+	for(int i=pos;i<nums.size(); i++)
+	{
+		path.push_back(nums[i]);
+		result.push_back(path);
+		subsets_dfs(nums,i+1,path,result);
+		path.pop_back();
+	}
+}
+// 堆排序
+void Solution::heapSort(vector<int>& nums)
+{
+	buildHeap(nums);
+	for(int i= nums.size()-1;i>= 1; i--)
+	{
+		std::swap(nums[0],nums[i]);
+		vector<int> nums_new(nums.begin(),nums.begin()+i);
+		maxHeapify(nums_new,0);
+		for (int j = 0; j < i; j++)
+		{
+			nums[j] = nums_new[j];
+		}
+	}
+}
+// 建最大堆
+void Solution::buildHeap(vector<int>& nums)
+{
+	if(nums.empty()) return;
+	int ind_lastMidnode = floor((nums.size()-1)/2);
+	for (int i = ind_lastMidnode;  i >= 0; i--)
+	{
+		maxHeapify(nums,i);
+	}
+}
+//维护堆，
+void Solution::maxHeapify(vector<int>& nums,int i)// maintain the maximum heap
+{
+	int left=2*i+1;
+	int right = 2*i +2;
+
+	int ind_max=i;
+	if(left <= nums.size() - 1 && nums[left] > nums[ind_max])
+		ind_max = left;
+	if(right <= nums.size() - 1 && nums[right] > nums[ind_max])
+		ind_max = right;
+	if(ind_max != i)
+	{
+		std::swap(nums[i],nums[ind_max]);
+		maxHeapify(nums,ind_max);
+	}
+}
 //Longest Palindromic Substring
 string Solution::longestPalindrome(string s, int left, int right)
 {
@@ -11,11 +66,6 @@ string Solution::longestPalindrome(string s, int left, int right)
 		right += 1;
 	}
 	return string(s.begin()+left+1,s.begin()+right);
-}
-vector<int> Solution::heapSort(vector<int> nums)
-{
-	vector<int> result;
-	return result;
 }
 //各种排序算法
 vector<int> Solution::sortMethods(vector<int> nums)
@@ -117,7 +167,8 @@ vector<int> Solution::sortMethods(vector<int> nums)
 	}
 	case 7: // 堆排序
 	{
-		vector<int> result=heapSort(nums);
+		heapSort(nums);
+		return nums;
 	}
 	default:break;
 	}

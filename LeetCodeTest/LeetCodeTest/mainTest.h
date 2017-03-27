@@ -9,6 +9,7 @@
 #include <sstream>
 #include <stack>
 #include <queue>
+#include <sstream>
 
 #define INT_MAX 2147483647
 #define INT_MIN -2147483647
@@ -175,6 +176,9 @@ public: // medium
 	 string longestPalindrome(string s, int left, int right);//Longest Palindromic Substring
 	 vector<vector<int>> combinationSum(vector<int>& candidates, int target);//39. Combination Sum
 	 vector<vector<int>> Solution::combinationSumOrder(vector<int>& candidates, int target);//Combination Sum 有序的
+	 vector<vector<int>> subsets(vector<int>& nums);//78. Subsets
+	 void subsets_dfs(vector<int>& nums,int pos,vector<int>& path,vector<vector<int>>& result);//78. Subsets
+	 vector<vector<int>> subsetsWithDup(vector<int>& nums);//90. Subsets II
 public:// hard
 	double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2);// 4. Median of Two Sorted Arrays
 	vector<int> postorderTraversal(TreeNode* root);//145. Binary Tree Postorder Traversal
@@ -221,9 +225,26 @@ public: //排序算法
 	int partition(vector<int>& nums, int ind_l,int ind_r);// 分大小堆
 	void mergeSort(vector<int>& nums, int ind_l, int ind_r); // 归并排序
 	void mergeMaxMin(vector<int>& nums, int ind_l, int ind_r, int mid);// 将两个有序数组排序
-	vector<int> heapSort(vector<int> nums);// 堆排序
+	void heapSort(vector<int>& nums);// 堆排序
+	void buildHeap(vector<int>& nums);// 建最大堆
+	void maxHeapify(vector<int>& nums,int i);// maintain the maximum heap
 public: // leetcode周赛
 	TreeNode* convertBST(TreeNode* root);
 	vector<int> getMidorderNums(TreeNode* root);
 	int Solution::getHeight(TreeNode* root);
+	bool checkPerfectNumber(int num);//507. Perfect Number
+	string complexNumberMultiply(string a, string b);//537. Complex Number Multiplication
+	vector<int> boundaryOfBinaryTree(TreeNode* root);//545. Boundary of Binary Tree
+	vector<int> getLeftBoundry(TreeNode* root);
+	vector<int> getRightBoundry(TreeNode* root);
+	vector<int> getLeaf(TreeNode* root);
+};
+// 算法学习
+class AlgorithmTest
+{
+public: // 动态规划
+	int cutRod(vector<int> p, int n);// 算法导论15.1 钢条切割
+	int memoizedCutRod(vector<int> p, int n);//算法导论15.1 钢条切割，动规版，up-bottom
+	int memoizedCutRodAux(vector<int>& p,int n,vector<int>& ri);//钢条切割，动规版的子函数
+	int bottomUpCutRop(vector<int>& p, int n);//算法导论15.1 钢条切割，动规版，bottom-up
 };

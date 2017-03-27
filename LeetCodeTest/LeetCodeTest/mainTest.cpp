@@ -10,35 +10,36 @@ void main()
 	//6. 测试数据为单链表
 	//7. 测试数据为字符串向量组
 	//8. 测试数据为二叉树
-	int testCondition = 2;
+	int testCondition = 8;
 	switch (testCondition)
 	{
 	case 1:
 	{
 		//测试数据为一个或者多个整数
-		long long a =15;
+		long long a =99999997;
 		int b = 3;
 		Solution sol;
-		long long x = sol.climbStairs(a);
+		bool x = sol.checkPerfectNumber(a);
 		break;
 	}
 	case 2:
 	{
 		// 测试数据为数组和数
-		int nums_arr1[] = { 1,2 };
+		int nums_arr1[] = { 1,5,8,9,10,17,17,20,24,30 };
 		int target = 4;
+		vector<int> s;
 		vector<int> nums1(nums_arr1, nums_arr1 + sizeof(nums_arr1) / sizeof(nums_arr1[0]));
-		Solution sol;
-		vector<vector<int>> res = sol.combinationSum(nums1, target);
+		AlgorithmTest sol;
+		int res = sol.bottomUpCutRop(nums1,target);
 		break;
 	}
 	case 3:
 	{
 		// 字符串测试
-		string str1 = "babad";
-		string str2 = "11";
+		string str1 = "78+-76i";
+		string str2 = "-86+72i";
 		Solution sol;
-		string x = sol.longestPalindrome(str1);
+		string x = sol.complexNumberMultiply(str1,str2);
 		break;
 	}
 	case 4:
@@ -97,11 +98,11 @@ void main()
 	case 8:
 	{
 		//8. 测试数据为二叉树
-		int nums_arr1[] = { 5,2,13 };
+		int nums_arr1[] = { 1,INT_MIN,2,INT_MIN,INT_MIN,3,4 };
 		vector<int> nums1(nums_arr1, nums_arr1 + sizeof(nums_arr1) / sizeof(nums_arr1[0]));
 		Solution sol;
 		TreeNode* t=sol.creatTreeLevel(nums1); //  生成二叉树
-		TreeNode* res = sol.convertBST(t);
+		vector<int> res = sol.boundaryOfBinaryTree(t);
 	}
 	
 	default:

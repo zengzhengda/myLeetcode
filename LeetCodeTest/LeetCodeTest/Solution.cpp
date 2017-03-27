@@ -1,5 +1,237 @@
 #include "mainTest.h"
 
+//545. Boundary of Binary Tree
+vector<int> Solution::boundaryOfBinaryTree(TreeNode* root)
+{
+	vector<int> result;
+	if (root == nullptr)
+		return result;
+	vector<int> leftVec;
+	if (root->left == nullptr)
+	{
+		leftVec.push_back(root->val);
+	}
+	else
+	{
+		vector<int> leftVec=getLeftBoundry(root);
+	}
+	vector<int> rightVec;
+	if(root->right == nullptr)
+		rightVec.push_back(root->val);
+	else
+		rightVec=getRightBoundry(root);
+
+	vector<int> leafVec=getLeaf(root);
+	result=leftVec;
+	if(leftVec.size() != 1)
+	{
+		result.insert(result.end(),next(leafVec.begin()),leafVec.end());
+	}
+	else
+	{
+		result.insert(result.end(),leafVec.begin(),leafVec.end());
+	}
+	if(rightVec.size() != 1)
+	{
+		result.insert(result.end(),next(rightVec.begin()),prev(rightVec.end()));
+	}
+	
+	return result;
+}
+vector<int> Solution::getLeftBoundry(TreeNode* root)
+{
+	vector<int> leftVec;
+	if(root == nullptr)
+		return leftVec;
+	vector<int> leftVec_sub;
+	if(root->left != nullptr)
+	{
+		leftVec_sub=getLeftBoundry(root->left);
+	}
+	else
+	{
+		leftVec_sub=getLeftBoundry(root->right);
+	}
+	leftVec.push_back(root->val);
+	leftVec.insert(leftVec.end(),leftVec_sub.begin(),leftVec_sub.end());
+	return leftVec;
+}
+vector<int> Solution::getLeaf(TreeNode* root)
+{
+	vector<int> leafVec;
+	if(root == nullptr)
+		return leafVec;
+	if(root->left != nullptr || root->right != nullptr)
+	{
+		vector<int> result_l=getLeaf(root->left);
+		vector<int> result_r=getLeaf(root->right);
+		leafVec=result_l;
+		leafVec.insert(leafVec.end(),result_r.begin(),result_r.end());
+		return leafVec;
+	}
+	else
+	{
+		leafVec.push_back(root->val);
+		return leafVec;
+	}
+}
+vector<int> Solution::getRightBoundry(TreeNode* root)
+{
+	vector<int> rightVec;
+	if(root == nullptr)
+		return rightVec;
+	vector<int> rightVec_sub;
+	if(root->right != nullptr)
+	{
+		rightVec_sub=getRightBoundry(root->right);
+	}
+	else
+	{
+		rightVec_sub=getRightBoundry(root->left);
+	}
+	rightVec=rightVec_sub;
+	rightVec.push_back(root->val);
+	return rightVec;
+}
+
+//537. Complex Number Multiplication
+string Solution::complexNumberMultiply(string a, string b)
+{
+	int pos1=a.find('+');
+	int x1,x2,y1,y2;
+	string str1=a.substr(0,pos1);
+	string str2=a.substr(pos1+1,a.length()-1);
+
+	stringstream stream(str1);  
+    stream>>x1;
+    stringstream stream2(str2);
+	stream2 >> x2;
+
+	// int x1= stoi(str1); 
+	// int x2= stoi(a.substr(pos1+1,a.length()-1));
+
+	int pos2=b.find('+');
+	str1=b.substr(0,pos2);
+	str2=b.substr(pos2+1,a.length()-1);
+
+	stringstream stream3(str1);  
+    stream3>>y1;
+    stringstream stream4(str2);
+	stream4 >> y2;
+
+	// int y1= stoi(b.substr(0,pos1)); 
+	// int y2= stoi(b.substr(pos1+1,b.length()-1));
+
+	int posi=x1*y1 - x2*y2;
+	int neg=x1*y2 + x2*y1;
+	
+	stringstream ss;  
+    ss<<posi;  
+    string p_str=ss.str();
+
+	stringstream ss2;
+    ss2<<neg;
+    string n_str=ss2.str();
+    string result = p_str + "+" + n_str + "i";
+    return result;
+}
+
+
+//507. Perfect Number
+bool Solution::checkPerfectNumber(int num)
+{
+	vector<int> divisors;
+	divisors.push_back(1);
+
+	if(num<=0)
+		return false;
+	if(num ==1)
+		return true;
+	int up=2;
+	for(int i=2;i<num/up;i++)
+	{
+		if(num%i == 0)
+		{
+			divisors.push_back(i);
+			divisors.push_back(num/i);
+			up=i;
+		}
+	}
+	int sum=0;
+	if(divisors.empty())
+	{
+		return false;
+	}
+	for(int i=0;i<divisors.size();i++)
+	{
+		sum += divisors[i];
+	}
+	if(sum == num)
+		return true;
+	else
+		return false;
+}
+//90. Subsets II
+//vector<vector<int>> Solution::subsetsWithDup(vector<int>& nums)
+//{
+//	sort(nums.begin(),nums.end());
+//
+//	unordered_map<int,int> map;
+//	for(int i=0;i<nums.size();i++)
+//	{
+//		map[nums[i]]++;
+//	}
+//	vector<int> nums_only;
+//	for(int i =0;i<map.size();i++)
+//	{
+//		nums_only.push_back(map[i].first);
+//	}
+//
+//	// 接下来怎么处理？
+//	vector<vector<int>> result = subsets(nums_only);
+//	for(int i = 0;i<map.size();i++)
+//	{
+//		if(map[i].second > 2)
+//		{
+//
+//		}
+//	}
+//}
+//78. Subsets
+vector<vector<int>> Solution::subsets(vector<int>& nums)
+{
+	int method =1;
+	switch(method)
+	{
+	case 1:// 位操作
+	{
+		vector<vector<int>> result;
+		for(int i=0;i< 1<<nums.size();i++)
+		{
+			vector<int> tmp;
+			for(int j=0;j<nums.size();j++)
+			{	
+				if(i & 1<<j)
+				{
+					tmp.push_back(nums[j]);
+				}
+			}
+			result.push_back(tmp);
+		}
+		return result;
+	}
+	case 2:// 回溯法
+	{
+		vector<vector<int>> result;
+		vector<int> path;
+		result.push_back(path);
+		if(nums.empty())
+			return result;
+		subsets_dfs(nums,0,path,result);
+		return result;
+	}
+	}
+}
 //39. Combination Sum
 vector<vector<int>> Solution::combinationSum(vector<int>& candidates, int target)
 {

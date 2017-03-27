@@ -78,6 +78,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AlgorithmTest.cpp" />
     <ClCompile Include="functions.cpp" />
     <ClCompile Include="mainTest.cpp" />
     <ClCompile Include="Solution.cpp" />
