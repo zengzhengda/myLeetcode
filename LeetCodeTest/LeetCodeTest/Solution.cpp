@@ -1,5 +1,149 @@
 #include "mainTest.h"
 
+//17. Letter Combinations of a Phone Number
+vector<string> Solution::letterCombinations(string digits)
+{
+	const vector<string> keyboard({" ","","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"});
+	string path="";
+	vector<string> result;
+	if (digits.empty())
+		return result;
+	dps_letterCombination(digits,keyboard,0,path, result);
+	return result;
+}
+//77. Combinations
+vector<vector<int>> Solution::combine(int n, int k)
+{
+	vector<vector<int>> result;
+	vector<int> path;
+	dps_combine(n,k,1,0,path,result);
+	return result;
+}
+//47. Permutations II
+vector<vector<int>> Solution::permuteUnique(vector<int>& nums)
+{
+	vector<vector<int>> result;
+	if(nums.empty())
+		return result;
+	sort(nums.begin(),nums.end());
+	
+	do
+	{
+		result.push_back(nums);
+	}
+	while(!nextPermutation2(nums));
+	return result;
+}
+//46. Permutations
+vector<vector<int>> Solution::permute(vector<int>& nums)
+{
+	int method =3;
+	switch(method)
+	{
+	case 1:
+	{
+		vector<vector <int> > result;
+		if(nums.size() == 1)
+		{
+			vector<int> tmp;
+			tmp.push_back(nums[0]);
+			result.push_back(tmp);
+			return result;
+		}
+
+		vector<int> nums_tmp;
+		nums_tmp.assign(nums.begin(),prev(nums.end()));
+		int num_new= *prev(nums.end());
+
+		vector<vector<int>> result_tmp;
+		result_tmp = permute(nums_tmp);
+		const int m = result_tmp.size();
+		const int n = result_tmp[0].size();
+		for(int i =0; i< m;i++)
+		{
+			for (int j = 0; j <= n;j++)
+			{
+				vector<int> tmp2=result_tmp[i];
+				tmp2.insert(tmp2.begin()+j,num_new);
+				result.push_back(tmp2);
+			}
+			
+		}
+		return result;
+	}
+	case 2:
+	{
+		vector<vector<int>> result;
+		if(nums.empty())
+			return result;
+		sort(nums.begin(),nums.end());
+		long m=factorial(nums.size());
+		for(int i=0;i<m;i++)
+		{
+		    result.push_back(nums);
+		    nextPermutation(nums);
+		}
+		return result;
+	}
+	case 3:
+	{
+		vector<vector<int>> result;
+		if(nums.empty())
+			return result;
+		sort(nums.begin(),nums.end());
+		vector<int> path;
+		dps_permute(nums,path,result);
+		return result;
+	}
+	}
+	
+}
+
+//532. K-diff Pairs in an Array
+int Solution::findPairs(vector<int>& nums, int k)
+{
+	int method =1;
+	switch(method)
+	{
+	case 1:
+	{
+		if(nums.empty())
+			return 0;
+		int cnt_pair=0;
+		map<int,int> m;
+		for(int i =0; i< nums.size(); i++)
+		{
+			m[nums[i]]++;
+		}
+		
+		if(k ==0)
+		{
+			for(auto it = m.begin();it != m.end();it++)
+			{
+				if(it->second>1) cnt_pair++;
+			}
+			return cnt_pair;
+		}
+		else
+		{
+			for(auto it1 =m.begin(); it1 != prev(m.end());it1++)
+			{
+				for(auto it2 = next(it1); it2 != m.end();it2++)
+				{
+					if(abs(it2->first - it1->first) == k)
+					{
+						cnt_pair++;
+						break;
+					}
+					else if(abs(it2->first - it1->first) > k)
+						break;
+				}
+			}
+			return cnt_pair;
+		}		
+	}
+	}
+}
 //545. Boundary of Binary Tree
 vector<int> Solution::boundaryOfBinaryTree(TreeNode* root)
 {
@@ -2762,6 +2906,40 @@ void Solution::nextPermutation(vector<int>& nums)
 		nums[nums.size()-i-1]=temp;
 	}
 	return;
+}
+bool Solution::nextPermutation2(vector<int>& nums)
+{
+	if(nums.size()==0)
+		return false;
+	for(int i=nums.size()-2;i>=0;i--)
+	{
+		int min=INT_MAX;
+		int k=-1;
+		for(int j=nums.size()-1;j>i;j--)
+		{
+			if(nums[i]<nums[j] && nums[j]< min)
+			{
+				k=j;
+				min=nums[j];
+			}
+		}
+		if(k != -1)
+		{
+			int temp=nums[k];
+			nums[k]=nums[i];
+			nums[i]=temp;
+			sort(nums.begin()+i+1,nums.end());
+			return false;
+		}
+	}
+	// 如果是最大时
+	for(int i=0;i<nums.size()/2;i++)
+	{
+		int temp=nums[i];
+		nums[i]=nums[nums.size()-i-1];
+		nums[nums.size()-i-1]=temp;
+	}
+	return true;
 }
  vector<vector<int>> Solution::threeSum(vector<int>& nums,int target=0)
  {

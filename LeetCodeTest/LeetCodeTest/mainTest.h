@@ -4,6 +4,7 @@
 #include <string>
 #include <algorithm>
 #include <unordered_map>
+#include <map>
 #include <numeric>
 #include <functional>
 #include <sstream>
@@ -134,51 +135,61 @@ public:
 	int maxSubArray(vector<int>& nums);//53. Maximum Subarray
 	int maxSubArray(vector<int>& nums, int l, int r); // Maximum Subarray
 	int diameterOfBinaryTree(TreeNode* root);//543. Diameter of Binary Tree
+	int findPairs(vector<int>& nums, int k);//532. K-diff Pairs in an Array
 public: // medium
 	
-	 vector<int> findDuplicates(vector<int>& nums);// 442
-	 int maxArea(vector<int>& height);// 11
-	 int threeSumClosest(vector<int>& nums, int target);// 16
-	 vector<vector<int>> threeSum(vector<int>& nums,int target);// 15
-	 void nextPermutation(vector<int>& nums);//31
-	 int search(vector<int>& nums, int target);// 33
-	 int maxProfit(vector<int>& prices);//121
-	 int maxProfit2(vector<int>& prices);// 122
-	 int maxProfit3(vector<int>& prices);// 123
-	 bool isValidSudoku(vector<vector<char>>& board);// 36   未解决
-	 string multiply(string num1, string num2);// 43. Multiply Strings
-	 int numberOfArithmeticSlices(vector<int>& A);// 413. Arithmetic Slices
+	vector<int> findDuplicates(vector<int>& nums);// 442
+	int maxArea(vector<int>& height);// 11
+	int threeSumClosest(vector<int>& nums, int target);// 16
+	vector<vector<int>> threeSum(vector<int>& nums,int target);// 15
+	void nextPermutation(vector<int>& nums);//31
+	bool nextPermutation2(vector<int>& nums);//31
+	int search(vector<int>& nums, int target);// 33
+	int maxProfit(vector<int>& prices);//121
+	int maxProfit2(vector<int>& prices);// 122
+	int maxProfit3(vector<int>& prices);// 123
+	bool isValidSudoku(vector<vector<char>>& board);// 36   未解决
+	string multiply(string num1, string num2);// 43. Multiply Strings
+	int numberOfArithmeticSlices(vector<int>& A);// 413. Arithmetic Slices
 
-	 int removeDuplicates2(vector<int>& nums); // 80. Remove Duplicates from Sorted Array II
-	 bool search2(vector<int>& nums, int target);// 81. Search in Rotated Sorted Array II
-	 vector<vector<int>> fourSum(vector<int>& nums, int target); // 18. 4Sum
+	int removeDuplicates2(vector<int>& nums); // 80. Remove Duplicates from Sorted Array II
+	bool search2(vector<int>& nums, int target);// 81. Search in Rotated Sorted Array II
+	vector<vector<int>> fourSum(vector<int>& nums, int target); // 18. 4Sum
 
-	 string getPermutation(int n, int k);// 60. Permutation Sequence
-	 int trap(vector<int>& height);//42. Trapping Rain Water
-	 void rotate(vector<vector<int>>& matrix); //48. Rotate Image
-	 void setZeroes(vector<vector<int>>& matrix); // 73. Set Matrix Zeroes
-	 int canCompleteCircuit(vector<int>& gas, vector<int>& cost);// 134. Gas Station
-	 ListNode* addTwoNumbers(ListNode* l1, ListNode* l2);//2. Add Two Numbers
-	 ListNode* reverseBetween(ListNode* head, int m, int n);//92. Reverse Linked List II
-	 vector<vector<int>> levelOrder(TreeNode* root);//102. Binary Tree Level Order Traversal
-	 vector<int> preorderTraversal(TreeNode* root);//144. Binary Tree Preorder Traversal
-	 vector<int> inorderTraversal(TreeNode* root);//94. Binary Tree Inorder Traversal
-	 TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder);//105. Construct Binary Tree from Preorder and Inorder Traversal
-	 int numTrees(int n);//96. Unique Binary Search Trees
-	 vector<TreeNode*> generateTrees(int n);//Unique Binary Search Trees II
-	 bool isValidBST(TreeNode* root);//98. Validate Binary Search Tree
-	 vector<vector<int>> pathSum(TreeNode* root, int sum);//113. Path Sum II
-	 ListNode* insertionSortList(ListNode* head);//147. Insertion Sort List
-	 ListNode* sortList(ListNode* head);//148. Sort List
-	 vector<int> searchRange(vector<int>& nums, int target);//34. Search for a Range
-	 string longestPalindrome(string s);//5. Longest Palindromic Substring
-	 string longestPalindrome(string s, int left, int right,int& left_p, int& right_p);//Longest Palindromic Substring
-	 string longestPalindrome(string s, int left, int right);//Longest Palindromic Substring
-	 vector<vector<int>> combinationSum(vector<int>& candidates, int target);//39. Combination Sum
-	 vector<vector<int>> Solution::combinationSumOrder(vector<int>& candidates, int target);//Combination Sum 有序的
-	 vector<vector<int>> subsets(vector<int>& nums);//78. Subsets
-	 void subsets_dfs(vector<int>& nums,int pos,vector<int>& path,vector<vector<int>>& result);//78. Subsets
-	 vector<vector<int>> subsetsWithDup(vector<int>& nums);//90. Subsets II
+	string getPermutation(int n, int k);// 60. Permutation Sequence
+	int trap(vector<int>& height);//42. Trapping Rain Water
+	void rotate(vector<vector<int>>& matrix); //48. Rotate Image
+	void setZeroes(vector<vector<int>>& matrix); // 73. Set Matrix Zeroes
+	int canCompleteCircuit(vector<int>& gas, vector<int>& cost);// 134. Gas Station
+	ListNode* addTwoNumbers(ListNode* l1, ListNode* l2);//2. Add Two Numbers
+	ListNode* reverseBetween(ListNode* head, int m, int n);//92. Reverse Linked List II
+	vector<vector<int>> levelOrder(TreeNode* root);//102. Binary Tree Level Order Traversal
+	vector<int> preorderTraversal(TreeNode* root);//144. Binary Tree Preorder Traversal
+	vector<int> inorderTraversal(TreeNode* root);//94. Binary Tree Inorder Traversal
+	TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder);//105. Construct Binary Tree from Preorder and Inorder Traversal
+	int numTrees(int n);//96. Unique Binary Search Trees
+	vector<TreeNode*> generateTrees(int n);//Unique Binary Search Trees II
+	bool isValidBST(TreeNode* root);//98. Validate Binary Search Tree
+	vector<vector<int>> pathSum(TreeNode* root, int sum);//113. Path Sum II
+	ListNode* insertionSortList(ListNode* head);//147. Insertion Sort List
+	ListNode* sortList(ListNode* head);//148. Sort List
+	vector<int> searchRange(vector<int>& nums, int target);//34. Search for a Range
+	string longestPalindrome(string s);//5. Longest Palindromic Substring
+	string longestPalindrome(string s, int left, int right,int& left_p, int& right_p);//Longest Palindromic Substring
+	string longestPalindrome(string s, int left, int right);//Longest Palindromic Substring
+	vector<vector<int>> combinationSum(vector<int>& candidates, int target);//39. Combination Sum
+	vector<vector<int>> Solution::combinationSumOrder(vector<int>& candidates, int target);//Combination Sum 有序的
+	vector<vector<int>> subsets(vector<int>& nums);//78. Subsets
+	void subsets_dfs(vector<int>& nums,int pos,vector<int>& path,vector<vector<int>>& result);//78. Subsets
+	vector<vector<int>> subsetsWithDup(vector<int>& nums);//90. Subsets II
+	vector<vector<int>> permute(vector<int>& nums);//46. Permutations
+	void dps_permute(vector<int>& nums, vector<int>& path, vector<vector<int>>& result);//dps 46. Permutations
+	vector<vector<int>> permuteUnique(vector<int>& nums);//47. Permutations II
+	vector<vector<int>> combine(int n, int k);//77. Combinations
+	void dps_combine(int n, int k, int start, int count, vector<int>& path, vector<vector<int>>& result);//77. Combinations
+	vector<string> letterCombinations(string digits);//17. Letter Combinations of a Phone Number
+	void Solution::dps_letterCombination(string digits,const vector<string> &keyboard,int cur, string &path, vector<string> &result);
+
 public:// hard
 	double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2);// 4. Median of Two Sorted Arrays
 	vector<int> postorderTraversal(TreeNode* root);//145. Binary Tree Postorder Traversal

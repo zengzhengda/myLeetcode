@@ -2,6 +2,55 @@
 
 #include "mainTest.h"
 
+//17. Letter Combinations of a Phone Number 
+void Solution::dps_letterCombination(string digits,const vector<string> &keyboard,int cur, string &path, vector<string> &result)
+{
+	if(cur == digits.length())
+	{
+		result.push_back(path);
+		return;
+	}
+	for(auto c: keyboard[digits[cur]-'0'])
+	{
+		path.push_back(c);
+		dps_letterCombination(digits,keyboard,cur+1,path,result);
+		path.pop_back();
+	}
+}
+//77. Combinations
+void Solution::dps_combine(int n, int k, int start, int count, vector<int>& path, vector<vector<int>>& result)
+{
+	if(count == k)
+	{
+		result.push_back(path);
+		return;
+	}
+	for(int i = start; i <= n; i++)
+	{
+		path.push_back(i);
+		dps_combine(n,k,i+1,count+1,path,result);
+		path.pop_back();
+	}
+}
+//dps 46. Permutations
+void Solution::dps_permute(vector<int>& nums, vector<int>& path, vector<vector<int>>& result)
+{
+	if(path.size() == nums.size())
+	{
+		result.push_back(path);
+		return;
+	}
+	for(auto i: nums)
+	{
+		auto pos = find(path.begin(),path.end(),i);
+		if(pos == path.end())
+		{
+			path.push_back(i);
+			dps_permute(nums,path,result);
+			path.pop_back();
+		}
+	}
+}
 //78. Subsets 回溯法 深度优先搜索
 void Solution::subsets_dfs(vector<int>& nums,int pos,vector<int>& path,vector<vector<int>>& result)
 {

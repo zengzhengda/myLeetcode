@@ -10,7 +10,8 @@ void main()
 	//6. 测试数据为单链表
 	//7. 测试数据为字符串向量组
 	//8. 测试数据为二叉树
-	int testCondition = 8;
+	int testCondition = 3;
+
 	switch (testCondition)
 	{
 	case 1:
@@ -25,21 +26,21 @@ void main()
 	case 2:
 	{
 		// 测试数据为数组和数
-		int nums_arr1[] = { 1,5,8,9,10,17,17,20,24,30 };
+		int nums_arr1[] = { 1,2,3};
 		int target = 4;
 		vector<int> s;
 		vector<int> nums1(nums_arr1, nums_arr1 + sizeof(nums_arr1) / sizeof(nums_arr1[0]));
-		AlgorithmTest sol;
-		int res = sol.bottomUpCutRop(nums1,target);
+		Solution sol;
+		vector<vector<int>> res = sol.permute(nums1);
 		break;
 	}
 	case 3:
 	{
 		// 字符串测试
-		string str1 = "78+-76i";
+		string str1 = "23";
 		string str2 = "-86+72i";
 		Solution sol;
-		string x = sol.complexNumberMultiply(str1,str2);
+		vector<string> x = sol.letterCombinations(str1);
 		break;
 	}
 	case 4:
