@@ -10,7 +10,7 @@ void main()
 	//6. 测试数据为单链表
 	//7. 测试数据为字符串向量组
 	//8. 测试数据为二叉树
-	int testCondition = 2;
+	int testCondition = 7;
 
 	switch (testCondition)
 	{
@@ -37,10 +37,10 @@ void main()
 	case 3:
 	{
 		// 字符串测试
-		string str1 = "78+-76i";
+		string str1 = "23";
 		string str2 = "-86+72i";
 		Solution sol;
-		string x = sol.complexNumberMultiply(str1,str2);
+		vector<string> x = sol.letterCombinations(str1);
 		break;
 	}
 	case 4:
@@ -88,13 +88,13 @@ void main()
 	case 7:
 	{
 		//7. 测试数据为字符串向量组
-		vector<string> strs;
-		string str1 = "a";
-		string str2 = "b";
-		strs.push_back(str1);
-		strs.push_back(str2);
+		vector<string> strs({"hot","dot","dog","lot","log"});
+		string str1 = "hit";
+		string str2 = "cog";
+		// strs.push_back(str1);
+		// strs.push_back(str2);
 		Solution sol;
-		string str = sol.longestCommonPrefix(strs);
+		int res = sol.ladderLength(str1,str2,strs);
 	}
 	case 8:
 	{

@@ -189,7 +189,7 @@ public: // medium
 	void dps_combine(int n, int k, int start, int count, vector<int>& path, vector<vector<int>>& result);//77. Combinations
 	vector<string> letterCombinations(string digits);//17. Letter Combinations of a Phone Number
 	void Solution::dps_letterCombination(string digits,const vector<string> &keyboard,int cur, string &path, vector<string> &result);
-
+	int ladderLength(string beginWord, string endWord, vector<string>& wordList);//127. Word Ladder
 public:// hard
 	double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2);// 4. Median of Two Sorted Arrays
 	vector<int> postorderTraversal(TreeNode* root);//145. Binary Tree Postorder Traversal

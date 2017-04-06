@@ -1,5 +1,94 @@
 #include "mainTest.h"
 
+//127. Word Ladder
+int Solution::ladderLength(string beginWord, string endWord, vector<string>& wordList)
+{
+	int method =2;
+	switch(method)
+	{
+	case 1:// 超时
+	{
+		if(beginWord.empty() || endWord.empty() || wordList.empty())
+			return 0;
+		if(beginWord == endWord)
+			return 0;
+		if(find(wordList.begin(),wordList.end(),endWord) == wordList.end())
+			return 0;
+		queue<string> q;
+		q.push(beginWord);
+		unordered_map<string,bool> visited;
+		int curLevel=1;
+		int nextLevel=0;
+		int step=1;
+		while(! q.empty())
+		{
+			string word= q.front();
+			q.pop();
+			curLevel--;
+			for(int i=0; i< word.length();i++)
+			{
+				string newWord=word;
+				for (char j = 'a'; j <= 'z'; j++)
+				{
+					newWord[i]=j;
+					if(newWord == endWord)
+					{
+						step+=1;
+						return step;
+					}
+					auto it1=find(wordList.begin(),wordList.end(),newWord);
+					if( (it1 != wordList.end()) && !visited.count(newWord))
+					{
+						wordList.erase(it1);
+						q.push(newWord);
+						visited[newWord]=true;
+						nextLevel++;
+					}
+				}
+			}
+			if(curLevel ==0)
+			{
+				curLevel=nextLevel;
+				step+=1;
+				nextLevel=0;
+			}
+		}
+		return 0;
+	}
+	case 2:// 超时
+	{
+		if(beginWord.empty() || endWord.empty() || wordList.empty())
+			return 0;
+		if(beginWord == endWord)
+			return 0;
+		if(find(wordList.begin(),wordList.end(),endWord) == wordList.end())
+			return 0;
+		queue<pair<string,int>> que;
+		que.push(make_pair(beginWord,1));
+		while(!que.empty())
+		{
+			auto val = que.front();
+			que.pop();
+			if(val.first == endWord) return val.second;
+			for(int i =0; i< val.first.size();i++)
+			{
+				string str = val.first;
+				for( char j = 'a'; j <= 'z'; j++)
+				{
+					str[i]=j;
+					auto it = find(wordList.begin(),wordList.end(),str);
+					if(it != wordList.end())
+					{
+						que.push(make_pair(str,val.second+1));
+						wordList.erase(it);
+					}
+				}
+			}
+		}
+		return 0;
+	}
+	}
+}
 //17. Letter Combinations of a Phone Number
 vector<string> Solution::letterCombinations(string digits)
 {

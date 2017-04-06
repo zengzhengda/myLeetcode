@@ -10,7 +10,7 @@ void main()
 	//6. 测试数据为单链表
 	//7. 测试数据为字符串向量组
 	//8. 测试数据为二叉树
-	int testCondition = 3;
+	int testCondition = 7;
 
 	switch (testCondition)
 	{
@@ -88,13 +88,14 @@ void main()
 	case 7:
 	{
 		//7. 测试数据为字符串向量组
-		vector<string> strs;
-		string str1 = "a";
-		string str2 = "b";
-		strs.push_back(str1);
-		strs.push_back(str2);
+		vector<string> strs({"hot","dot","dog","lot","log","cog"});
+		string str1 = "hit";
+		string str2 = "cog";
+		// strs.push_back(str1);
+		// strs.push_back(str2);
 		Solution sol;
-		string str = sol.longestCommonPrefix(strs);
+		int res = sol.ladderLength(str1,str2,strs);
+		break;
 	}
 	case 8:
 	{
